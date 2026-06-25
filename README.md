@@ -1,8 +1,8 @@
-# Flash Engine ⚡
+# Flash Engine 
 
 A low-latency, high-concurrency Flash Sale Platform built with a high-performance Java ecosystem backend and a real-time reactive frontend dashboard. The architecture is engineered to safely process tens of thousands of concurrent transactional orders per second during competitive flash events without race conditions, stock overselling, or system degradation.
 
-## 🚀 Key Architectural Features
+## Key Architectural Features
 
 - **High-Concurrency Backend:** Core distributed locking and transaction mechanics built with Java and optimized project builds.
 - **Low-Latency Client UI:** React 19 single-page workspace running on Vite 6 and styled using the ultra-fast, native compilation of Tailwind CSS v4.
@@ -11,7 +11,7 @@ A low-latency, high-concurrency Flash Sale Platform built with a high-performanc
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend Workspace (`/frontend`)
 - **Library:** React 19 (Functional Components, Hooks)
@@ -26,7 +26,7 @@ A low-latency, high-concurrency Flash Sale Platform built with a high-performanc
 
 ---
 
-## 📁 Directory Structure
+##  Directory Structure
 
 ```text
 flashEngine/
@@ -43,7 +43,7 @@ flashEngine/
 
 ---
 
-## 💻 Setup, Installation, & Validation
+##  Setup, Installation, & Validation
 
 ### Prerequisites
 
