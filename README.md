@@ -39,3 +39,44 @@ flashEngine/
 ├── locustfile.py          # Locust workload simulation models
 ├── pom.xml                # Project Object Model dependencies for Maven
 └── README.md              # Project documentation
+```
+
+---
+
+## 💻 Setup, Installation, & Validation
+
+### Prerequisites
+
+- **Java Development Kit (JDK):** Version 17 or higher
+- **Node.js:** v18.x or higher
+- **Python 3.x:** Required to execute high-load telemetry testing modules
+
+### 1. Spinning Up the Real-Time Telemetry UI
+
+Navigate into the frontend application workspace, restore clean-slate dependencies, and launch the development pipeline:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+The active interface will instantly mount locally at `http://localhost:5173/`.
+
+### 2. Compiling the Backend Engine
+
+Verify that the project assets compile cleanly and all core dependencies resolve through the localized Maven wrapper:
+
+```bash
+./mvnw clean compile
+```
+
+### 3. Executing High-Concurrency Stress Tests
+
+To simulate sudden spikes of thousands of users attempting to purchase inventory concurrently, execute the distributed workload runner:
+
+```bash
+locust -f locustfile.py
+```
+
+Open your browser and navigate to `http://localhost:8089` to configure spawn rates, launch stress sequences, and monitor live latency statistics under fire.
