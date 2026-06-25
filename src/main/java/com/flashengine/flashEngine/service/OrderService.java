@@ -7,11 +7,14 @@ import com.flashengine.flashEngine.repository.InventoryRepository;
 import com.flashengine.flashEngine.repository.OrdersRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.orm.ObjectOptimisticLockingFailureException;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import com.flashengine.flashEngine.config.RabbitMQConfig;
+// import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import com.flashengine.flashEngine.controller.OrderPayload;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.time.LocalDateTime;
 import java.util.concurrent.TimeUnit;
+import org.springframework.http.ResponseEntity;
 
 @Service
 public class OrderService {
@@ -19,39 +22,43 @@ public class OrderService {
     private final OrdersRepository ordersRepository;
     private final StringRedisTemplate redisTemplate;
     private final ObjectMapper objectMapper;
-
-    // One single constructor to rule them all:
+    private final RabbitTemplate rabbitTemplate;
+    // One single constructor
     public OrderService(InventoryRepository inventoryRepository,
                         OrdersRepository ordersRepository, 
                         StringRedisTemplate redisTemplate,
-                        ObjectMapper objectMapper) {
+                        ObjectMapper objectMapper,RabbitTemplate rabbitTemplate) {
         this.inventoryRepository = inventoryRepository;
         this.ordersRepository = ordersRepository;
         this.redisTemplate = redisTemplate;
         this.objectMapper = objectMapper;
+        this.rabbitTemplate = rabbitTemplate;
     }
 
-    public String placeOrderRedis(Long productId, Long userId) {
-       String inventoryKey = "inventory:product:" + productId;
-         // Atomically decrement stock in Redis
-        Long stock = redisTemplate.opsForValue().decrement(inventoryKey);
+    public ResponseEntity<String> placeOrderRedis(OrderPayload payload) {
+       String lockKey = "idempotency:" + payload.getIdempotencyKey();
+        Boolean isUniqueRequest = redisTemplate.opsForValue().setIfAbsent(lockKey, "PROCESSING", 10, TimeUnit.SECONDS);
 
-        if(stock!=null && stock >=0){
-            try{
-                OrderPayload payload = new OrderPayload();
-                payload.setProductId(productId);
-                payload.setUserId(userId);
-
-                String jsonPayload = objectMapper.writeValueAsString(payload);
-                redisTemplate.opsForList().leftPush("orders:queue", jsonPayload);
-                return "SUCCESS";
-            } catch (Exception e) {
-                redisTemplate.opsForValue().increment(inventoryKey); // Rollback stock decrement
-                throw new RuntimeException("Failed to place order: " + e);
-            }
+        if (Boolean.FALSE.equals(isUniqueRequest)) {
+            return ResponseEntity.status(409).body("DUPLICATE_REQUEST_REJECTED");
         }
-        else {
-            return "OUT OF STOCK (REDIS)";
+
+        try {
+            Long stock = redisTemplate.opsForValue().decrement("inventory:product:" + payload.getProductId());
+
+            if (stock != null && stock >= 0) {
+                rabbitTemplate.convertAndSend(
+                    RabbitMQConfig.FLASH_SALE_EXCHANGE, 
+                    RabbitMQConfig.FLASH_SALE_ROUTING_KEY, 
+                    objectMapper.writeValueAsString(payload)
+                );
+                return ResponseEntity.ok("SUCCESS");
+            } else {
+                return ResponseEntity.status(422).body("OUT OF STOCK (REDIS)");
+            }
+        } catch (Exception e) {
+            redisTemplate.delete(lockKey);
+            return ResponseEntity.status(500).body("INTERNAL_SERVER_ERROR");
         }
     }
 

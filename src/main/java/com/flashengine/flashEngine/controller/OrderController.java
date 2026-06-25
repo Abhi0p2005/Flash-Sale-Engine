@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/checkout")
-
+@CrossOrigin(origins = "*")
 public class OrderController {
     private final OrderService orderService;
     private final StringRedisTemplate redisTemplate;
@@ -36,21 +36,7 @@ public class OrderController {
 
     @PostMapping("/redis")
     public ResponseEntity<String> checkoutRedis(@RequestBody OrderPayload payload) {
-        String inventoryKey = "inventory:product:" + payload.getProductId();
-
-        // peek at current stock for debugging
-        String stockStr = redisTemplate.opsForValue().get(inventoryKey);
-
-        if(stockStr != null && Integer.parseInt(stockStr) <= 0) {
-            return ResponseEntity.status(400).body("OUT OF STOCK (REDIS)");
-        }
-
-        //if stock exists, attempt to place order
-        String result = orderService.placeOrderRedis(payload.getProductId(), payload.getUserId());
-        
-        if("OUT OF STOCK (REDIS)".equals(result)) {
-            return ResponseEntity.status(422).body("OUT OF STOCK : Failed to secure stock");
-        }
-        return ResponseEntity.ok(result);
+        // 1. Pass the entire payload object to allow the service layer to extract the idempotency key
+        return orderService.placeOrderRedis(payload);
     }
 }
