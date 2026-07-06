@@ -1,19 +1,15 @@
 package com.flashengine.flashEngine.service;
 
 import org.springframework.data.redis.core.StringRedisTemplate;
-import com.flashengine.flashEngine.domain.Inventory;
-import com.flashengine.flashEngine.domain.Orders;
-import com.flashengine.flashEngine.repository.InventoryRepository;
-import com.flashengine.flashEngine.repository.OrdersRepository;
+import com.flashengine.flashEngine.domain.*;
+import com.flashengine.flashEngine.repository.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import com.flashengine.flashEngine.config.RabbitMQConfig;
-// import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import com.flashengine.flashEngine.controller.OrderPayload;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.time.LocalDateTime;
-import java.util.concurrent.TimeUnit;
 import org.springframework.http.ResponseEntity;
 
 @Service
@@ -37,7 +33,7 @@ public class OrderService {
 
     public ResponseEntity<String> placeOrderRedis(OrderPayload payload) {
        String lockKey = "idempotency:" + payload.getIdempotencyKey();
-        Boolean isUniqueRequest = redisTemplate.opsForValue().setIfAbsent(lockKey, "PROCESSING", 10, TimeUnit.SECONDS);
+        Boolean isUniqueRequest = redisTemplate.opsForValue().setIfAbsent(lockKey, "processing",java.time.Duration.ofMinutes(10));
 
         if (Boolean.FALSE.equals(isUniqueRequest)) {
             return ResponseEntity.status(409).body("DUPLICATE_REQUEST_REJECTED");
@@ -91,7 +87,7 @@ public class OrderService {
 
         String lockKey = "lock:user:" + userId + ":product" + productId;
 
-        Boolean isLockAcquired = redisTemplate.opsForValue().setIfAbsent(lockKey,"LOCKED",5,TimeUnit.SECONDS);
+        Boolean isLockAcquired = redisTemplate.opsForValue().setIfAbsent(lockKey, "locked", java.time.Duration.ofMinutes(10));
 
         if(Boolean.FALSE.equals(isLockAcquired)){
 

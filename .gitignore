@@ -35,3 +35,13 @@ build/
 spring_error_log
 __pycache__/
 *.log
+
+# ==========================================
+# Frontend / React Additions
+# ==========================================
+**/node_modules/
+**/dist/
+**/.env
+**/.env.local
+**/.env.*.local
+**/.DS_Store

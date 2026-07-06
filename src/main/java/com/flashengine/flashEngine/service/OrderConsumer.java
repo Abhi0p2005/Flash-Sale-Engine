@@ -20,6 +20,7 @@ public class OrderConsumer {
     private final ObjectMapper objectMapper;
     private final OrdersRepository ordersRepository;
     private final InventoryRepository inventoryRepository;
+    private final StringRedisTemplate redisTemplate;
 
     public OrderConsumer(StringRedisTemplate redisTemplate,
                          ObjectMapper objectMapper,
@@ -28,23 +29,26 @@ public class OrderConsumer {
         this.objectMapper = objectMapper;
         this.ordersRepository = ordersRepository;
         this.inventoryRepository = inventoryRepository;
+        this.redisTemplate = redisTemplate;
     }
 
-    // Runs continuously with a fixed delay of 10 milliseconds after the last run finishes
     @RabbitListener(queues = RabbitMQConfig.FLASH_SALE_QUEUE)
     public void processOrdersQueue(String  orderJson) {
         if(orderJson != null){
+            OrderPayload payload = null;
             try{
-                // 1. Deserialize JSON back to Payload object
-                OrderPayload payload = objectMapper.readValue(orderJson, OrderPayload.class);
+                payload = objectMapper.readValue(orderJson, OrderPayload.class);
                 
-                // 2. Persist the order data to PostgreSQL asynchronously
                 saveOrderToDatabase(payload.getProductId(), payload.getUserId());
                 
             }
             catch (Exception e) {
                 System.err.println("Critical failure processing order. Forwarding to DLQ: " + e.getMessage());
-                // In production, you would push this failed item to a Dead Letter Queue (DLQ)
+                
+                if (payload != null) {
+                    rollbackRedisStock(payload.getProductId());
+                }
+
                 throw new RuntimeException("Rerouting failed order payload to DLQ",e);
             }
         }
@@ -52,7 +56,7 @@ public class OrderConsumer {
 
     @Transactional
     public void saveOrderToDatabase(Long productId, Long userId) {
-        // 1. Persist the order record
+        
         Orders order = new Orders();
         order.setProductId(productId);
         order.setUserId(userId);
@@ -60,7 +64,7 @@ public class OrderConsumer {
         order.setCreatedAt(LocalDateTime.now());
         ordersRepository.save(order);
 
-        // 2. Sync the relational DB stock level down by 1 
+        
         Inventory inventory = inventoryRepository.findById(productId)
                 .orElseThrow(() -> new RuntimeException("Product missing from database on sync"));
         
@@ -68,5 +72,18 @@ public class OrderConsumer {
             inventory.setStockCount(inventory.getStockCount() - 1);
             inventoryRepository.save(inventory);
         }
+        else {
+            throw new RuntimeException("Database level stock out detected for product: " + productId);
+        }
     }
+    private void rollbackRedisStock(Long productId) {
+    try {
+        // Change from "inventory:product:" to "product:" to match the key pattern
+        String stockKey = "inventory:product:" + productId; 
+        Long currentStock = redisTemplate.opsForValue().increment(stockKey);
+        System.out.println("[Rollback] Restored 1 unit to Redis key [" + stockKey + "]. Current stock: " + currentStock);
+    } catch (Exception re) {
+        System.err.println("[Critical] Failed to roll back stock in Redis for product " + productId + ": " + re.getMessage());
+    }
+}
 }
