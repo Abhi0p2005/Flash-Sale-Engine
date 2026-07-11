@@ -80,3 +80,13 @@ locust -f locustfile.py
 ```
 
 Open your browser and navigate to `http://localhost:8089` to configure spawn rates, launch stress sequences, and monitor live latency statistics under fire.
+
+### 4. Docker Deployment
+
+For production-ready containerized orchestration, use Docker Compose to spin up the full service stack (App, PostgreSQL, Redis, RabbitMQ):
+
+```bash
+docker compose up -d
+```
+
+The application will be accessible at `http://localhost:8080`.
