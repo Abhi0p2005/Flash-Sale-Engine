@@ -10,49 +10,43 @@ export const cromaCategories = [
 ];
 
 export const cromaProducts = [
-  {
-    id: 1,
-    brand: 'vivo',
-    name: 'X300 FE 5G',
-    originalPrice: 129999,
-    salePrice: 71999,
-    image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300', // Placeholder green smartphone
-    category: 'mobiles'
-  },
-  {
-    id: 2,
-    brand: 'vivo',
-    name: 'V40 5G',
-    originalPrice: 39999,
-    salePrice: 32199,
-    image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=300', // Placeholder teal smartphone
-    category: 'mobiles'
-  },
-  {
-    id: 3,
-    brand: 'vivo',
-    name: 'V70 5G',
-    originalPrice: 50000,
-    salePrice: 43999,
-    image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=300', // Placeholder rose smartphone
-    category: 'mobiles'
-  },
-  {
-    id: 4,
-    brand: 'oppo',
-    name: 'K14x 5G',
-    originalPrice: 19999,
-    salePrice: 18144,
-    image: 'https://images.unsplash.com/photo-1565630916779-e303be97b6f5?w=300', // Placeholder white/blue smartphone
-    category: 'mobiles'
-  }
-];
+  // Mobiles
+  { id: 1, brand: 'Vivo', name: 'Vivo V40 5G', originalPrice: 39999, salePrice: 31499, image: '/images/iphone13.png', category: 'mobiles', stockLeft: 5 },
+  { id: 2, brand: 'Apple', name: 'iPhone 6', originalPrice: 35900, salePrice: 29900, image: '/images/iphone6.png', category: 'mobiles', stockLeft: 60 },
+  { id: 3, brand: 'Apple', name: 'iPhone 13 Pro', originalPrice: 131900, salePrice: 109900, image: '/images/iphone13.png', category: 'mobiles', stockLeft: 56 },
+  { id: 19, brand: 'Samsung', name: 'Galaxy S23', originalPrice: 75000, salePrice: 65000, image: '/images/s23.png', category: 'mobiles', stockLeft: 30 },
+  
+  // Laptops
+  { id: 4, brand: 'Apple', name: 'MacBook Pro 14 Inch', originalPrice: 239900, salePrice: 199900, image: '/images/macbook.png', category: 'laptops', stockLeft: 24 },
+  { id: 5, brand: 'Asus', name: 'Zenbook Pro', originalPrice: 215900, salePrice: 179900, image: '/images/zenbook.png', category: 'laptops', stockLeft: 45 },
+  { id: 6, brand: 'Lenovo', name: 'Yoga 920', originalPrice: 131900, salePrice: 109900, image: '/images/yoga.png', category: 'laptops', stockLeft: 40 },
+  { id: 20, brand: 'HP', name: 'Spectre x360', originalPrice: 145000, salePrice: 125000, image: '/images/hp.png', category: 'laptops', stockLeft: 15 },
+  
+  // Audio
+  { id: 7, brand: 'Apple', name: 'AirPods', originalPrice: 15500, salePrice: 12900, image: '/images/airpods.png', category: 'audio', stockLeft: 67 },
+  { id: 8, brand: 'Apple', name: 'AirPods Max', originalPrice: 65900, salePrice: 54900, image: '/images/airpodsmax.png', category: 'audio', stockLeft: 59 },
+  { id: 9, brand: 'Beats', name: 'Flex Wireless', originalPrice: 5900, salePrice: 4900, image: '/images/beats.png', category: 'audio', stockLeft: 50 },
+  { id: 21, brand: 'JBL', name: 'Flip 6 Speaker', originalPrice: 12000, salePrice: 9900, image: '/images/jbl.png', category: 'audio', stockLeft: 40 },
 
-export const smartphoneBrands = [
-  { name: 'Apple', logo: '🍏', bgColor: 'from-orange-600 to-amber-900' },
-  { name: 'OnePlus', logo: '1️⃣+', bgColor: 'from-gray-700 to-red-900' },
-  { name: 'Samsung', logo: '🌌', bgColor: 'from-purple-600 to-indigo-950' },
-  { name: 'Vivo', logo: '🔵', bgColor: 'from-blue-600 to-cyan-950' }
+  // TVs
+  { id: 10, brand: 'Sony', name: 'Bravia 55 inch 4K', originalPrice: 95000, salePrice: 82000, image: '/images/sony-tv.png', category: 'tvs', stockLeft: 6 },
+  { id: 11, brand: 'Samsung', name: 'Crystal UHD 4K', originalPrice: 65000, salePrice: 55000, image: '/images/samsung-tv.png', category: 'tvs', stockLeft: 12 },
+  { id: 22, brand: 'LG', name: 'OLED 65 inch', originalPrice: 180000, salePrice: 155000, image: '/images/lg-tv.png', category: 'tvs', stockLeft: 5 },
+
+  // Refrigerators
+  { id: 12, brand: 'LG', name: 'InstaView Refrigerator', originalPrice: 120000, salePrice: 95000, image: '/images/lg-fridge.png', category: 'refrigerators', stockLeft: 4 },
+  { id: 13, brand: 'Samsung', name: 'Family Hub Fridge', originalPrice: 250000, salePrice: 210000, image: '/images/samsung-fridge.png', category: 'refrigerators', stockLeft: 2 },
+  
+  // Kitchen
+  { id: 14, brand: 'Philips', name: 'Air Fryer XL', originalPrice: 15000, salePrice: 12000, image: '/images/airfryer.png', category: 'kitchen', stockLeft: 20 },
+  { id: 15, brand: 'Philips', name: 'Juicer Mixer', originalPrice: 8000, salePrice: 6500, image: '/images/mixer.png', category: 'kitchen', stockLeft: 30 },
+
+  // Grooming
+  { id: 16, brand: 'Philips', name: 'Beard Trimmer 3000', originalPrice: 3000, salePrice: 2200, image: '/images/trimmer.png', category: 'grooming', stockLeft: 50 },
+  { id: 17, brand: 'Braun', name: 'Electric Shaver', originalPrice: 4500, salePrice: 3800, image: '/images/shaver.png', category: 'grooming', stockLeft: 25 },
+
+  // AC
+  { id: 18, brand: 'Daikin', name: 'Inverter AC 1.5 Ton', originalPrice: 55000, salePrice: 48000, image: '/images/ac.png', category: 'ac', stockLeft: 10 }
 ];
 
 export const MOCK_USER_PROFILE = {

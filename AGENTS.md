@@ -1,14 +1,17 @@
 # AGENTS.md
 
 ## General
-- **Backend:** Java (Maven). Always use `./mvnw`.
+- **Backend:** Java (Maven) in `/backend`. Always use `./backend/mvnw`.
 - **Frontend:** React 19 + Vite 6 + Tailwind CSS v4 (located in `/frontend`).
+- **FlashPulse AI:** AI assistant service in `/services/flashpulse-ai/` (FastAPI backend, vanilla JS frontend).
 
 ## Commands
-- **Backend:** `./mvnw clean compile` (Required before tests).
+- **Backend:** `cd backend && ./mvnw clean compile` (Required before tests).
 - **Frontend:** `cd frontend && npm install && npm run dev`
+- **FlashPulse AI Backend:** `cd services/flashpulse-ai/backend && pip install -r requirements.txt && uvicorn main:app --reload --port 8000`
 - **Testing:** `locust -f locustfile.py` (Requires backend running).
 
 ## Workflow & Ports
-- **Ports:** Frontend `http://localhost:5173/`, Locust `http://localhost:8089`.
-- **Lifecycle:** Ensure backend is compiled and running before initiating Locust tests.
+- **Ports:** Frontend `http://localhost:5173/`, FlashPulse AI `http://localhost:8000/`, Locust `http://localhost:8089/`.
+- **Lifecycle:** Ensure both backends (Spring Boot & FastAPI) are running before using PulseAI assistant. Vite proxies `/api/generate-copy` and `/api/chat-stream` to FastAPI.
+- **Integration:** The `PulseAIAssistant` component (in `frontend/src/components/PulseAIAssistant.jsx`) is mounted as a floating drawer in the main app. Toggle it via the FAB in the bottom-right corner.

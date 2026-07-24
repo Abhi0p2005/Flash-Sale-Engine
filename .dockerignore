@@ -1,6 +1,5 @@
-target/
 .idea/
-.mvn/
 *.iml
-mvnw
-mvnw.cmd
+node_modules/
+frontend/
+services/

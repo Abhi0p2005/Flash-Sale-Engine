@@ -1,482 +1,898 @@
-import React, { useState, useEffect } from 'react';
-// Corrected to match your exact export names from cromaData.js
-import { cromaProducts, cromaCategories, smartphoneBrands, MOCK_USER_PROFILE } from './cromaData.js';
+import React from 'react';
+import { cromaCategories } from './cromaData.js';
+import {
+  ShoppingCart,
+  User,
+  ClipboardList,
+  MapPin,
+  Menu,
+  X,
+  Search,
+  ArrowRight,
+  Zap,
+  Package,
+  Trash2,
+  CheckCircle2,
+  AlertTriangle,
+  CircleDot,
+  Layers,
+  Wifi,
+} from 'lucide-react';
 
-export default function MarketPlace() {
-  // Global States
-  const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
-  const [activeTab, setActiveTab] = useState('catalog'); // 'catalog' | 'profile' | 'history' | 'addresses'
-  
-  // UI Toggles
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [statusMessage, setStatusMessage] = useState(null);
-
-  // User Feature States
-  const [userProfile, setUserProfile] = useState(MOCK_USER_PROFILE);
-  const [newAddressType, setNewAddressType] = useState('Home');
-  const [newAddressDetail, setNewAddressDetail] = useState('');
-  const [orderHistory, setOrderHistory] = useState([]);
-  const [selectedAddressId, setSelectedAddressId] = useState(1);
-  const [paymentData, setPaymentData] = useState({ name: userProfile.name, cardNumber: '' });
-
-  // Load Inventory Data
-  useEffect(() => {
-    const fetchLiveInventory = async () => {
-      try {
-        const response = await fetch('http://localhost:8080/api/v1/products/inventory');
-        if (response.ok) {
-          const liveData = await response.json();
-          setProducts(liveData);
-        } else {
-          // Fallback to cromaProducts when backend is down
-          setProducts(cromaProducts);
-        }
-      } catch (err) {
-        setProducts(cromaProducts);
-      }
-    };
-    fetchLiveInventory();
-    fetchOrderHistory();
-  }, []);
-
-  // Fetch Order History from PostgreSQL Backend
-  const fetchOrderHistory = async () => {
-    try {
-      const response = await fetch('http://localhost:8080/api/v1/checkout/orders/history');
-      if (response.ok) {
-        const historyData = await response.json();
-        setOrderHistory(historyData);
-      }
-    } catch (err) {
-      console.warn("Could not fetch database order history logs.");
-    }
-  };
-
-  const openCheckoutGateway = () => {
-    const randomCard = "4111 " + Array.from({length: 3}, () => Math.floor(1000 + Math.random() * 9000)).join(" ");
-    setPaymentData(prev => ({ ...prev, cardNumber: randomCard, name: userProfile.name }));
-    setIsCartOpen(false);
-    setIsCheckoutOpen(true);
-  };
-
-  const addToCart = (product) => {
-    if (product.stockLeft === 0) return;
-    setCart(prevCart => {
-      const existingItem = prevCart.find(item => item.id === product.id);
-      if (existingItem) {
-        return prevCart.map(item => item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item);
-      }
-      return [...prevCart, { ...product, quantity: 1 }];
-    });
-  };
-
-  const removeFromCart = (productId) => {
-    setCart(prevCart => prevCart.filter(item => item.id !== productId));
-  };
-
-  const handleAddAddress = (e) => {
-    e.preventDefault();
-    if (!newAddressDetail.trim()) return;
-    const freshAddress = {
-      id: Date.now(),
-      type: newAddressType,
-      detail: newAddressDetail
-    };
-    setUserProfile(prev => ({
-      ...prev,
-      addresses: [...prev.addresses, freshAddress]
-    }));
-    setNewAddressDetail('');
-    setStatusMessage({ type: 'success', text: '📍 New delivery address saved securely.' });
-  };
-
-  // Uses fallback to salePrice if your data objects use that key
-  const cartTotal = cart.reduce((sum, item) => sum + ((item.salePrice || item.price || 0) * item.quantity), 0);
-  const cartItemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-
-  const handleProcessPayment = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setStatusMessage(null);
-
-    const activeAddress = userProfile.addresses.find(a => a.id === selectedAddressId)?.detail || "Default Pickup";
-
-    const transactionPayload = {
-      userId: Date.now(),
-      customerName: paymentData.name,
-      cardNumber: paymentData.cardNumber,
-      deliveryAddress: activeAddress,
-      itemsBought: cart.map(item => ({
-        productId: item.id,
-        quantity: item.quantity,
-        pricePaid: item.salePrice || item.price
-      })),
-      totalPrice: cartTotal
-    };
-
-    try {
-      const response = await fetch('http://localhost:8080/api/v1/checkout/orders', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(transactionPayload)
-      });
-
-      if (response.ok) {
-        setProducts(prev => prev.map(p => {
-          const boughtItem = cart.find(item => item.id === p.id);
-          return boughtItem ? { ...p, stockLeft: Math.max(0, (p.stockLeft || 5) - boughtItem.quantity) } : p;
-        }));
-
-        const localHistoryMock = {
-          id: Date.now(),
-          customerName: paymentData.name,
-          totalPrice: cartTotal,
-          purchaseTime: new Date().toISOString(),
-          itemsCount: cartItemCount
-        };
-        setOrderHistory(prev => [localHistoryMock, ...prev]);
-        
-        setCart([]);
-        setIsCheckoutOpen(false);
-        setActiveTab('history');
-        setStatusMessage({ 
-          type: 'success', 
-          text: `🎉 Transaction complete! Packet cataloged under FlashEngine Database Architecture.` 
-        });
-      } else {
-        let errTxt = await response.text();
-        setStatusMessage({ type: 'error', text: `❌ Engine Rejection: ${errTxt}` });
-      }
-    } catch (error) {
-      setStatusMessage({ type: 'error', text: '🔌 Connection error mapping transaction arrays to relational tables.' });
-    } finally {
-      setLoading(false);
-    }
-  };
+export default function MarketPlace({
+  products,
+  cart,
+  activeTab,
+  setActiveTab,
+  selectedCategory,
+  setSelectedCategory,
+  selectedBrand,
+  setSelectedBrand,
+  isMenuOpen,
+  setIsMenuOpen,
+  isCartOpen,
+  setIsCartOpen,
+  isCheckoutOpen,
+  setIsCheckoutOpen,
+  loading,
+  setLoading,
+  statusMessage,
+  setStatusMessage,
+  searchQuery,
+  setSearchQuery,
+  userProfile,
+  newAddressType,
+  setNewAddressType,
+  newAddressDetail,
+  setNewAddressDetail,
+  orderHistory,
+  selectedAddressId,
+  setSelectedAddressId,
+  paymentData,
+  setPaymentData,
+  addToCart,
+  removeFromCart,
+  openCheckoutGateway,
+  handleAddAddress,
+  handleProcessPayment,
+  cartTotal,
+  cartItemCount,
+  filteredProducts,
+  brandList,
+}) {
+  const totalStock = products.reduce((s, p) => s + (p.stockLeft || 0), 0);
+  const flashCount = products.filter((p) => (p.stockLeft || 0) <= 10).length;
 
   return (
-    <div className="min-h-screen bg-[#121212] text-white font-sans antialiased relative">
-      
-      {/* HEADER NAVBAR */}
-      <header className="sticky top-0 z-50 bg-[#1d1d1d] border-b border-gray-800 px-6 py-4 flex items-center justify-between gap-4 shadow-md">
-        <div className="flex items-center space-x-8">
-          <div className="text-3xl font-extrabold tracking-tight text-white cursor-pointer" onClick={() => { setActiveTab('catalog'); setIsMenuOpen(false); }}>
-            flash<span className="text-teal-400">Cart.</span>
-          </div>
-          
-          <button 
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="flex items-center space-x-2 text-sm font-medium hover:text-teal-400 transition focus:outline-none"
+    <div className="min-h-screen bg-ink-900 text-white antialiased">
+      <header className="sticky top-0 z-40 bg-ink-900/85 backdrop-blur-xl border-b border-line-800">
+        <div className="max-w-[1440px] mx-auto px-6 h-16 flex items-center gap-6">
+          <button
+            onClick={() => {
+              setActiveTab('catalog');
+              setIsMenuOpen(false);
+              setSelectedCategory(null);
+              setSelectedBrand(null);
+            }}
+            className="flex items-center gap-2.5 group"
           >
-            <span className="text-xl">{isMenuOpen ? '✕' : '☰'}</span>
-            <span className="text-xs font-bold hidden sm:inline">{isMenuOpen ? 'Close Menu' : 'App Drawer'}</span>
+            <div className="w-8 h-8 border border-neon-500 flex items-center justify-center relative">
+              <Zap size={15} strokeWidth={2.5} className="text-neon-500" />
+              <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 bg-neon-500 pulse-neon" />
+            </div>
+            <span className="font-mono text-[13px] tracking-[0.16em] uppercase text-white">
+              flash<span className="text-neon-500">cart</span>
+              <span className="text-mute-500">/v1</span>
+            </span>
           </button>
-        </div>
 
-        <div className="flex-1 max-w-xl mx-4 relative hidden sm:block">
-          <input type="text" placeholder="Search catalog inventory arrays..." className="w-full bg-[#2d2d2d] text-sm text-gray-200 placeholder-gray-500 px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-teal-400" />
-        </div>
+          <nav className="hidden md:flex items-center gap-0 border border-line-800 h-9 ml-4">
+            {[
+              { id: 'catalog', label: 'catalog', Icon: Layers },
+              { id: 'history', label: 'orders', Icon: ClipboardList },
+              { id: 'addresses', label: 'nodes', Icon: MapPin },
+              { id: 'profile', label: 'profile', Icon: User },
+            ].map(({ id, label, Icon }) => (
+              <button
+                key={id}
+                onClick={() => {
+                  setActiveTab(id);
+                  setIsMenuOpen(false);
+                }}
+                className={`h-full px-3 flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.18em] border-r border-line-800 last:border-r-0 transition-colors ${
+                  activeTab === id
+                    ? 'bg-neon-500 text-ink-950'
+                    : 'text-mute-300 hover:text-white hover:bg-ink-700'
+                }`}
+              >
+                <Icon size={12} strokeWidth={2} />
+                {label}
+              </button>
+            ))}
+          </nav>
 
-        {/* UTILITIES RIGHT */}
-        <div className="flex items-center space-x-6 text-sm">
-          <button onClick={() => { setActiveTab('profile'); setIsMenuOpen(false); }} className={`hover:text-teal-400 transition ${activeTab === 'profile' ? 'text-teal-400 font-bold' : 'text-gray-300'}`}>
-            👤 Profile
-          </button>
-          <button onClick={() => { setActiveTab('history'); setIsMenuOpen(false); }} className={`hover:text-teal-400 transition ${activeTab === 'history' ? 'text-teal-400 font-bold' : 'text-gray-300'}`}>
-            📋 History
-          </button>
-          
-          <div className="relative cursor-pointer bg-[#2d2d2d] hover:bg-[#3d3d3d] px-4 py-2 rounded-xl transition flex items-center gap-2 font-bold text-white" onClick={() => setIsCartOpen(true)}>
-            🛒 <span>Basket</span>
-            <span className="bg-teal-400 text-black text-[10px] font-extrabold px-1.5 py-0.5 rounded-full">{cartItemCount}</span>
+          <div className="hidden lg:flex flex-1 max-w-md relative">
+            <Search
+              size={14}
+              strokeWidth={2}
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-mute-500"
+            />
+            <input
+              type="text"
+              placeholder="search inventory…"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full bg-ink-800 border border-line-800 focus:border-neon-500 outline-none pl-9 pr-3 h-9 text-[12px] font-mono text-white placeholder:text-mute-500 transition-colors"
+            />
           </div>
+
+          <div className="flex-1 md:flex-none" />
+          <div className="hidden sm:flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-mute-400">
+            <span className="relative w-1.5 h-1.5">
+              <span className="absolute inset-0 bg-neon-500 pulse-neon" />
+            </span>
+            <span>engine · live</span>
+          </div>
+
+          <button
+            onClick={() => setIsCartOpen(true)}
+            className="relative flex items-center gap-2 border border-line-800 hover:border-neon-500 text-white h-9 px-3 transition-colors"
+          >
+            <ShoppingCart size={14} strokeWidth={2} />
+            <span className="font-mono text-[11px] uppercase tracking-[0.18em]">basket</span>
+            <span className="font-mono text-[11px] text-neon-500">[{cartItemCount}]</span>
+          </button>
+
+          <button
+            onClick={() => setIsMenuOpen((v) => !v)}
+            className="md:hidden border border-line-800 w-9 h-9 flex items-center justify-center text-white"
+          >
+            {isMenuOpen ? <X size={16} /> : <Menu size={16} />}
+          </button>
         </div>
+
+        {isMenuOpen && (
+          <div className="md:hidden border-t border-line-800 bg-ink-850">
+            {[
+              { id: 'catalog', label: 'Catalog' },
+              { id: 'history', label: 'Orders' },
+              { id: 'addresses', label: 'Delivery Nodes' },
+              { id: 'profile', label: 'Profile' },
+            ].map((n) => (
+              <button
+                key={n.id}
+                onClick={() => {
+                  setActiveTab(n.id);
+                  setIsMenuOpen(false);
+                }}
+                className="w-full text-left px-6 py-3 border-b border-line-900 font-mono text-[12px] uppercase tracking-[0.18em] text-mute-300 hover:text-neon-500 hover:bg-ink-800"
+              >
+                → {n.label}
+              </button>
+            ))}
+          </div>
+        )}
       </header>
 
-      <div className="relative flex min-h-[calc(100vh-73px)]">
-        
-        {/* COMPREHENSIVE SIDEBAR APP MENU */}
-        {isMenuOpen && (
-          <aside className="absolute left-0 top-0 z-40 w-80 bg-[#191919] border-r border-gray-800 h-full p-4 shadow-2xl transition-all duration-200">
-            <div className="space-y-1 mb-6 text-sm text-gray-300 border-b border-gray-800 pb-4">
-              <div onClick={() => { setActiveTab('catalog'); setIsMenuOpen(false); }} className="p-2.5 hover:bg-[#2d2d2d] rounded cursor-pointer transition">🛍️ Browse Catalog Grid</div>
-              <div onClick={() => { setActiveTab('profile'); setIsMenuOpen(false); }} className="p-2.5 hover:bg-[#2d2d2d] rounded cursor-pointer transition">👤 User Profile Settings</div>
-              <div onClick={() => { setActiveTab('addresses'); setIsMenuOpen(false); }} className="p-2.5 hover:bg-[#2d2d2d] rounded cursor-pointer transition">📍 Manage Saved Addresses</div>
-              <div onClick={() => { setActiveTab('history'); setIsMenuOpen(false); }} className="p-2.5 hover:bg-[#2d2d2d] rounded cursor-pointer transition">📋 Relational Order Receipts</div>
-            </div>
+      {statusMessage && (
+        <div
+          className={`border-b ${
+            statusMessage.type === 'success'
+              ? 'border-neon-500/30 bg-neon-950/40 text-neon-500'
+              : 'border-red-900/40 bg-red-950/30 text-red-400'
+          }`}
+        >
+          <div className="max-w-[1440px] mx-auto px-6 py-2.5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em]">
+            {statusMessage.type === 'success' ? (
+              <CheckCircle2 size={13} />
+            ) : (
+              <AlertTriangle size={13} />
+            )}
+            {statusMessage.text}
+            <button
+              onClick={() => setStatusMessage(null)}
+              className="ml-auto text-mute-400 hover:text-white"
+            >
+              <X size={12} />
+            </button>
+          </div>
+        </div>
+      )}
 
-            <h3 className="px-2.5 text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Filter Catalog</h3>
-            <nav className="space-y-0.5 text-sm">
-              {cromaCategories.map((cat) => (
-                <div key={cat.id} onClick={() => { setActiveTab('catalog'); setIsMenuOpen(false); }} className="flex items-center justify-between p-2.5 rounded hover:bg-[#2d2d2d] cursor-pointer transition text-gray-300">
-                  <span className="flex items-center space-x-3"><span>{cat.icon}</span><span>{cat.name}</span></span>
-                  <span className="text-gray-600 text-xs">❯</span>
-                </div>
-              ))}
-            </nav>
-          </aside>
+      <main className="max-w-[1440px] mx-auto px-6 py-8">
+        {activeTab === 'catalog' && (
+          <CatalogView
+            products={products}
+            filteredProducts={filteredProducts}
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+            selectedBrand={selectedBrand}
+            setSelectedBrand={setSelectedBrand}
+            brandList={brandList}
+            addToCart={addToCart}
+            totalStock={totalStock}
+            flashCount={flashCount}
+            cartItemCount={cartItemCount}
+            cartTotal={cartTotal}
+          />
         )}
+        {activeTab === 'profile' && <ProfileView userProfile={userProfile} orderHistory={orderHistory} />}
+        {activeTab === 'history' && <HistoryView orderHistory={orderHistory} setActiveTab={setActiveTab} />}
+        {activeTab === 'addresses' && (
+          <AddressesView
+            userProfile={userProfile}
+            newAddressType={newAddressType}
+            setNewAddressType={setNewAddressType}
+            newAddressDetail={newAddressDetail}
+            setNewAddressDetail={setNewAddressDetail}
+            handleAddAddress={handleAddAddress}
+          />
+        )}
+      </main>
 
-        {/* SYSTEM VIEW SWITCHER ROOT */}
-        <main className={`flex-1 p-8 transition-all duration-200 ${isMenuOpen ? 'ml-80 opacity-30 pointer-events-none' : ''}`}>
-          
-          {statusMessage && (
-            <div className="mb-6 p-4 rounded-xl text-xs font-bold bg-[#1c241e] text-emerald-400 border border-emerald-900/50">
-              {statusMessage.text}
+      {isCartOpen && (
+        <div className="fixed inset-0 z-50 flex justify-end">
+          <div
+            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+            onClick={() => setIsCartOpen(false)}
+          />
+          <div className="relative w-full max-w-md bg-ink-850 border-l border-line-800 h-full flex flex-col slide-up">
+            <div className="flex items-center justify-between px-5 h-14 border-b border-line-800">
+              <div className="flex items-center gap-2">
+                <ShoppingCart size={14} className="text-neon-500" />
+                <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-mute-400">
+                  basket<span className="text-neon-500"> // {cartItemCount} items</span>
+                </span>
+              </div>
+              <button
+                onClick={() => setIsCartOpen(false)}
+                className="text-mute-400 hover:text-white"
+              >
+                <X size={16} />
+              </button>
             </div>
-          )}
 
-          {/* VIEW 1: CENTRAL STOCK INVENTORY MARKETPLACE */}
-          {activeTab === 'catalog' && (
-            <section>
-              {/* ROUNDED ICON ROW */}
-              <div className="flex items-center space-x-6 overflow-x-auto pb-6 mb-8 scrollbar-none">
-                {cromaCategories.map((cat) => (
-                  <div key={cat.id} className="flex flex-col items-center cursor-pointer group">
-                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-b from-[#2e1d4d] to-[#1a233a] flex items-center justify-center border border-gray-800 shadow-lg group-hover:border-teal-400 transition-all duration-300">
-                      <span className="text-2xl">{cat.icon}</span>
+            {cart.length === 0 ? (
+              <div className="flex-1 flex flex-col items-center justify-center px-6 text-center">
+                <div className="w-16 h-16 border border-line-800 flex items-center justify-center mb-4">
+                  <Package size={22} className="text-mute-500" />
+                </div>
+                <p className="font-mono text-[12px] uppercase tracking-[0.18em] text-mute-400">
+                  buffer_empty
+                </p>
+                <p className="text-mute-500 mt-2 text-[13px]">
+                  Add items from the catalog to start a transaction.
+                </p>
+              </div>
+            ) : (
+              <>
+                <div className="flex-1 overflow-y-auto no-scrollbar">
+                  {cart.map((item, idx) => (
+                    <div
+                      key={item.id}
+                      className={`px-5 py-4 border-b border-line-900 flex items-center gap-3 ${
+                        idx % 2 === 0 ? 'bg-transparent' : 'bg-ink-800/40'
+                      }`}
+                    >
+                      <div className="w-12 h-12 border border-line-800 bg-ink-800 flex items-center justify-center shrink-0">
+                        {item.image ? (
+                          <img
+                            src={item.image}
+                            alt={item.name}
+                            className="w-full h-full object-cover"
+                            onError={(e) => { e.target.style.display = 'none'; }}
+                          />
+                        ) : (
+                          <Package size={16} className="text-mute-500" />
+                        )}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-[10px] font-mono uppercase tracking-widest text-mute-500">
+                          {item.brand}
+                        </div>
+                        <div className="text-[13px] text-white truncate">{item.name}</div>
+                        <div className="font-mono text-[11px] text-neon-500 mt-0.5">
+                          ₹{(item.salePrice || item.price).toLocaleString('en-IN')}{' '}
+                          <span className="text-mute-500">× {item.quantity}</span>
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => removeFromCart(item.id)}
+                        className="text-mute-500 hover:text-red-400 transition-colors"
+                        aria-label="Remove"
+                      >
+                        <Trash2 size={14} />
+                      </button>
                     </div>
-                    <span className="text-[11px] text-gray-400 mt-2 font-medium tracking-wide group-hover:text-teal-400 transition">
-                      {cat.name}
+                  ))}
+                </div>
+                <div className="border-t border-line-800 px-5 py-4 bg-ink-900">
+                  <div className="flex items-baseline justify-between mb-3">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-mute-400">
+                      subtotal
+                    </span>
+                    <span className="font-mono text-[20px] text-white">
+                      ₹{cartTotal.toLocaleString('en-IN')}
                     </span>
                   </div>
-                ))}
-              </div>
-
-              <div className="mb-8">
-                <h2 className="text-xl font-extrabold tracking-wide">Live Electronics Pipeline</h2>
-                <p className="text-xs text-gray-400 mt-1">Reactive framework synchronized directly with the multi-item order tracking models.</p>
-              </div>
-
-              {/* CARD GRID */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
-                {products.map(product => {
-                  const actualPrice = product.salePrice || product.price || 0;
-                  return (
-                    <div key={product.id} className="bg-gradient-to-b from-[#1c2331] to-[#121620] rounded-2xl p-5 border border-gray-800 flex flex-col justify-between group hover:border-gray-700 transition relative shadow-lg">
-                      <div>
-                        <div className="relative flex h-40 w-full items-center justify-center bg-[#181d29] rounded-xl border border-gray-800/50 overflow-hidden">
-                          {product.image ? (
-                            <img src={product.image} alt={product.name} className="w-full h-full object-cover transform group-hover:scale-105 transition duration-200" />
-                          ) : (
-                            <div className="text-5xl select-none">{product.icon || '📦'}</div>
-                          )}
-                        </div>
-                        <div className="mt-4">
-                          <p className="text-[10px] font-bold text-teal-400 uppercase tracking-widest">{product.brand || product.category}</p>
-                          <h3 className="text-sm font-semibold text-gray-100 line-clamp-2 mt-1 h-10">{product.name}</h3>
-                          <div className="flex items-baseline gap-2 mt-2">
-                            <div className="text-base font-black text-white">₹{actualPrice.toLocaleString('en-IN')}</div>
-                            {product.originalPrice && (
-                              <div className="text-xs text-gray-500 line-through">₹{product.originalPrice.toLocaleString('en-IN')}</div>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="mt-4">
-                        <div className="flex justify-between text-[10px] text-gray-400 mb-2">
-                          <span>Stock Allocation:</span>
-                          <span className={product.stockLeft === 0 ? 'text-red-500 font-bold' : 'text-emerald-400 font-bold'}>
-                            {product.stockLeft === 0 ? 'Sold Out' : `${product.stockLeft !== undefined ? product.stockLeft : 5} Available`}
-                          </span>
-                        </div>
-                        <button 
-                          onClick={() => addToCart(product)}
-                          disabled={product.stockLeft === 0}
-                          className={`w-full font-bold py-2 px-4 rounded-xl transition text-xs tracking-wider uppercase ${product.stockLeft === 0 ? 'bg-gray-800 text-gray-600 cursor-not-allowed' : 'bg-teal-500 hover:bg-teal-600 text-black font-extrabold'}`}
-                        >
-                          {product.stockLeft === 0 ? 'Out of Stock' : 'Add to Cart'}
-                        </button>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* SMARTPHONE BRAND SUBSECTION GRID */}
-              <div className="border-t border-gray-800 pt-10">
-                <h3 className="text-lg font-bold tracking-wide text-white mb-5">Pick Your Smartphone Brand</h3>
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                  {smartphoneBrands.map((brand) => (
-                    <div key={brand.name} className={`h-36 rounded-2xl bg-gradient-to-b ${brand.bgColor} border border-white/5 flex flex-col justify-between p-4 cursor-pointer relative overflow-hidden group shadow-md`}>
-                      <div className="text-sm font-bold tracking-wider">{brand.name}</div>
-                      <div className="text-4xl self-center transform group-hover:scale-110 transition duration-300 filter drop-shadow-2xl">{brand.logo}</div>
-                      <div className="text-[9px] text-white/40 tracking-widest text-right font-bold">EXPLORE ❯</div>
-                    </div>
-                  ))}
+                  <button
+                    onClick={openCheckoutGateway}
+                    className="w-full h-11 bg-neon-500 hover:bg-neon-400 text-ink-950 font-mono text-[11px] uppercase tracking-[0.22em] transition-colors flex items-center justify-center gap-2"
+                  >
+                    proceed to checkout <ArrowRight size={14} strokeWidth={2.5} />
+                  </button>
                 </div>
-              </div>
-            </section>
-          )}
-
-          {/* VIEW 2: PROFILE CONFIGURATION VIEW */}
-          {activeTab === 'profile' && (
-            <section className="max-w-2xl bg-[#1a1a1a] border border-gray-800 rounded-2xl p-6 shadow-xl">
-              <h2 className="text-lg font-bold border-b border-gray-800 pb-3 mb-4 text-teal-400">Account Profile Context</h2>
-              <div className="space-y-4 text-sm">
-                <div><label className="text-xs text-gray-500 block uppercase font-bold tracking-wider">Account Identifier Name</label><p className="text-base font-semibold mt-0.5">{userProfile.name}</p></div>
-                <div><label className="text-xs text-gray-500 block uppercase font-bold tracking-wider">Communication Channel (Email)</label><p className="text-base font-mono text-gray-300 mt-0.5">{userProfile.email}</p></div>
-                <div><label className="text-xs text-gray-500 block uppercase font-bold tracking-wider">Mobile Handset Interface</label><p className="text-base font-mono text-gray-300 mt-0.5">{userProfile.phone}</p></div>
-              </div>
-            </section>
-          )}
-
-          {/* VIEW 3: LIVE TRANSACTION HISTORY PANEL */}
-          {activeTab === 'history' && (
-            <section className="max-w-4xl">
-              <h2 className="text-lg font-bold mb-4 text-teal-400">Persistent Order Receipts Logs</h2>
-              {orderHistory.length === 0 ? (
-                <div className="p-8 text-center bg-[#1a1a1a] border border-gray-800 rounded-xl text-gray-500 text-sm">No transaction footprints mapped inside the current environment session. Try completing a secure checkout payload loop!</div>
-              ) : (
-                <div className="space-y-3">
-                  {orderHistory.map((order) => (
-                    <div key={order.id} className="bg-[#1a1a1a] border border-gray-800 p-4 rounded-xl flex items-center justify-between text-sm">
-                      <div className="space-y-1">
-                        <div className="font-bold text-gray-200">Receipt Instance #{order.id}</div>
-                        <div className="text-xs text-gray-500 font-mono">Timestamp: {new Date(order.purchaseTime).toLocaleString()}</div>
-                        <div className="text-xs text-teal-400">Shopper Identity: {order.customerName}</div>
-                      </div>
-                      <div className="text-right">
-                        <div className="font-black text-white text-base">₹{order.totalPrice.toLocaleString('en-IN')}</div>
-                        <span className="text-[10px] px-2 py-0.5 bg-emerald-950/50 border border-emerald-900 text-emerald-400 rounded-full font-bold">Committed DB</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </section>
-          )}
-
-          {/* VIEW 4: ADDRESS ROUTING PANELS */}
-          {activeTab === 'addresses' && (
-            <section className="max-w-3xl space-y-6">
-              <div className="bg-[#1a1a1a] border border-gray-800 p-6 rounded-2xl">
-                <h2 className="text-lg font-bold mb-4 text-teal-400">Saved Shipping Destinations</h2>
-                <div className="space-y-3">
-                  {userProfile.addresses.map(addr => (
-                    <div key={addr.id} className="p-4 bg-[#232323] border border-gray-800 rounded-xl flex items-start gap-4">
-                      <span className="bg-teal-950 text-teal-400 text-xs px-2.5 py-1 rounded font-bold uppercase tracking-wider">{addr.type}</span>
-                      <p className="text-sm text-gray-300 leading-relaxed">{addr.detail}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <form onSubmit={handleAddAddress} className="bg-[#1a1a1a] border border-gray-800 p-6 rounded-2xl space-y-4">
-                <h3 className="text-sm font-bold text-white uppercase tracking-wider">Append Core Delivery Coordinates</h3>
-                <div className="flex gap-4">
-                  {['Home', 'Office', 'Other'].map(t => (
-                    <button key={t} type="button" onClick={() => setNewAddressType(t)} className={`px-4 py-1.5 rounded-lg text-xs font-bold border transition ${newAddressType === t ? 'bg-teal-400 text-black border-teal-400' : 'bg-transparent text-gray-400 border-gray-800'}`}>{t}</button>
-                  ))}
-                </div>
-                <input 
-                  type="text" 
-                  required 
-                  placeholder="Type structural street, flat number, city coordinates..." 
-                  value={newAddressDetail} 
-                  onChange={e => setNewAddressDetail(e.target.value)}
-                  className="w-full bg-[#2d2d2d] border border-gray-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:ring-1 focus:ring-teal-400"
-                />
-                <button type="submit" className="bg-teal-500 hover:bg-teal-600 text-black font-bold text-xs uppercase px-5 py-2.5 rounded-xl tracking-wider transition">Save Address Node</button>
-              </form>
-            </section>
-          )}
-
-        </main>
-      </div>
-
-      {/* BASKET DRAWER */}
-      {isCartOpen && (
-        <div className="fixed inset-0 bg-black/70 z-50 flex justify-end backdrop-blur-xs">
-          <div className="w-full max-w-md bg-[#1a1a1a] border-l border-gray-800 h-full p-6 shadow-2xl flex flex-col justify-between text-white">
-            <div>
-              <div className="flex justify-between items-center border-b border-gray-800 pb-4 mb-4">
-                <h2 className="text-lg font-black tracking-wide">Secure Buffer Basket</h2>
-                <button className="text-gray-400 hover:text-white font-bold text-xl" onClick={() => setIsCartOpen(false)}>✕</button>
-              </div>
-
-              {cart.length === 0 ? (
-                <div className="text-center py-12 text-gray-500 text-sm">Basket arrays are empty.</div>
-              ) : (
-                <div className="space-y-4 max-h-[70vh] overflow-y-auto pr-2 scrollbar-none">
-                  {cart.map(item => (
-                    <div key={item.id} className="flex items-center justify-between border-b pb-3 border-gray-800">
-                      <div className="flex items-center gap-3">
-                        <span className="text-2xl bg-[#2d2d2d] p-2 rounded-xl border border-gray-700">{item.icon || '📦'}</span>
-                        <div>
-                          <h4 className="text-sm font-bold text-gray-200 line-clamp-1">{item.name}</h4>
-                          <p className="text-xs text-gray-400 mt-0.5">₹{(item.salePrice || item.price).toLocaleString('en-IN')} × {item.quantity}</p>
-                        </div>
-                      </div>
-                      <button className="text-red-400 hover:text-red-500 text-xs font-bold" onClick={() => removeFromCart(item.id)}>Remove</button>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {cart.length > 0 && (
-              <div className="border-t border-gray-800 pt-4 bg-[#1a1a1a]">
-                <div className="flex justify-between font-black text-white text-lg mb-4">
-                  <span>Subtotal:</span>
-                  <span className="text-teal-400">₹{cartTotal.toLocaleString('en-IN')}</span>
-                </div>
-                <button className="w-full bg-teal-500 hover:bg-teal-600 text-black font-black py-3 px-4 rounded-xl text-center tracking-wider uppercase text-xs" onClick={openCheckoutGateway}>
-                  Proceed to Secure Checkout
-                </button>
-              </div>
+              </>
             )}
           </div>
         </div>
       )}
 
-      {/* DYNAMIC SECURE CLEARING GATEWAY MODAL */}
       {isCheckoutOpen && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
-          <div className="bg-[#1a1a1a] border border-gray-800 text-white rounded-2xl w-full max-w-md p-6 shadow-2xl relative">
-            <button className="absolute top-4 right-4 text-gray-500 hover:text-white font-bold text-lg" onClick={() => setIsCheckoutOpen(false)}>✕</button>
-            
-            <div className="text-center mb-6">
-              <span className="bg-teal-950 text-teal-400 border border-teal-800/40 px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase">FlashEngine Secure Network</span>
-              <h3 className="text-base font-extrabold text-white mt-3">Active Clearing Node</h3>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div
+            className="absolute inset-0 bg-black/80 backdrop-blur-md"
+            onClick={() => !loading && setIsCheckoutOpen(false)}
+          />
+          <div className="relative w-full max-w-md bg-ink-850 border border-line-800 slide-up">
+            <div className="flex items-center justify-between px-5 h-12 border-b border-line-800 bg-ink-900">
+              <div className="flex items-center gap-2">
+                <span className="relative w-1.5 h-1.5">
+                  <span className="absolute inset-0 bg-neon-500 pulse-neon" />
+                </span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-neon-500">
+                  secure_clearing_node
+                </span>
+              </div>
+              <button
+                onClick={() => !loading && setIsCheckoutOpen(false)}
+                className="text-mute-400 hover:text-white"
+              >
+                <X size={16} />
+              </button>
             </div>
 
-            <form onSubmit={handleProcessPayment} className="space-y-4">
+            <form onSubmit={handleProcessPayment} className="p-5 space-y-4">
               <div>
-                <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Select Delivery Address Allocation</label>
-                <select 
-                  className="w-full bg-[#2d2d2d] border border-gray-700 rounded-lg p-2 text-xs text-white focus:outline-none"
+                <label className="block font-mono text-[10px] uppercase tracking-[0.22em] text-mute-500 mb-1.5">
+                  delivery_node
+                </label>
+                <select
+                  className="w-full bg-ink-800 border border-line-800 focus:border-neon-500 outline-none px-3 h-10 text-[13px] text-white font-mono transition-colors"
                   value={selectedAddressId}
-                  onChange={e => setSelectedAddressId(Number(e.target.value))}
+                  onChange={(e) => setSelectedAddressId(Number(e.target.value))}
                 >
-                  {userProfile.addresses.map(a => (
-                    <option key={a.id} value={a.id}>[{a.type}] {a.detail.substring(0, 40)}...</option>
+                  {userProfile.addresses.map((a) => (
+                    <option key={a.id} value={a.id}>
+                      [{a.type}] {a.detail.substring(0, 40)}…
+                    </option>
                   ))}
                 </select>
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Customer Profile Name</label>
-                <input type="text" required className="w-full bg-[#2d2d2d] border border-gray-700 rounded-lg p-2.5 text-sm text-white" value={paymentData.name} onChange={e => setPaymentData({...paymentData, name: e.target.value})} />
-              </div>
-              
-              <div>
-                <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Dynamic Visa Node Instance</label>
-                <input type="text" className="w-full bg-[#222] border border-gray-800 rounded-lg p-2.5 text-sm font-mono text-gray-500 cursor-not-allowed" value={paymentData.cardNumber} readOnly />
+                <label className="block font-mono text-[10px] uppercase tracking-[0.22em] text-mute-500 mb-1.5">
+                  customer_name
+                </label>
+                <input
+                  type="text"
+                  required
+                  className="w-full bg-ink-800 border border-line-800 focus:border-neon-500 outline-none px-3 h-10 text-[13px] text-white transition-colors"
+                  value={paymentData.name}
+                  onChange={(e) => setPaymentData({ ...paymentData, name: e.target.value })}
+                />
               </div>
 
-              <button type="submit" disabled={loading} className={`w-full mt-4 font-black py-3 px-4 rounded-xl text-black uppercase tracking-wider text-xs ${loading ? 'bg-teal-700 animate-pulse' : 'bg-teal-400 hover:bg-teal-500'}`}>
-                {loading ? 'Committing Arrays...' : `Authorize Payment • ₹${cartTotal.toLocaleString('en-IN')}`}
+              <div>
+                <label className="block font-mono text-[10px] uppercase tracking-[0.22em] text-mute-500 mb-1.5">
+                  card_instance
+                </label>
+                <input
+                  type="text"
+                  className="w-full bg-ink-800 border border-line-800 px-3 h-10 text-[13px] font-mono text-mute-400 cursor-not-allowed"
+                  value={paymentData.cardNumber}
+                  readOnly
+                />
+              </div>
+
+              <div className="border-t border-line-800 pt-4 flex items-center justify-between">
+                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-mute-500">
+                  total_due
+                </div>
+                <div className="font-mono text-[20px] text-white">
+                  ₹{cartTotal.toLocaleString('en-IN')}
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                disabled={loading}
+                className={`w-full h-11 font-mono text-[11px] uppercase tracking-[0.22em] flex items-center justify-center gap-2 transition-colors ${
+                  loading
+                    ? 'bg-neon-600 text-ink-950 opacity-70 cursor-not-allowed'
+                    : 'bg-neon-500 hover:bg-neon-400 text-ink-950'
+                }`}
+              >
+                {loading ? (
+                  <>
+                    <span className="w-3 h-3 border-2 border-ink-950 border-t-transparent animate-spin rounded-full" />
+                    committing arrays…
+                  </>
+                ) : (
+                  <>
+                    authorize payment <ArrowRight size={14} strokeWidth={2.5} />
+                  </>
+                )}
               </button>
             </form>
           </div>
         </div>
       )}
-
     </div>
+  );
+}
+
+function StatTile({ label, value, sub, accent }) {
+  return (
+    <div className="border border-line-800 p-5 bg-ink-850 hover:border-line-700 transition-colors relative">
+      <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-mute-500">
+        <span className={`w-1 h-1 ${accent ? 'bg-neon-500' : 'bg-line-700'}`} />
+        {label}
+      </div>
+      <div className="mt-3 font-mono text-[28px] text-white leading-none">{value}</div>
+      {sub && <div className="mt-2 text-[11px] text-mute-400">{sub}</div>}
+    </div>
+  );
+}
+
+function CatalogView({
+  products, filteredProducts, selectedCategory, setSelectedCategory,
+  selectedBrand, setSelectedBrand, brandList, addToCart,
+  totalStock, flashCount, cartItemCount, cartTotal,
+}) {
+  return (
+    <>
+      <section className="border border-line-800 grid grid-cols-1 lg:grid-cols-12 mb-6">
+        <div className="lg:col-span-7 p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-line-800 relative">
+          <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.24em] text-mute-500">
+            <CircleDot size={11} className="text-neon-500" strokeWidth={2} />
+            <span>flashcart.engine · index/00</span>
+          </div>
+          <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-medium leading-[1.02] tracking-tight text-white">
+            Industrial commerce,
+            <br />
+            <span className="text-mute-400">rendered at </span>
+            <span className="text-neon-500">lightspeed.</span>
+          </h1>
+          <p className="mt-6 text-mute-400 max-w-lg text-[14px] leading-relaxed">
+            A precision inventory grid for makers, tinkerers and impatient shoppers.
+            Filter, stack, and clear transactions through the FlashEngine — no fluff, no friction.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-mute-400 border border-line-800 px-3 h-9">
+              <Wifi size={12} className="text-neon-500" />
+              engine · online
+            </div>
+            <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-mute-400 border border-line-800 px-3 h-9">
+              <span className="text-neon-500">{products.length}</span> skus indexed
+            </div>
+            <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-mute-400 border border-line-800 px-3 h-9">
+              <span className="text-neon-500">{flashCount}</span> low-stock alerts
+            </div>
+          </div>
+        </div>
+        <div className="lg:col-span-5 p-6 lg:p-8 bg-ink-850 relative">
+          <div className="flex items-center gap-1.5">
+            <span className="w-2 h-2 bg-line-700" />
+            <span className="w-2 h-2 bg-line-700" />
+            <span className="w-2 h-2 bg-neon-500 pulse-neon" />
+            <span className="ml-3 font-mono text-[10px] uppercase tracking-[0.22em] text-mute-500">
+              engine.log
+            </span>
+          </div>
+          <pre className="mt-4 font-mono text-[11.5px] leading-6 text-mute-300 whitespace-pre-wrap">
+{`> boot sequence OK
+> load /catalog.idx ........... `}<span className="text-neon-500">{products.length} skus</span>{`
+> compute /stock.tensor ....... `}<span className="text-neon-500">{totalStock} units</span>{`
+> connect flashengine://8080 .. `}<span className="text-neon-500">200 OK</span>{`
+> awaiting user input _`}<span className="text-neon-500 animate-pulse">▍</span>
+          </pre>
+
+          <div className="grid grid-cols-2 gap-3 mt-6">
+            <div className="border border-line-800 p-3">
+              <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-mute-500">cart / items</div>
+              <div className="font-mono text-[22px] text-white mt-1">{cartItemCount}</div>
+            </div>
+            <div className="border border-line-800 p-3">
+              <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-mute-500">cart / total</div>
+              <div className="font-mono text-[22px] text-white mt-1">
+                ₹{cartTotal.toLocaleString('en-IN')}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="grid grid-cols-2 lg:grid-cols-4 gap-0 border border-line-800 border-b-0 mb-6">
+        <StatTile accent label="skus_indexed" value={products.length} sub="live inventory rows" />
+        <StatTile label="units_in_stock" value={totalStock.toLocaleString('en-IN')} sub="aggregate quantity" />
+        <StatTile label="low_stock" value={flashCount} sub="≤ 10 units remaining" />
+        <StatTile label="categories" value={cromaCategories.length} sub="product taxonomies" />
+      </section>
+
+      <section className="mb-6">
+        <div className="flex items-center justify-between mb-3">
+          <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-mute-500">
+            [01] · taxonomies
+          </div>
+          {(selectedCategory || selectedBrand) && (
+            <button
+              onClick={() => { setSelectedCategory(null); setSelectedBrand(null); }}
+              className="font-mono text-[10px] uppercase tracking-[0.22em] text-neon-500 hover:text-neon-400"
+            >
+              clear filters ✕
+            </button>
+          )}
+        </div>
+        <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 border border-line-800 border-b-0">
+          <button
+            onClick={() => { setSelectedCategory(null); setSelectedBrand(null); }}
+            className={`aspect-square border-r border-b border-line-800 flex flex-col items-center justify-center gap-2 transition-colors ${
+              selectedCategory === null
+                ? 'bg-neon-500 text-ink-950'
+                : 'text-mute-300 hover:bg-ink-800 hover:text-white'
+            }`}
+          >
+            <Layers size={18} strokeWidth={1.75} />
+            <span className="font-mono text-[10px] uppercase tracking-[0.16em]">all</span>
+          </button>
+          {cromaCategories.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => { setSelectedCategory(cat.id); setSelectedBrand(null); }}
+              className={`aspect-square border-r border-b border-line-800 flex flex-col items-center justify-center gap-2 transition-colors ${
+                selectedCategory === cat.id
+                  ? 'bg-neon-500 text-ink-950'
+                  : 'text-mute-300 hover:bg-ink-800 hover:text-white'
+              }`}
+            >
+              <span className="text-2xl leading-none">{cat.icon}</span>
+              <span className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-center px-1 leading-tight">
+                {cat.name}
+              </span>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {brandList.length > 0 && (
+        <section className="mb-6">
+          <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-mute-500 mb-3">
+            [02] · manufacturers
+          </div>
+          <div className="flex flex-wrap gap-0 border border-line-800">
+            <button
+              onClick={() => setSelectedBrand(null)}
+              className={`px-3 h-9 border-r border-line-800 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors ${
+                selectedBrand === null
+                  ? 'bg-neon-500 text-ink-950'
+                  : 'text-mute-300 hover:text-white'
+              }`}
+            >
+              all_brands
+            </button>
+            {brandList.map((brand) => (
+              <button
+                key={brand}
+                onClick={() => setSelectedBrand(brand)}
+                className={`px-3 h-9 border-r border-line-800 last:border-r-0 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors ${
+                  selectedBrand === brand
+                    ? 'bg-neon-500 text-ink-950'
+                    : 'text-mute-300 hover:text-white'
+                }`}
+              >
+                {brand}
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <section className="flex items-baseline justify-between mb-3">
+        <div>
+          <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-mute-500">
+            [03] · inventory_grid
+          </div>
+          <div className="text-white text-xl mt-1">
+            {selectedCategory
+              ? cromaCategories.find((c) => c.id === selectedCategory)?.name
+              : 'All products'}
+            {selectedBrand ? <span className="text-mute-400"> / {selectedBrand}</span> : null}
+          </div>
+        </div>
+        <div className="font-mono text-[11px] text-mute-400">
+          <span className="text-neon-500">{filteredProducts.length}</span> result
+          {filteredProducts.length !== 1 ? 's' : ''}
+        </div>
+      </section>
+
+      {filteredProducts.length === 0 ? (
+        <div className="border border-line-800 p-16 text-center">
+          <Package size={22} className="text-mute-500 mx-auto mb-3" />
+          <p className="font-mono text-[12px] uppercase tracking-[0.22em] text-mute-400">
+            no_matches
+          </p>
+        </div>
+      ) : (
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 border-t border-l border-line-800">
+          {filteredProducts.map((product, i) => (
+            <ProductCard key={product.id} product={product} addToCart={addToCart} index={i} />
+          ))}
+        </section>
+      )}
+    </>
+  );
+}
+
+function ProductCard({ product, addToCart, index }) {
+  const price = product.salePrice || product.price || 0;
+  const stock = product.stockLeft ?? 0;
+  const low = stock > 0 && stock <= 10;
+  const out = stock === 0;
+
+  return (
+    <div
+      className="group relative border-r border-b border-line-800 bg-ink-900 hover:bg-ink-850 transition-colors rise-in"
+      style={{ animationDelay: `${Math.min(index * 40, 400)}ms` }}
+    >
+      <div className="relative aspect-square border-b border-line-800 bg-ink-850 overflow-hidden">
+        {product.image ? (
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-contain p-8 transition-transform duration-500 group-hover:scale-105"
+            onError={(e) => {
+              e.target.style.display = 'none';
+              e.target.parentElement.innerHTML +=
+                '<div class="absolute inset-0 flex items-center justify-center text-mute-500"><span class="font-mono text-[11px] uppercase tracking-widest">no_image</span></div>';
+            }}
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center text-mute-500">
+            <Package size={32} strokeWidth={1.25} />
+          </div>
+        )}
+        <div className="absolute top-3 left-3 font-mono text-[9.5px] uppercase tracking-[0.18em] text-mute-400 border border-line-800 bg-ink-900/80 backdrop-blur px-2 py-1">
+          sku·{String(product.id).padStart(4, '0')}
+        </div>
+        {out ? (
+          <div className="absolute top-3 right-3 font-mono text-[9.5px] uppercase tracking-[0.18em] text-red-400 border border-red-900/60 bg-red-950/50 px-2 py-1">
+            depleted
+          </div>
+        ) : low ? (
+          <div className="absolute top-3 right-3 flex items-center gap-1.5 font-mono text-[9.5px] uppercase tracking-[0.18em] text-neon-500 border border-neon-500/40 bg-neon-950/60 px-2 py-1">
+            <span className="w-1 h-1 bg-neon-500 pulse-neon" />
+            flash · {stock} left
+          </div>
+        ) : null}
+      </div>
+      <div className="p-4">
+        <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-mute-500">{product.brand}</div>
+        <h3 className="mt-1.5 text-[14px] leading-snug text-white line-clamp-2 min-h-[2.5rem]">{product.name}</h3>
+        <div className="mt-3 flex items-baseline gap-2">
+          <div className="font-mono text-[18px] text-white">₹{price.toLocaleString('en-IN')}</div>
+          {product.originalPrice && product.originalPrice > price && (
+            <>
+              <div className="font-mono text-[11px] text-mute-500 line-through">
+                ₹{product.originalPrice.toLocaleString('en-IN')}
+              </div>
+              <div className="ml-auto font-mono text-[10px] text-neon-500">
+                −{Math.round(((product.originalPrice - price) / product.originalPrice) * 100)}%
+              </div>
+            </>
+          )}
+        </div>
+        <div className="mt-3 h-[3px] bg-line-900 relative overflow-hidden">
+          <div
+            className={`h-full ${out ? 'bg-red-500/50' : low ? 'bg-neon-500' : 'bg-white/70'}`}
+            style={{ width: `${Math.min(100, Math.max(4, stock))}%` }}
+          />
+        </div>
+        <div className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-mute-500 flex justify-between">
+          <span>stock</span>
+          <span className={out ? 'text-red-400' : low ? 'text-neon-500' : 'text-mute-300'}>{stock} units</span>
+        </div>
+        <button
+          onClick={() => addToCart(product)}
+          disabled={out}
+          className={`mt-4 w-full h-10 font-mono text-[11px] uppercase tracking-[0.22em] flex items-center justify-center gap-2 transition-colors ${
+            out
+              ? 'border border-line-800 text-mute-500 cursor-not-allowed'
+              : 'border border-line-700 hover:border-neon-500 hover:bg-neon-500 hover:text-ink-950 text-white'
+          }`}
+        >
+          {out ? 'out_of_stock' : <>add_to_basket <ArrowRight size={12} strokeWidth={2.5} /></>}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function ProfileView({ userProfile, orderHistory }) {
+  return (
+    <section className="grid grid-cols-1 lg:grid-cols-12 gap-0 border border-line-800">
+      <div className="lg:col-span-4 p-8 border-b lg:border-b-0 lg:border-r border-line-800 bg-ink-850">
+        <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-mute-500">user · context</div>
+        <div className="mt-6 flex items-center gap-4">
+          <div className="w-14 h-14 border border-neon-500 flex items-center justify-center bg-ink-900">
+            <User size={22} className="text-neon-500" strokeWidth={1.5} />
+          </div>
+          <div>
+            <div className="text-white text-lg">{userProfile.name}</div>
+            <div className="font-mono text-[11px] text-mute-400">verified · active</div>
+          </div>
+        </div>
+        <div className="mt-8 grid grid-cols-2 gap-0 border border-line-800">
+          <div className="p-4 border-r border-line-800">
+            <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-mute-500">orders</div>
+            <div className="font-mono text-[22px] text-white mt-1">{orderHistory.length}</div>
+          </div>
+          <div className="p-4">
+            <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-mute-500">nodes</div>
+            <div className="font-mono text-[22px] text-white mt-1">{userProfile.addresses.length}</div>
+          </div>
+        </div>
+      </div>
+      <div className="lg:col-span-8 p-8">
+        <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-mute-500 mb-6">
+          account · details
+        </div>
+        {[
+          { label: 'identifier', value: userProfile.name },
+          { label: 'email_channel', value: userProfile.email, mono: true },
+          { label: 'mobile_handset', value: userProfile.phone, mono: true },
+        ].map((f) => (
+          <div key={f.label} className="grid grid-cols-3 gap-4 border-b border-line-900 py-4 items-baseline">
+            <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-mute-500">{f.label}</div>
+            <div className={`col-span-2 text-[14px] text-white ${f.mono ? 'font-mono text-mute-300' : ''}`}>
+              {f.value}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function HistoryView({ orderHistory, setActiveTab }) {
+  return (
+    <section>
+      <div className="flex items-baseline justify-between mb-4">
+        <div>
+          <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-mute-500">transactions · ledger</div>
+          <div className="text-white text-xl mt-1">Order receipts</div>
+        </div>
+        <div className="font-mono text-[11px] text-mute-400">
+          <span className="text-neon-500">{orderHistory.length}</span> entries
+        </div>
+      </div>
+      {orderHistory.length === 0 ? (
+        <div className="border border-line-800 p-16 text-center">
+          <ClipboardList size={22} className="text-mute-500 mx-auto mb-3" />
+          <p className="font-mono text-[12px] uppercase tracking-[0.22em] text-mute-400">no_transactions_logged</p>
+          <p className="text-mute-500 mt-2 text-[13px]">Complete a checkout to persist an order receipt.</p>
+          <button
+            onClick={() => setActiveTab('catalog')}
+            className="mt-6 border border-line-700 hover:border-neon-500 hover:bg-neon-500 hover:text-ink-950 text-white font-mono text-[11px] uppercase tracking-[0.22em] px-4 h-10 inline-flex items-center gap-2 transition-colors"
+          >
+            browse catalog <ArrowRight size={12} strokeWidth={2.5} />
+          </button>
+        </div>
+      ) : (
+        <div className="border border-line-800">
+          <div className="hidden md:grid grid-cols-12 gap-4 px-5 h-10 items-center border-b border-line-800 bg-ink-850 font-mono text-[10px] uppercase tracking-[0.22em] text-mute-500">
+            <div className="col-span-2">receipt_id</div>
+            <div className="col-span-3">timestamp</div>
+            <div className="col-span-4">customer</div>
+            <div className="col-span-2 text-right">total</div>
+            <div className="col-span-1 text-right">status</div>
+          </div>
+          {orderHistory.map((order, idx) => (
+            <div
+              key={order.id}
+              className={`grid grid-cols-1 md:grid-cols-12 gap-4 px-5 py-4 items-center border-b border-line-900 last:border-b-0 ${
+                idx % 2 === 0 ? 'bg-transparent' : 'bg-ink-850/50'
+              }`}
+            >
+              <div className="md:col-span-2 font-mono text-[12px] text-neon-500">#{order.id}</div>
+              <div className="md:col-span-3 font-mono text-[11.5px] text-mute-300">
+                {new Date(order.purchaseTime).toLocaleString()}
+              </div>
+              <div className="md:col-span-4 text-[13px] text-white">{order.customerName}</div>
+              <div className="md:col-span-2 text-right font-mono text-[14px] text-white">
+                ₹{order.totalPrice.toLocaleString('en-IN')}
+              </div>
+              <div className="md:col-span-1 flex md:justify-end">
+                <span className="inline-flex items-center gap-1.5 font-mono text-[9.5px] uppercase tracking-[0.18em] text-neon-500 border border-neon-500/40 bg-neon-950/50 px-2 py-1">
+                  <span className="w-1 h-1 bg-neon-500" />
+                  committed
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </section>
+  );
+}
+
+function AddressesView({
+  userProfile, newAddressType, setNewAddressType,
+  newAddressDetail, setNewAddressDetail, handleAddAddress,
+}) {
+  return (
+    <section className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <div className="lg:col-span-7 border border-line-800">
+        <div className="px-5 h-11 flex items-center border-b border-line-800 bg-ink-850">
+          <MapPin size={13} className="text-neon-500 mr-2" />
+          <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-mute-400">saved · delivery_nodes</span>
+        </div>
+        {userProfile.addresses.length === 0 ? (
+          <div className="p-8 text-center text-mute-500 text-[13px]">No delivery nodes configured.</div>
+        ) : (
+          userProfile.addresses.map((addr) => (
+            <div key={addr.id} className="grid grid-cols-12 gap-4 px-5 py-4 border-b border-line-900 last:border-b-0 items-start">
+              <div className="col-span-3 sm:col-span-2">
+                <span className="inline-flex font-mono text-[10px] uppercase tracking-[0.22em] text-neon-500 border border-neon-500/40 bg-neon-950/50 px-2 py-1">
+                  {addr.type}
+                </span>
+              </div>
+              <div className="col-span-9 sm:col-span-10 text-[13px] text-mute-300 leading-relaxed">{addr.detail}</div>
+            </div>
+          ))
+        )}
+      </div>
+      <form onSubmit={handleAddAddress} className="lg:col-span-5 border border-line-800 flex flex-col">
+        <div className="px-5 h-11 flex items-center border-b border-line-800 bg-ink-850">
+          <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-mute-400">append · new_node</span>
+        </div>
+        <div className="p-5 space-y-4">
+          <div>
+            <label className="block font-mono text-[10px] uppercase tracking-[0.22em] text-mute-500 mb-2">node_type</label>
+            <div className="flex border border-line-800">
+              {['Home', 'Office', 'Other'].map((t) => (
+                <button
+                  key={t}
+                  type="button"
+                  onClick={() => setNewAddressType(t)}
+                  className={`flex-1 h-9 font-mono text-[10.5px] uppercase tracking-[0.22em] border-r border-line-800 last:border-r-0 transition-colors ${
+                    newAddressType === t ? 'bg-neon-500 text-ink-950' : 'text-mute-300 hover:text-white'
+                  }`}
+                >
+                  {t}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div>
+            <label className="block font-mono text-[10px] uppercase tracking-[0.22em] text-mute-500 mb-2">coordinates</label>
+            <textarea
+              required
+              rows={4}
+              placeholder="street / flat / city / pin ..."
+              value={newAddressDetail}
+              onChange={(e) => setNewAddressDetail(e.target.value)}
+              className="w-full bg-ink-800 border border-line-800 focus:border-neon-500 outline-none px-3 py-2.5 text-[13px] text-white transition-colors resize-none"
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full h-10 bg-neon-500 hover:bg-neon-400 text-ink-950 font-mono text-[11px] uppercase tracking-[0.22em] flex items-center justify-center gap-2 transition-colors"
+          >
+            save_node <ArrowRight size={12} strokeWidth={2.5} />
+          </button>
+        </div>
+      </form>
+    </section>
   );
 }
