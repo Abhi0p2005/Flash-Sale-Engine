@@ -19,25 +19,24 @@ public class DatabaseConfig {
         Map<String, String> env = System.getenv();
 
         log.info("=== DATABASE ENV VARS ===");
-        log.info("DATABASE_URL={}", env.getOrDefault("DATABASE_URL", "NOT SET"));
         log.info("PGHOST={}", env.getOrDefault("PGHOST", "NOT SET"));
         log.info("PGPORT={}", env.getOrDefault("PGPORT", "NOT SET"));
         log.info("PGDATABASE={}", env.getOrDefault("PGDATABASE", "NOT SET"));
         log.info("PGUSER={}", env.getOrDefault("PGUSER", "NOT SET"));
         log.info("PGPASSWORD={}", env.containsKey("PGPASSWORD") ? "SET" : "NOT SET");
+        log.info("DATABASE_URL={}", env.getOrDefault("DATABASE_URL", "NOT SET"));
         log.info("DATABASE_PORT={}", env.getOrDefault("DATABASE_PORT", "NOT SET"));
-        log.info("DATABASE_USERNAME={}", env.getOrDefault("DATABASE_USERNAME", "NOT SET"));
-        log.info("DATABASE_PASSWORD={}", env.containsKey("DATABASE_PASSWORD") ? "SET" : "NOT SET");
 
-        String host = env.getOrDefault("PGHOST", env.getOrDefault("DATABASE_HOST", "flashengine-db"));
+        String host = "flashengine-db";
         String port = env.getOrDefault("PGPORT", env.getOrDefault("DATABASE_PORT", "5432"));
         String database = env.getOrDefault("PGDATABASE", "flashengine");
         String user = env.getOrDefault("PGUSER", env.getOrDefault("DATABASE_USERNAME", "postgres"));
         String password = env.getOrDefault("PGPASSWORD", env.getOrDefault("DATABASE_PASSWORD", "Abhi@1289"));
 
-        String jdbcUrl = "jdbc:postgresql://" + host + ":" + port + "/" + database + "?sslmode=require";
+        log.info("Using host={} port={} database={} user={}", host, port, database, user);
 
-        log.info("Constructed JDBC URL: jdbc:postgresql://{}:{}/{}?sslmode=require (password hidden)", host, port, database);
+        String jdbcUrl = "jdbc:postgresql://" + host + ":" + port + "/" + database + "?sslmode=require";
+        log.info("Constructed JDBC URL: {}", jdbcUrl.replaceAll(":[^:@]+@", ":****@"));
 
         return DataSourceBuilder.create()
             .url(jdbcUrl)
