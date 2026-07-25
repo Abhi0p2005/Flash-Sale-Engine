@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: flashengine-api
+    runtime: docker
+    repo: https://github.com/Abhi0p2005/Flash-Sale-Engine
+    dockerfilePath: ./backend/Dockerfile
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: flashengine-db
+          property: connectionString
+      - key: DATABASE_USERNAME
+        fromDatabase:
+          name: flashengine-db
+          property: user
+      - key: DATABASE_PASSWORD
+        fromDatabase:
+          name: flashengine-db
+          property: password
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: flashengine-redis
+          property: connectionString
+      - key: JWT_ACCESS_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: RABBITMQ_ENABLED
+        value: "false"
+
+databases:
+  - name: flashengine-db
+    databaseName: flashengine
+    plan: free
+
+redis:
+  - name: flashengine-redis
+    plan: free

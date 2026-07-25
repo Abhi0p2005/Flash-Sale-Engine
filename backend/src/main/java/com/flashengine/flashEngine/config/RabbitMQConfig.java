@@ -1,6 +1,7 @@
 package com.flashengine.flashEngine.config;
 
 import org.springframework.amqp.core.*;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -8,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
+@ConditionalOnProperty(name = "rabbitmq.enabled", havingValue = "true", matchIfMissing = true)
 public class RabbitMQConfig {
     
     public static final String FLASH_SALE_QUEUE = "flash_sale_orders_queue";
