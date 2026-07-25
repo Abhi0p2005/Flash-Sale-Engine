@@ -64,4 +64,12 @@ public class ProductService {
         }
         return products;
     }
+
+    public Product saveProduct(Product product) {
+        return productRepository.save(product);
+    }
+
+    public List<Product> saveAllProducts(List<Product> products) {
+        return productRepository.saveAll(products);
+    }
 }

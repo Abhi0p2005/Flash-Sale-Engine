@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/products")
@@ -34,5 +35,14 @@ public class ProductController {
     @GetMapping("/search")
     public ResponseEntity<List<Product>> searchProducts(@RequestParam String q) {
         return ResponseEntity.ok(productService.searchProducts(q));
+    }
+
+    @PostMapping("/seed")
+    public ResponseEntity<Map<String, Object>> seedProducts(@RequestBody List<Product> products) {
+        List<Product> saved = productService.saveAllProducts(products);
+        return ResponseEntity.ok(Map.of(
+            "success", true,
+            "count", saved.size()
+        ));
     }
 }
