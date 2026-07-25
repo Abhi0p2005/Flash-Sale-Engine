@@ -11,13 +11,14 @@ public class DatabaseConfig {
 
     @Bean
     public DataSource dataSource() {
-        String host = env("PGHOST", "flashengine-db");
-        String port = env("PGPORT", env("DATABASE_PORT", "5432"));
-        String database = env("PGDATABASE", "flashengine");
-        String user = env("PGUSER", env("DATABASE_USERNAME", "postgres"));
-        String password = env("PGPASSWORD", env("DATABASE_PASSWORD", "Abhi@1289"));
+        String port = env("DATABASE_PORT", "5432");
+        String user = env("DATABASE_USERNAME", "postgres");
+        String password = env("DATABASE_PASSWORD", "Abhi@1289");
 
-        String jdbcUrl = "jdbc:postgresql://" + host + ":" + port + "/" + database + "?sslmode=require";
+        String dbUrl = env("DATABASE_URL", "postgresql://localhost:5432/flashengine");
+        String database = dbUrl.replaceFirst(".*/([^?]+).*", "$1");
+
+        String jdbcUrl = "jdbc:postgresql://flashengine-db:" + port + "/" + database + "?sslmode=require";
 
         return DataSourceBuilder.create()
             .url(jdbcUrl)
