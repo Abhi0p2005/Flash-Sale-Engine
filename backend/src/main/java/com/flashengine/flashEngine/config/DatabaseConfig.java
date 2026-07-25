@@ -1,5 +1,7 @@
 package com.flashengine.flashEngine.config;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Map;
 import javax.sql.DataSource;
 
@@ -25,13 +27,41 @@ public class DatabaseConfig {
         log.info("PGUSER={}", env.getOrDefault("PGUSER", "NOT SET"));
         log.info("PGPASSWORD={}", env.containsKey("PGPASSWORD") ? "SET" : "NOT SET");
         log.info("DATABASE_URL={}", env.getOrDefault("DATABASE_URL", "NOT SET"));
-        log.info("DATABASE_PORT={}", env.getOrDefault("DATABASE_PORT", "NOT SET"));
 
-        String host = "flashengine-db";
-        String port = env.getOrDefault("PGPORT", env.getOrDefault("DATABASE_PORT", "5432"));
-        String database = env.getOrDefault("PGDATABASE", "flashengine");
-        String user = env.getOrDefault("PGUSER", env.getOrDefault("DATABASE_USERNAME", "postgres"));
-        String password = env.getOrDefault("PGPASSWORD", env.getOrDefault("DATABASE_PASSWORD", "Abhi@1289"));
+        String databaseUrl = env.get("DATABASE_URL");
+        String host, port, database, user, password;
+
+        if (databaseUrl != null && !databaseUrl.isBlank()) {
+            try {
+                URI uri = new URI(databaseUrl);
+                host = uri.getHost();
+                port = String.valueOf(uri.getPort() > 0 ? uri.getPort() : 5432);
+                database = uri.getPath().replace("/", "");
+                String userInfo = uri.getUserInfo();
+                if (userInfo != null) {
+                    String[] parts = userInfo.split(":");
+                    user = parts[0];
+                    password = parts.length > 1 ? parts[1] : "";
+                } else {
+                    user = "";
+                    password = "";
+                }
+                log.info("Parsed database connection from DATABASE_URL");
+            } catch (URISyntaxException e) {
+                log.error("Failed to parse DATABASE_URL, falling back to individual env vars", e);
+                host = "flashengine-db";
+                port = env.getOrDefault("PGPORT", env.getOrDefault("DATABASE_PORT", "5432"));
+                database = env.getOrDefault("PGDATABASE", "flashengine");
+                user = env.getOrDefault("PGUSER", env.getOrDefault("DATABASE_USERNAME", "postgres"));
+                password = env.getOrDefault("PGPASSWORD", env.getOrDefault("DATABASE_PASSWORD", "Abhi@1289"));
+            }
+        } else {
+            host = "flashengine-db";
+            port = env.getOrDefault("PGPORT", env.getOrDefault("DATABASE_PORT", "5432"));
+            database = env.getOrDefault("PGDATABASE", "flashengine");
+            user = env.getOrDefault("PGUSER", env.getOrDefault("DATABASE_USERNAME", "postgres"));
+            password = env.getOrDefault("PGPASSWORD", env.getOrDefault("DATABASE_PASSWORD", "Abhi@1289"));
+        }
 
         log.info("Using host={} port={} database={} user={}", host, port, database, user);
 
