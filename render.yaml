@@ -18,8 +18,7 @@ services:
           name: flashengine-db
           property: password
       - key: REDIS_URL
-        fromService:
-          type: redis
+        fromDatabase:
           name: flashengine-redis
           property: connectionString
       - key: JWT_ACCESS_SECRET
@@ -33,7 +32,6 @@ databases:
   - name: flashengine-db
     databaseName: flashengine
     plan: free
-
-redis:
   - name: flashengine-redis
+    type: redis
     plan: free
