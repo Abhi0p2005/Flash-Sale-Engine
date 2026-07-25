@@ -9,7 +9,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/api/flash")
-@CrossOrigin(origins = "http://localhost:5173", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST})
+@CrossOrigin(originPatterns = {"http://localhost:5173", "https://*.vercel.app"}, allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST})
 public class FlashInventoryController {
 
     private final StringRedisTemplate redisTemplate;
