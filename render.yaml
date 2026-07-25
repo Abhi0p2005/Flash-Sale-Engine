@@ -18,7 +18,8 @@ services:
           name: flashengine-db
           property: password
       - key: REDIS_URL
-        fromDatabase:
+        fromService:
+          type: keyvalue
           name: flashengine-redis
           property: connectionString
       - key: JWT_ACCESS_SECRET
@@ -28,10 +29,14 @@ services:
       - key: RABBITMQ_ENABLED
         value: "false"
 
+  - type: keyvalue
+    name: flashengine-redis
+    plan: free
+    ipAllowList:
+      - source: 0.0.0.0/0
+        description: everywhere
+
 databases:
   - name: flashengine-db
     databaseName: flashengine
-    plan: free
-  - name: flashengine-redis
-    type: redis
     plan: free
