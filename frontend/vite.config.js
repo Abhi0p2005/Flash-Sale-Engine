@@ -17,6 +17,34 @@ export default defineConfig({
         target: 'http://localhost:8000',
         changeOrigin: true,
       },
+      '/api/auth': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+      },
+      '/api/cart': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+      },
+      '/api/wishlist': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+      },
+      '/api/v1': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+      },
+      '/api/users': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+      },
+      '/api/products': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+      },
+      '/api/admin': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+      },
     },
   },
 })
