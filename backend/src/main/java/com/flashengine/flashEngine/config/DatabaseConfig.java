@@ -18,8 +18,13 @@ public class DatabaseConfig {
             dbUrl = dbUrl.replaceFirst("(@[^:/]+)(/)", "$1:" + dbPort + "$2");
         }
 
+        String jdbcUrl = "jdbc:" + dbUrl;
+        if (!jdbcUrl.contains("sslmode")) {
+            jdbcUrl += (dbUrl.contains("?") ? "&" : "?") + "sslmode=require";
+        }
+
         return DataSourceBuilder.create()
-            .url("jdbc:" + dbUrl)
+            .url(jdbcUrl)
             .driverClassName("org.postgresql.Driver")
             .username(env("DATABASE_USERNAME", "postgres"))
             .password(env("DATABASE_PASSWORD", "Abhi@1289"))
