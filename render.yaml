@@ -6,10 +6,18 @@ services:
     dockerfilePath: ./backend/Dockerfile
     plan: free
     envVars:
-      - key: DATABASE_URL
+      - key: DATABASE_HOST
         fromDatabase:
           name: flashengine-db
-          property: connectionString
+          property: hostname
+      - key: DATABASE_PORT
+        fromDatabase:
+          name: flashengine-db
+          property: port
+      - key: DATABASE_NAME
+        fromDatabase:
+          name: flashengine-db
+          property: databaseName
       - key: DATABASE_USERNAME
         fromDatabase:
           name: flashengine-db
