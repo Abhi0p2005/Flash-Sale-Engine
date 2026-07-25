@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import MarketPlace from './MarketPlace';
 import PulseAIAssistant from './components/PulseAIAssistant';
-import { cromaProducts, MOCK_USER_PROFILE } from './cromaData.js';
+import { MOCK_USER_PROFILE } from './cromaData.js';
+import scrapedProducts from '../scraped_final.json';
 
 export default function App() {
   const [products, setProducts] = useState([]);
@@ -23,7 +24,7 @@ export default function App() {
   const [paymentData, setPaymentData] = useState({ name: userProfile.name, cardNumber: '' });
 
   useEffect(() => {
-    setProducts(cromaProducts);
+    setProducts(scrapedProducts);
     fetchOrderHistory();
   }, []);
 

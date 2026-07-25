@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { cromaCategories } from './cromaData.js';
 import {
   ShoppingCart,
@@ -17,6 +17,10 @@ import {
   CircleDot,
   Layers,
   Wifi,
+  ChevronLeft,
+  ChevronRight,
+  Star,
+  FileText,
 } from 'lucide-react';
 
 export default function MarketPlace({
@@ -62,6 +66,10 @@ export default function MarketPlace({
 }) {
   const totalStock = products.reduce((s, p) => s + (p.stockLeft || 0), 0);
   const flashCount = products.filter((p) => (p.stockLeft || 0) <= 10).length;
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const onSelectProduct = (product) => setSelectedProduct(product);
+  const onCloseDetail = () => setSelectedProduct(null);
 
   return (
     <div className="min-h-screen bg-ink-900 text-white antialiased">
@@ -200,7 +208,13 @@ export default function MarketPlace({
       )}
 
       <main className="max-w-[1440px] mx-auto px-6 py-8">
-        {activeTab === 'catalog' && (
+        {selectedProduct ? (
+          <ProductDetail
+            product={selectedProduct}
+            addToCart={addToCart}
+            onClose={onCloseDetail}
+          />
+        ) : activeTab === 'catalog' ? (
           <CatalogView
             products={products}
             filteredProducts={filteredProducts}
@@ -214,11 +228,13 @@ export default function MarketPlace({
             flashCount={flashCount}
             cartItemCount={cartItemCount}
             cartTotal={cartTotal}
+            onSelectProduct={onSelectProduct}
           />
-        )}
-        {activeTab === 'profile' && <ProfileView userProfile={userProfile} orderHistory={orderHistory} />}
-        {activeTab === 'history' && <HistoryView orderHistory={orderHistory} setActiveTab={setActiveTab} />}
-        {activeTab === 'addresses' && (
+        ) : activeTab === 'profile' ? (
+          <ProfileView userProfile={userProfile} orderHistory={orderHistory} />
+        ) : activeTab === 'history' ? (
+          <HistoryView orderHistory={orderHistory} setActiveTab={setActiveTab} />
+        ) : (
           <AddressesView
             userProfile={userProfile}
             newAddressType={newAddressType}
@@ -449,6 +465,7 @@ function CatalogView({
   products, filteredProducts, selectedCategory, setSelectedCategory,
   selectedBrand, setSelectedBrand, brandList, addToCart,
   totalStock, flashCount, cartItemCount, cartTotal,
+  onSelectProduct,
 }) {
   return (
     <>
@@ -626,7 +643,7 @@ function CatalogView({
       ) : (
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 border-t border-l border-line-800">
           {filteredProducts.map((product, i) => (
-            <ProductCard key={product.id} product={product} addToCart={addToCart} index={i} />
+            <ProductCard key={product.id} product={product} addToCart={addToCart} index={i} onSelectProduct={onSelectProduct} />
           ))}
         </section>
       )}
@@ -634,37 +651,78 @@ function CatalogView({
   );
 }
 
-function ProductCard({ product, addToCart, index }) {
+function ProductCard({ product, addToCart, index, onSelectProduct }) {
+  const [imgIdx, setImgIdx] = useState(0);
+  const [showSpecs, setShowSpecs] = useState(false);
   const price = product.salePrice || product.price || 0;
   const stock = product.stockLeft ?? 0;
   const low = stock > 0 && stock <= 10;
   const out = stock === 0;
+  const images = product.images?.length > 0 ? product.images : null;
+  const specs = product.specifications && Object.keys(product.specifications).length > 0 ? product.specifications : null;
+
+  const nextImg = (e) => { e.stopPropagation(); setImgIdx((prev) => (prev + 1) % images.length); };
+  const prevImg = (e) => { e.stopPropagation(); setImgIdx((prev) => (prev - 1 + images.length) % images.length); };
 
   return (
+    <>
     <div
-      className="group relative border-r border-b border-line-800 bg-ink-900 hover:bg-ink-850 transition-colors rise-in"
+      className="group relative border-r border-b border-line-800 bg-ink-900 hover:bg-ink-850 transition-colors rise-in cursor-pointer"
       style={{ animationDelay: `${Math.min(index * 40, 400)}ms` }}
+      onClick={() => onSelectProduct(product)}
     >
       <div className="relative aspect-square border-b border-line-800 bg-ink-850 overflow-hidden">
-        {product.image ? (
-          <img
-            src={product.image}
-            alt={product.name}
-            className="w-full h-full object-contain p-8 transition-transform duration-500 group-hover:scale-105"
-            onError={(e) => {
-              e.target.style.display = 'none';
-              e.target.parentElement.innerHTML +=
-                '<div class="absolute inset-0 flex items-center justify-center text-mute-500"><span class="font-mono text-[11px] uppercase tracking-widest">no_image</span></div>';
-            }}
-          />
+        {images ? (
+          <div className="relative w-full h-full">
+            <img
+              src={images[imgIdx]}
+              alt={product.name}
+              className="w-full h-full object-contain p-8 transition-transform duration-500 group-hover:scale-105"
+              onError={(e) => {
+                e.target.style.display = 'none';
+              }}
+            />
+            {images.length > 1 && (
+              <>
+                <button
+                  onClick={prevImg}
+                  className="absolute left-1 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center bg-ink-900/70 backdrop-blur border border-line-800 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-neon-500 hover:text-ink-950"
+                >
+                  <ChevronLeft size={14} strokeWidth={2.5} />
+                </button>
+                <button
+                  onClick={nextImg}
+                  className="absolute right-1 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center bg-ink-900/70 backdrop-blur border border-line-800 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-neon-500 hover:text-ink-950"
+                >
+                  <ChevronRight size={14} strokeWidth={2.5} />
+                </button>
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
+                  {images.map((_, i) => (
+                    <span
+                      key={i}
+                      className={`w-1.5 h-1.5 rounded-full transition-colors ${
+                        i === imgIdx ? 'bg-neon-500' : 'bg-white/40'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+            {product.rating > 0 && (
+              <div className="absolute top-3 left-3 flex items-center gap-1 font-mono text-[10px] text-yellow-400 border border-yellow-600/40 bg-ink-900/80 backdrop-blur px-2 py-1">
+                <Star size={10} strokeWidth={2.5} fill="currentColor" />
+                {product.rating}
+                {product.reviewCount > 0 && (
+                  <span className="text-mute-500 ml-1">({product.reviewCount})</span>
+                )}
+              </div>
+            )}
+          </div>
         ) : (
           <div className="absolute inset-0 flex items-center justify-center text-mute-500">
             <Package size={32} strokeWidth={1.25} />
           </div>
         )}
-        <div className="absolute top-3 left-3 font-mono text-[9.5px] uppercase tracking-[0.18em] text-mute-400 border border-line-800 bg-ink-900/80 backdrop-blur px-2 py-1">
-          sku·{String(product.id).padStart(4, '0')}
-        </div>
         {out ? (
           <div className="absolute top-3 right-3 font-mono text-[9.5px] uppercase tracking-[0.18em] text-red-400 border border-red-900/60 bg-red-950/50 px-2 py-1">
             depleted
@@ -692,6 +750,15 @@ function ProductCard({ product, addToCart, index }) {
             </>
           )}
         </div>
+        {specs && (
+          <button
+            onClick={(e) => { e.stopPropagation(); setShowSpecs(true); }}
+            className="mt-2 flex items-center gap-1 font-mono text-[9.5px] uppercase tracking-[0.18em] text-mute-400 hover:text-neon-500 transition-colors"
+          >
+            <FileText size={10} strokeWidth={2} />
+            view specs ({Object.keys(specs).length})
+          </button>
+        )}
         <div className="mt-3 h-[3px] bg-line-900 relative overflow-hidden">
           <div
             className={`h-full ${out ? 'bg-red-500/50' : low ? 'bg-neon-500' : 'bg-white/70'}`}
@@ -703,7 +770,7 @@ function ProductCard({ product, addToCart, index }) {
           <span className={out ? 'text-red-400' : low ? 'text-neon-500' : 'text-mute-300'}>{stock} units</span>
         </div>
         <button
-          onClick={() => addToCart(product)}
+          onClick={(e) => { e.stopPropagation(); addToCart(product); }}
           disabled={out}
           className={`mt-4 w-full h-10 font-mono text-[11px] uppercase tracking-[0.22em] flex items-center justify-center gap-2 transition-colors ${
             out
@@ -715,6 +782,219 @@ function ProductCard({ product, addToCart, index }) {
         </button>
       </div>
     </div>
+
+    {showSpecs && specs && (
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center p-4"
+        onClick={() => setShowSpecs(false)}
+      >
+        <div className="absolute inset-0 bg-black/80 backdrop-blur-md" />
+        <div
+          className="relative w-full max-w-lg bg-ink-850 border border-line-800 max-h-[80vh] overflow-y-auto slide-up"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="flex items-center justify-between px-5 h-12 border-b border-line-800 bg-ink-900 sticky top-0 z-10">
+            <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-neon-500">
+              <FileText size={12} strokeWidth={2} />
+              specifications
+            </div>
+            <button onClick={() => setShowSpecs(false)} className="text-mute-400 hover:text-white">
+              <X size={16} />
+            </button>
+          </div>
+          <div className="p-5">
+            <h3 className="text-white text-[15px] mb-4">{product.name}</h3>
+            <table className="w-full">
+              <tbody>
+                {Object.entries(specs).map(([key, val]) => (
+                  <tr key={key} className="border-b border-line-900 last:border-b-0">
+                    <td className="py-2.5 pr-4 font-mono text-[10px] uppercase tracking-[0.16em] text-mute-400 align-top w-2/5">
+                      {key}
+                    </td>
+                    <td className="py-2.5 text-[13px] text-white">{val}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    )}
+    </>
+  );
+}
+
+function ProductDetail({ product, addToCart, onClose }) {
+  const [imgIdx, setImgIdx] = useState(0);
+  const images = product.images?.length > 0 ? product.images : null;
+  const specs = product.specifications && Object.keys(product.specifications).length > 0 ? product.specifications : null;
+  const reviews = product.reviews?.length > 0 ? product.reviews : null;
+  const price = product.salePrice || product.price || 0;
+
+  const nextImg = (e) => { e.stopPropagation(); setImgIdx((prev) => (prev + 1) % images.length); };
+  const prevImg = (e) => { e.stopPropagation(); setImgIdx((prev) => (prev - 1 + images.length) % images.length); };
+
+  return (
+    <section className="border border-line-800 animate-in fade-in slide-in-from-bottom-4 duration-300">
+      {/* Header */}
+      <div className="flex items-center justify-between px-6 h-12 border-b border-line-800 bg-ink-900">
+        <button
+          onClick={onClose}
+          className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-mute-400 hover:text-white transition-colors"
+        >
+          <ChevronLeft size={14} strokeWidth={2} />
+          back to catalog
+        </button>
+        <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-mute-500">
+          <span className="text-neon-500">{product.brand}</span>
+          <span className="text-mute-600">/</span>
+          {product.category}
+        </div>
+      </div>
+
+      {/* Image carousel */}
+      <div className="relative bg-ink-850 border-b border-line-800">
+        <div className="max-h-[60vh] min-h-[320px] flex items-center justify-center">
+          {images ? (
+            <div className="relative w-full h-full flex items-center justify-center">
+              <img
+                src={images[imgIdx]}
+                alt={product.name}
+                className="max-h-[60vh] w-auto max-w-full object-contain p-8"
+                onError={(e) => { e.target.style.display = 'none'; }}
+              />
+              {images.length > 1 && (
+                <>
+                  <button onClick={prevImg} className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center bg-ink-900/70 backdrop-blur border border-line-800 text-white hover:bg-neon-500 hover:text-ink-950 transition-colors">
+                    <ChevronLeft size={18} strokeWidth={2.5} />
+                  </button>
+                  <button onClick={nextImg} className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center bg-ink-900/70 backdrop-blur border border-line-800 text-white hover:bg-neon-500 hover:text-ink-950 transition-colors">
+                    <ChevronRight size={18} strokeWidth={2.5} />
+                  </button>
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2">
+                    {images.map((_, i) => (
+                      <span key={i} className={`w-2 h-2 rounded-full transition-colors ${i === imgIdx ? 'bg-neon-500' : 'bg-white/40'}`} />
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+          ) : (
+            <div className="flex items-center justify-center text-mute-500 h-80">
+              <Package size={48} strokeWidth={1.25} />
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Content grid: details + specs + reviews */}
+      <div className="grid grid-cols-1 lg:grid-cols-12">
+        {/* Left: Product info + Ratings + Add to cart */}
+        <div className="lg:col-span-5 p-6 lg:p-8 border-b lg:border-b-0 lg:border-r border-line-800">
+          <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-mute-500">{product.brand}</div>
+          <h1 className="mt-2 text-xl lg:text-2xl text-white leading-snug">{product.name}</h1>
+
+          <div className="mt-4 flex items-baseline gap-3">
+            <div className="font-mono text-[26px] text-white">₹{price.toLocaleString('en-IN')}</div>
+            {product.originalPrice && product.originalPrice > price && (
+              <>
+                <div className="font-mono text-[14px] text-mute-500 line-through">
+                  ₹{product.originalPrice.toLocaleString('en-IN')}
+                </div>
+                <div className="font-mono text-[12px] text-neon-500">
+                  −{Math.round(((product.originalPrice - price) / product.originalPrice) * 100)}%
+                </div>
+              </>
+            )}
+          </div>
+
+          {/* Rating badge */}
+          <div className="mt-5 flex items-center gap-3">
+            <div className="flex items-center gap-1.5 font-mono text-[14px] text-yellow-400">
+              <Star size={16} strokeWidth={2.5} fill="currentColor" />
+              {product.rating}
+            </div>
+            {product.reviewCount > 0 && (
+              <div className="font-mono text-[12px] text-mute-400">
+                {product.reviewCount.toLocaleString('en-IN')} review{product.reviewCount !== 1 ? 's' : ''}
+              </div>
+            )}
+            <div className="font-mono text-[11px] text-mute-500 border border-line-800 px-2 py-0.5">
+              stock · {product.stockLeft ?? 0}
+            </div>
+          </div>
+
+          <button
+            onClick={(e) => { e.stopPropagation(); addToCart(product); }}
+            disabled={(product.stockLeft ?? 0) === 0}
+            className={`mt-6 w-full h-11 font-mono text-[12px] uppercase tracking-[0.22em] flex items-center justify-center gap-2 transition-colors ${
+              (product.stockLeft ?? 0) === 0
+                ? 'border border-line-800 text-mute-500 cursor-not-allowed'
+                : 'border border-line-700 hover:border-neon-500 hover:bg-neon-500 hover:text-ink-950 text-white'
+            }`}
+          >
+            {(product.stockLeft ?? 0) === 0 ? 'out_of_stock' : <>add_to_basket <ArrowRight size={14} strokeWidth={2.5} /></>}
+          </button>
+
+          {/* Specifications */}
+          {specs && (
+            <div className="mt-8">
+              <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.24em] text-neon-500 mb-4">
+                <FileText size={12} strokeWidth={2} />
+                specifications
+              </div>
+              <table className="w-full">
+                <tbody>
+                  {Object.entries(specs).map(([key, val]) => (
+                    <tr key={key} className="border-b border-line-900 last:border-b-0">
+                      <td className="py-2.5 pr-4 font-mono text-[10px] uppercase tracking-[0.16em] text-mute-400 align-top w-2/5">{key}</td>
+                      <td className="py-2.5 text-[13px] text-white">{val}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
+
+        {/* Right: Reviews */}
+        <div className="lg:col-span-7 p-6 lg:p-8">
+          <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.24em] text-neon-500 mb-6">
+            <Star size={12} strokeWidth={2} />
+            customer reviews
+            {product.reviewCount > 0 && (
+              <span className="text-mute-500">({product.reviewCount.toLocaleString('en-IN')})</span>
+            )}
+          </div>
+
+          {reviews ? (
+            <div className="space-y-5">
+              {reviews.map((review, i) => (
+                <div key={i} className="border border-line-800 p-4">
+                  <div className="flex items-center justify-between">
+                    <div className="font-mono text-[12px] text-white">{review.title || 'Review'}</div>
+                    <div className="flex items-center gap-1 font-mono text-[11px] text-yellow-400">
+                      <Star size={10} strokeWidth={2.5} fill="currentColor" />
+                      {review.rating || product.rating}
+                    </div>
+                  </div>
+                  <div className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-mute-500">
+                    {review.author || 'Verified Buyer'}
+                  </div>
+                  <p className="mt-2 text-[13px] text-mute-300 leading-relaxed">{review.text}</p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="border border-line-800 p-8 text-center">
+              <p className="font-mono text-[12px] uppercase tracking-[0.22em] text-mute-400">
+                no reviews yet
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
   );
 }
 
