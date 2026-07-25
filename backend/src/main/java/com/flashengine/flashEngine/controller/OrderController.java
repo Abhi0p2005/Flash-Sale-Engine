@@ -66,7 +66,9 @@ public class OrderController {
             // Loop through each item in the shopping cart payload and link it to the receipt
             for (OrderRequestDTO.ItemDTO itemDto : dto.getItemsBought()) {
                 OrderItem item = new OrderItem(
-                    itemDto.getProductId(),
+                    Long.valueOf(itemDto.getProductId()),
+                    null,
+                    null,
                     itemDto.getQuantity(),
                     itemDto.getPricePaid()
                 );

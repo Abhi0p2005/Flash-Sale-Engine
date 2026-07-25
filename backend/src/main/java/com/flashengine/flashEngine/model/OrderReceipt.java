@@ -30,10 +30,8 @@ public class OrderReceipt {
 
     public OrderReceipt() {}
 
-    // Helper method to sync bidirectional relationship
     public void addItem(OrderItem item) {
         items.add(item);
-        item.setOrderReceipt(this);
     }
 
     // Getters and Setters

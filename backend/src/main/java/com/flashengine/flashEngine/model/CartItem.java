@@ -2,14 +2,20 @@ package com.flashengine.flashEngine.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "order_items")
-public class OrderItem {
+@Table(name = "cart_items")
+public class CartItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cart_id", nullable = false)
+    @JsonIgnore
+    private Cart cart;
 
     @Column(name = "product_id", nullable = false)
     private Long productId;
@@ -23,26 +29,23 @@ public class OrderItem {
     @Column(nullable = false)
     private Integer quantity;
 
-    @Column(name = "price_paid", nullable = false)
-    private Double pricePaid;
+    @Column(nullable = false)
+    private Double price;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "order_id")
-    @JsonIgnore
-    private Order order;
+    @Column(name = "added_at", nullable = false, updatable = false)
+    private LocalDateTime addedAt;
 
-    public OrderItem() {}
-
-    public OrderItem(Long productId, String productName, String productImage, Integer quantity, Double pricePaid) {
-        this.productId = productId;
-        this.productName = productName;
-        this.productImage = productImage;
-        this.quantity = quantity;
-        this.pricePaid = pricePaid;
+    @PrePersist
+    protected void onCreate() {
+        addedAt = LocalDateTime.now();
     }
+
+    public CartItem() {}
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
+    public Cart getCart() { return cart; }
+    public void setCart(Cart cart) { this.cart = cart; }
     public Long getProductId() { return productId; }
     public void setProductId(Long productId) { this.productId = productId; }
     public String getProductName() { return productName; }
@@ -51,8 +54,7 @@ public class OrderItem {
     public void setProductImage(String productImage) { this.productImage = productImage; }
     public Integer getQuantity() { return quantity; }
     public void setQuantity(Integer quantity) { this.quantity = quantity; }
-    public Double getPricePaid() { return pricePaid; }
-    public void setPricePaid(Double pricePaid) { this.pricePaid = pricePaid; }
-    public Order getOrder() { return order; }
-    public void setOrder(Order order) { this.order = order; }
+    public Double getPrice() { return price; }
+    public void setPrice(Double price) { this.price = price; }
+    public LocalDateTime getAddedAt() { return addedAt; }
 }
