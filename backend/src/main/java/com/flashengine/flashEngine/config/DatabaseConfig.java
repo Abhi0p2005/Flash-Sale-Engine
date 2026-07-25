@@ -11,23 +11,19 @@ public class DatabaseConfig {
 
     @Bean
     public DataSource dataSource() {
-        String dbUrl = env("DATABASE_URL", "postgresql://localhost:5432/flashengine");
-        String dbPort = env("DATABASE_PORT", "5432");
+        String host = env("PGHOST", "flashengine-db");
+        String port = env("PGPORT", env("DATABASE_PORT", "5432"));
+        String database = env("PGDATABASE", "flashengine");
+        String user = env("PGUSER", env("DATABASE_USERNAME", "postgres"));
+        String password = env("PGPASSWORD", env("DATABASE_PASSWORD", "Abhi@1289"));
 
-        if (!dbUrl.contains(":" + dbPort + "/") && dbUrl.matches(".*@[^:]+/.*")) {
-            dbUrl = dbUrl.replaceFirst("(@[^:/]+)(/)", "$1:" + dbPort + "$2");
-        }
-
-        String jdbcUrl = "jdbc:" + dbUrl;
-        if (!jdbcUrl.contains("sslmode")) {
-            jdbcUrl += (dbUrl.contains("?") ? "&" : "?") + "sslmode=require";
-        }
+        String jdbcUrl = "jdbc:postgresql://" + host + ":" + port + "/" + database + "?sslmode=require";
 
         return DataSourceBuilder.create()
             .url(jdbcUrl)
             .driverClassName("org.postgresql.Driver")
-            .username(env("DATABASE_USERNAME", "postgres"))
-            .password(env("DATABASE_PASSWORD", "Abhi@1289"))
+            .username(user)
+            .password(password)
             .build();
     }
 
