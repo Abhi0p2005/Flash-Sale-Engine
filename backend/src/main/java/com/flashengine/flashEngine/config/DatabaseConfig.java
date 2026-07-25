@@ -1,7 +1,10 @@
 package com.flashengine.flashEngine.config;
 
+import java.util.Map;
 import javax.sql.DataSource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,16 +12,32 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DatabaseConfig {
 
+    private static final Logger log = LoggerFactory.getLogger(DatabaseConfig.class);
+
     @Bean
     public DataSource dataSource() {
-        String port = env("DATABASE_PORT", "5432");
-        String user = env("DATABASE_USERNAME", "postgres");
-        String password = env("DATABASE_PASSWORD", "Abhi@1289");
+        Map<String, String> env = System.getenv();
 
-        String dbUrl = env("DATABASE_URL", "postgresql://localhost:5432/flashengine");
-        String database = dbUrl.replaceFirst(".*/([^?]+).*", "$1");
+        log.info("=== DATABASE ENV VARS ===");
+        log.info("DATABASE_URL={}", env.getOrDefault("DATABASE_URL", "NOT SET"));
+        log.info("PGHOST={}", env.getOrDefault("PGHOST", "NOT SET"));
+        log.info("PGPORT={}", env.getOrDefault("PGPORT", "NOT SET"));
+        log.info("PGDATABASE={}", env.getOrDefault("PGDATABASE", "NOT SET"));
+        log.info("PGUSER={}", env.getOrDefault("PGUSER", "NOT SET"));
+        log.info("PGPASSWORD={}", env.containsKey("PGPASSWORD") ? "SET" : "NOT SET");
+        log.info("DATABASE_PORT={}", env.getOrDefault("DATABASE_PORT", "NOT SET"));
+        log.info("DATABASE_USERNAME={}", env.getOrDefault("DATABASE_USERNAME", "NOT SET"));
+        log.info("DATABASE_PASSWORD={}", env.containsKey("DATABASE_PASSWORD") ? "SET" : "NOT SET");
 
-        String jdbcUrl = "jdbc:postgresql://flashengine-db:" + port + "/" + database + "?sslmode=require";
+        String host = env.getOrDefault("PGHOST", env.getOrDefault("DATABASE_HOST", "flashengine-db"));
+        String port = env.getOrDefault("PGPORT", env.getOrDefault("DATABASE_PORT", "5432"));
+        String database = env.getOrDefault("PGDATABASE", "flashengine");
+        String user = env.getOrDefault("PGUSER", env.getOrDefault("DATABASE_USERNAME", "postgres"));
+        String password = env.getOrDefault("PGPASSWORD", env.getOrDefault("DATABASE_PASSWORD", "Abhi@1289"));
+
+        String jdbcUrl = "jdbc:postgresql://" + host + ":" + port + "/" + database + "?sslmode=require";
+
+        log.info("Constructed JDBC URL: jdbc:postgresql://{}:{}/{}?sslmode=require (password hidden)", host, port, database);
 
         return DataSourceBuilder.create()
             .url(jdbcUrl)
@@ -26,10 +45,5 @@ public class DatabaseConfig {
             .username(user)
             .password(password)
             .build();
-    }
-
-    private static String env(String key, String fallback) {
-        String val = System.getenv(key);
-        return val != null ? val : fallback;
     }
 }
