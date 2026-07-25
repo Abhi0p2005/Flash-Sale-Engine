@@ -1,0 +1,2085 @@
+[
+  {
+    "id": 1,
+    "brand": "Oppo",
+    "name": "oppo Reno 16c 5G (8GB RAM, 256GB, Twilight Violet)",
+    "originalPrice": 79999,
+    "salePrice": 49999,
+    "price": 49999,
+    "images": [
+      "/product_images/mobiles/mob_001_1.jpg",
+      "/product_images/mobiles/mob_001_2.jpg",
+      "/product_images/mobiles/mob_001_3.jpg",
+      "/product_images/mobiles/mob_001_4.jpg",
+      "/product_images/mobiles/mob_001_5.png",
+      "/product_images/mobiles/mob_001_6.png",
+      "/product_images/mobiles/mob_001_7.jpg",
+      "/product_images/mobiles/mob_001_8.png"
+    ],
+    "specifications": {
+      "Display": "6.57 inches (16.69 cm), Crystal Guard + AMOLED, 120 Hz Refresh Rate​",
+      "Memory": "8GB RAM, 256GB ROM, Memory Card (Hybrid) upto 256GB",
+      "Processor": "MediaTek Dimensity 7300-Energy, Octa-Core, 2.5GHz",
+      "Camera": "50MP + 50MP + 8MP Triple Rear Camera & 50MP Front Camera",
+      "Battery": "7000mAh with 80W SUPERVOOC Flash Charge​",
+      "USP": "AI LinkBoost 4.0, O+ Connect, IP69K Water and Dust Resistance",
+      "Audio Sharing, Bluetooth Audio Codec": "SBC, AAC, LDAC, aptX, aptX HD",
+      "Manufacturer Name & Address": "5th Floor, Tower B, Building No. 8, DLF Cyber City, Gurgaon, Haryana - 122002"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "reviews": [],
+    "image": "/product_images/mobiles/mob_001_1.jpg",
+    "category": "mobiles",
+    "stockLeft": 10
+  },
+  {
+    "id": 2,
+    "brand": "Vivo",
+    "name": "vivo X300 FE 5G (12GB RAM, 256GB, Noir Black)",
+    "originalPrice": 119999,
+    "salePrice": 86999,
+    "price": 86999,
+    "images": [
+      "/product_images/mobiles/mob_002_1.png",
+      "/product_images/mobiles/mob_002_2.png",
+      "/product_images/mobiles/mob_002_3.png",
+      "/product_images/mobiles/mob_002_4.png",
+      "/product_images/mobiles/mob_002_5.png",
+      "/product_images/mobiles/mob_002_6.png",
+      "/product_images/mobiles/mob_002_7.png",
+      "/product_images/mobiles/mob_002_8.jpg"
+    ],
+    "specifications": {
+      "Display": "6.31 inches (16.04cm), AMOLED, 120 Hz Refresh Rate",
+      "Memory": "12GB RAM, 256GB ROM",
+      "Processor": "Snapdragon 8 Gen 5, Octa Core, 3.80 GHz",
+      "Camera": "50 MP + 50 MP + 8 MP Triple Rear & 50 MP Front Camera",
+      "Battery": "6500 mAh with 90W FlashCharge",
+      "USP": "Bypass Charging, AI Creative Camera, 3D Ultrasonic Single-point Fingerprint Sensor",
+      "CPU Clock Speed": "2 × 3.80 GHz + 6 × 3.32 GHz, 3 nm Process Node"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "reviews": [],
+    "image": "/product_images/mobiles/mob_002_1.png",
+    "category": "mobiles",
+    "stockLeft": 10
+  },
+  {
+    "id": 3,
+    "brand": "Google",
+    "name": "Google Pixel 10 5G (12GB RAM, 256GB, Obsidian)",
+    "originalPrice": 79999,
+    "salePrice": 74999,
+    "price": 74999,
+    "images": [
+      "/product_images/mobiles/mob_003_1.jpg",
+      "/product_images/mobiles/mob_003_2.jpg",
+      "/product_images/mobiles/mob_003_3.jpg",
+      "/product_images/mobiles/mob_003_4.jpg",
+      "/product_images/mobiles/mob_003_5.png",
+      "/product_images/mobiles/mob_003_6.png",
+      "/product_images/mobiles/mob_003_7.png",
+      "/product_images/mobiles/mob_003_8.jpg"
+    ],
+    "specifications": {
+      "20": "9",
+      "Display": "6.3 inches (16 cm), OLED, 120 Hz Refresh Rate",
+      "Memory": "12GB RAM, 256GB ROM",
+      "Processor": "Google Tensor G5, Octa Core",
+      "Camera": "48 MP + 13 MP + 10.8 MP Triple Rear & 10.5 MP Front Camera",
+      "Battery": "4970 mAh",
+      "USP": "IP68 Dust & Water Resistant, Google Advanced AI, Corning Gorilla Glass Victus"
+    },
+    "rating": 5,
+    "reviewCount": 0,
+    "reviews": [],
+    "image": "/product_images/mobiles/mob_003_1.jpg",
+    "category": "mobiles",
+    "stockLeft": 10
+  },
+  {
+    "id": 4,
+    "brand": "Vivo",
+    "name": "vivo V70 5G (8GB RAM, 256GB, Lemon Yellow)",
+    "originalPrice": 65999,
+    "salePrice": 53999,
+    "price": 53999,
+    "images": [
+      "/product_images/mobiles/mob_004_1.png",
+      "/product_images/mobiles/mob_004_2.png",
+      "/product_images/mobiles/mob_004_3.png",
+      "/product_images/mobiles/mob_004_4.png",
+      "/product_images/mobiles/mob_004_5.png",
+      "/product_images/mobiles/mob_004_6.png",
+      "/product_images/mobiles/mob_004_7.png",
+      "/product_images/mobiles/mob_004_8.jpg"
+    ],
+    "specifications": {
+      "Display": "6.59 inches (16.74 cm), AMOLED, 120 Hz Refresh Rate",
+      "Memory": "8GB RAM, 256GB ROM",
+      "Processor": "Qualcomm Snapdragon 7 Gen 4, Octa Core",
+      "Camera": "50 MP + 50 MP + 8 MP Triple AI Rear & 50 MP Front Camera",
+      "Battery": "6500 mAh with USB Reverse Charging",
+      "USP": "Long Lasting Battery with Fast Charging, Slim Premium Design, Advanced AI Camera System"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "reviews": [],
+    "image": "/product_images/mobiles/mob_004_1.png",
+    "category": "mobiles",
+    "stockLeft": 10
+  },
+  {
+    "id": 5,
+    "brand": "Oppo",
+    "name": "oppo K14x 5G (6GB RAM, 128GB, Icy Blue)",
+    "originalPrice": 19999,
+    "salePrice": 18999,
+    "price": 18999,
+    "images": [
+      "/product_images/mobiles/mob_005_1.jpg",
+      "/product_images/mobiles/mob_005_2.jpg",
+      "/product_images/mobiles/mob_005_3.jpg",
+      "/product_images/mobiles/mob_005_4.jpg",
+      "/product_images/mobiles/mob_005_5.png",
+      "/product_images/mobiles/mob_005_6.png",
+      "/product_images/mobiles/mob_005_7.png",
+      "/product_images/mobiles/mob_005_8.jpg"
+    ],
+    "specifications": {
+      "Display": "6.75 inches (17.15 cm), LCD, 120 Hz Refresh Rate",
+      "Memory": "6GB RAM, 128GB ROM",
+      "Processor": "MediaTek Dimensity 6300, Octa Core",
+      "Camera": "50 MP + 2 MP Dual AI Rear & 5 MP Front Camera",
+      "Battery": "6500 mAh with 45W SUPERVOOC Fast Charge",
+      "USP": "IP64 Water & Dust Resistance, Reverse Wired Charging, AI GameBoost 2.0",
+      "Low Energy, Bluetooth Audio Codec": "SBC, AAC, LDAC, aptX, aptX HD",
+      "45W SUPERVOOC Flash Charge, Compatible with": "33W and Below SUPERVOOC, 33W PPS, 13.5W PD, Reverse Wired Charging",
+      "Manufacturer Name & Address": "5th Floor, Tower B, Building No. 8, DLF Cyber City, Gurgaon, Haryana - 122002"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "reviews": [],
+    "image": "/product_images/mobiles/mob_005_1.jpg",
+    "category": "mobiles",
+    "stockLeft": 10
+  },
+  {
+    "id": 6,
+    "brand": "Vivo",
+    "name": "vivo T5X 5G (8GB RAM, 128GB, Cyber Green)",
+    "originalPrice": 30999,
+    "salePrice": 24499,
+    "price": 24499,
+    "images": [
+      "/product_images/mobiles/mob_006_1.png",
+      "/product_images/mobiles/mob_006_2.png",
+      "/product_images/mobiles/mob_006_3.png",
+      "/product_images/mobiles/mob_006_4.png",
+      "/product_images/mobiles/mob_006_5.png",
+      "/product_images/mobiles/mob_006_6.png",
+      "/product_images/mobiles/mob_006_7.png",
+      "/product_images/mobiles/mob_006_8.jpg"
+    ],
+    "specifications": {
+      "Display": "6.76 inches (17.17 cm), LCD, 120 Hz Refresh Rate",
+      "Memory": "8GB RAM, 128GB ROM",
+      "Processor": "MediaTek Dimensity 7400 Turbo, Octa Core, 2.6 GHz",
+      "Camera": "50 MP + 2 MP Dual Rear & 32 MP Front Camera",
+      "Battery": "7200 mAh with 44W Flash Charging",
+      "USP": "IP68 & IP69+ Dust & Water Resistance, AI Transcript Assist, Reverse Charging"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "reviews": [],
+    "image": "/product_images/mobiles/mob_006_1.png",
+    "category": "mobiles",
+    "stockLeft": 10
+  },
+  {
+    "id": 7,
+    "brand": "Croma",
+    "name": "Croma 80 cm (32 inch) 2 Star HD QLED Smart Google TV 5.0 with Quad Core Processor (2026 model)",
+    "originalPrice": 18000,
+    "salePrice": 14490,
+    "price": 14490,
+    "images": [
+      "/product_images/tvs/tvs_007_1.png",
+      "/product_images/tvs/tvs_007_2.png",
+      "/product_images/tvs/tvs_007_3.png",
+      "/product_images/tvs/tvs_007_4.jpg",
+      "/product_images/tvs/tvs_007_5.png",
+      "/product_images/tvs/tvs_007_6.png",
+      "/product_images/tvs/tvs_007_7.jpg",
+      "/product_images/tvs/tvs_007_8.png"
+    ],
+    "specifications": {
+      "16": "9",
+      "Accessibility Options": "Captions, High-contrast Text, Text-to-Speech, TalkBack Switch Access",
+      "High-Capacity USB Support": "4GB Upto 128GB, Formatted in FAT32 or NTFS"
+    },
+    "rating": 4.9,
+    "reviewCount": 0,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "7 Ratings & 6 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "7 Ratings & 6 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Very good quality product",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "For the price paid, product looks good. Its really a value for money.",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/tvs/tvs_007_1.png",
+    "category": "tvs",
+    "stockLeft": 10
+  },
+  {
+    "id": 8,
+    "brand": "Croma",
+    "name": "Croma 127cm (50 inch) 2 Star 4K Ultra HD LED Smart Google TV 5.0 with Dolby Audio",
+    "originalPrice": 40900,
+    "salePrice": 27990,
+    "price": 27990,
+    "images": [
+      "/product_images/tvs/tvs_008_1.png",
+      "/product_images/tvs/tvs_008_2.png",
+      "/product_images/tvs/tvs_008_3.png",
+      "/product_images/tvs/tvs_008_4.png",
+      "/product_images/tvs/tvs_008_5.png",
+      "/product_images/tvs/tvs_008_6.png",
+      "/product_images/tvs/tvs_008_7.png",
+      "/product_images/tvs/tvs_008_8.jpg"
+    ],
+    "specifications": {
+      "16": "9"
+    },
+    "rating": 4.9,
+    "reviewCount": 17,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "17 Ratings & 12 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "17 Ratings & 12 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Wonderful product Value worth the price",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Quick response for query...genuine product..",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Its worth the money paid. The video quality is very good. More surprising is the sound quality...never expected the super performance. Overall, very satisfying",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Quality of product is superb. Fitting cost was 0 that was the best part. Technician visited was very friendly and supportive. After sales service is truly amazing.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Using for a week. Good experience so far.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Good product, value for money, fast delivery and installation",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "View All Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "View All Reviews",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/tvs/tvs_008_1.png",
+    "category": "tvs",
+    "stockLeft": 10
+  },
+  {
+    "id": 9,
+    "brand": "Croma",
+    "name": "Croma 109 cm (43 inch) 2 Star QLED 4K Ultra HD Smart Google TV 5.0 with Dolby Audio",
+    "originalPrice": 29000,
+    "salePrice": 23990,
+    "price": 23990,
+    "images": [
+      "/product_images/tvs/tvs_009_1.png",
+      "/product_images/tvs/tvs_009_2.png",
+      "/product_images/tvs/tvs_009_3.png",
+      "/product_images/tvs/tvs_009_4.png",
+      "/product_images/tvs/tvs_009_6.png",
+      "/product_images/tvs/tvs_009_7.png",
+      "/product_images/tvs/tvs_009_8.jpg"
+    ],
+    "specifications": {
+      "16": "9"
+    },
+    "rating": 4.2,
+    "reviewCount": 51,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "51 Ratings & 34 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "51 Ratings & 34 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Very good picture quality",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Very Good Service",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Very good tv use midnight offer",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Excellent product under affordable price. Thank you Croma and TATA",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "It was a very good experience, picture quality of croma led TV is very good and sound quality is also great, overall experience was very nice.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Very much satisfied with the product.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Superb quality Thank you for croma",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "View All Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "View All Reviews",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/tvs/tvs_009_1.png",
+    "category": "tvs",
+    "stockLeft": 10
+  },
+  {
+    "id": 10,
+    "brand": "Croma",
+    "name": "Croma 80 cm (32 inch) 1 Star HD Ready LED Smart Linux TV with A+ Grade Panel (2026 model)",
+    "originalPrice": 18000,
+    "salePrice": 11990,
+    "price": 11990,
+    "images": [
+      "/product_images/tvs/tvs_010_1.png",
+      "/product_images/tvs/tvs_010_2.png",
+      "/product_images/tvs/tvs_010_3.png",
+      "/product_images/tvs/tvs_010_4.png",
+      "/product_images/tvs/tvs_010_5.png",
+      "/product_images/tvs/tvs_010_6.png",
+      "/product_images/tvs/tvs_010_7.jpg",
+      "/product_images/tvs/tvs_010_8.png"
+    ],
+    "specifications": {
+      "16": "9"
+    },
+    "rating": 4.8,
+    "reviewCount": 12,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "12 Ratings & 6 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "12 Ratings & 6 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "All are well. Let I can explain the quality of the product after using for few days. Thank you.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Very good TV in this range.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Best smart  TV in the price range",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/tvs/tvs_010_1.png",
+    "category": "tvs",
+    "stockLeft": 10
+  },
+  {
+    "id": 11,
+    "brand": "Croma",
+    "name": "Croma 80cm (32 inch) 1 Star HD LED Smart Google TV 5.0 with Dolby Audio (2026 Model)",
+    "originalPrice": 19000,
+    "salePrice": 13490,
+    "price": 13490,
+    "images": [
+      "/product_images/tvs/tvs_011_1.png",
+      "/product_images/tvs/tvs_011_2.png",
+      "/product_images/tvs/tvs_011_3.png",
+      "/product_images/tvs/tvs_011_4.png",
+      "/product_images/tvs/tvs_011_5.png",
+      "/product_images/tvs/tvs_011_6.png",
+      "/product_images/tvs/tvs_011_7.png",
+      "/product_images/tvs/tvs_011_8.jpg"
+    ],
+    "specifications": {
+      "16": "9"
+    },
+    "rating": 3.8,
+    "reviewCount": 0,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "5 Ratings & 2 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "5 Ratings & 2 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Value for money.",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/tvs/tvs_011_1.png",
+    "category": "tvs",
+    "stockLeft": 10
+  },
+  {
+    "id": 12,
+    "brand": "Croma",
+    "name": "Croma 127 cm (50 inch) 3 Star QLED 4K Ultra HD Smart Google TV 5.0 with Dolby Vision & Dolby Atmos",
+    "originalPrice": 48500,
+    "salePrice": 33990,
+    "price": 33990,
+    "images": [
+      "/product_images/tvs/tvs_012_1.png",
+      "/product_images/tvs/tvs_012_2.png",
+      "/product_images/tvs/tvs_012_3.png",
+      "/product_images/tvs/tvs_012_4.png",
+      "/product_images/tvs/tvs_012_5.png",
+      "/product_images/tvs/tvs_012_6.png",
+      "/product_images/tvs/tvs_012_7.png",
+      "/product_images/tvs/tvs_012_8.jpg"
+    ],
+    "specifications": {},
+    "rating": 4.3,
+    "reviewCount": 0,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "4 Ratings & 2 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "4 Ratings & 2 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Service is too poor",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "value for money",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/tvs/tvs_012_1.png",
+    "category": "tvs",
+    "stockLeft": 10
+  },
+  {
+    "id": 13,
+    "brand": "Microsoft",
+    "name": "Microsoft Surface Pro 11th Edition Wi-Fi Windows 11 Home Tablet (13 Inch, 16GB RAM, 512GB ROM, Microsoft 365 for 6 Months, Black)",
+    "originalPrice": 177999,
+    "salePrice": 174990,
+    "price": 174990,
+    "images": [
+      "/product_images/laptops/lap_013_1.jpg",
+      "/product_images/laptops/lap_013_2.jpg",
+      "/product_images/laptops/lap_013_3.jpg",
+      "/product_images/laptops/lap_013_4.png",
+      "/product_images/laptops/lap_013_5.jpg",
+      "/product_images/laptops/lap_013_6.png",
+      "/product_images/laptops/lap_013_7.jpg",
+      "/product_images/laptops/lap_013_8.jpg"
+    ],
+    "specifications": {
+      "3": "2"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "reviews": [],
+    "image": "/product_images/laptops/lap_013_1.jpg",
+    "category": "laptops",
+    "stockLeft": 10
+  },
+  {
+    "id": 14,
+    "brand": "Microsoft",
+    "name": "Microsoft Surface Pro 11th Edition Wi-Fi Windows 11 Home Tablet (13 Inch, 16GB RAM, 256GB ROM, Platinum)",
+    "originalPrice": 124999,
+    "salePrice": 122990,
+    "price": 122990,
+    "images": [
+      "/product_images/laptops/lap_014_1.jpg",
+      "/product_images/laptops/lap_014_2.jpg",
+      "/product_images/laptops/lap_014_3.jpg",
+      "/product_images/laptops/lap_014_4.jpg",
+      "/product_images/laptops/lap_014_5.png",
+      "/product_images/laptops/lap_014_6.png",
+      "/product_images/laptops/lap_014_7.jpg",
+      "/product_images/laptops/lap_014_8.png"
+    ],
+    "specifications": {
+      "3": "2"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "reviews": [],
+    "image": "/product_images/laptops/lap_014_1.jpg",
+    "category": "laptops",
+    "stockLeft": 10
+  },
+  {
+    "id": 15,
+    "brand": "ASUS",
+    "name": "Asus TUF A15 AMD Ryzen 7 170 Gaming Laptop (16GB, 512GB SSD, Windows 11 Home, 4GB Graphics, 15.6 inch 144 Hz Full HD IPS Display, NVIDIA GeForce RTX 3050, MS Office Home 2024, Graphite Black, 2.30 KG)",
+    "originalPrice": 131990,
+    "salePrice": 78990,
+    "price": 78990,
+    "images": [
+      "/product_images/laptops/lap_015_1.png",
+      "/product_images/laptops/lap_015_2.png",
+      "/product_images/laptops/lap_015_3.png",
+      "/product_images/laptops/lap_015_4.png",
+      "/product_images/laptops/lap_015_5.png",
+      "/product_images/laptops/lap_015_6.png",
+      "/product_images/laptops/lap_015_7.jpg",
+      "/product_images/laptops/lap_015_8.jpg"
+    ],
+    "specifications": {
+      "16": "9",
+      "Display": "39.62 cms (15.6 inches), FHD IPS",
+      "Processor": "AMD Ryzen 7 170",
+      "OS": "Windows 11 Home",
+      "Graphics": "NVIDIA GeForce RTX 3050",
+      "Included Software": "Microsoft 365 Basic, MS Office Home 2024, Xbox Game Pass Premium, McAfee Antivirus",
+      "Warranty": "1 Year Onsite",
+      "Power Consumption180 WattsVoltage RatingInput": "100 - 200V AC, Output: 20V DC Frequency50/60 Hz",
+      "Input": "100 - 200V AC, Output: 20V DC"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "reviews": [],
+    "image": "/product_images/laptops/lap_015_1.png",
+    "category": "laptops",
+    "stockLeft": 10
+  },
+  {
+    "id": 16,
+    "brand": "HP",
+    "name": "HP OMEN 16 Intel Core Ultra 7 Gaming Laptop (24GB, 1TB SSD, Windows 11 Home, 8GB Graphics, 16 inch 165 Hz 2K IPS Display, NVIDIA GeForce RTX 5060, MS Office Home 2024, Shadow Black, 2.43 KG)",
+    "originalPrice": 179857,
+    "salePrice": 168990,
+    "price": 168990,
+    "images": [
+      "/product_images/laptops/lap_016_1.png",
+      "/product_images/laptops/lap_016_2.png",
+      "/product_images/laptops/lap_016_3.png",
+      "/product_images/laptops/lap_016_4.png",
+      "/product_images/laptops/lap_016_5.png",
+      "/product_images/laptops/lap_016_6.png",
+      "/product_images/laptops/lap_016_7.png",
+      "/product_images/laptops/lap_016_8.jpg"
+    ],
+    "specifications": {
+      "16": "10",
+      "Display": "40.64 cms (16 inches), 2K IPS",
+      "Memory": "24GB DDR5 RAM, 1TB SSD ROM",
+      "Processor": "Intel Core Ultra 7",
+      "OS": "Windows 11 Home",
+      "Graphics": "NVIDIA GeForce RTX 5060",
+      "Included Software": "MS Office Home 2024",
+      "Warranty": "1 Year Onsite",
+      "DTS": "X Ultra"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "reviews": [],
+    "image": "/product_images/laptops/lap_016_1.png",
+    "category": "laptops",
+    "stockLeft": 10
+  },
+  {
+    "id": 17,
+    "brand": "HP",
+    "name": "HP 15-fc0499AU AMD Ryzen 3 Laptop (8GB, 512GB SSD, Windows 11 Home, 15.6 inch Full HD IPS Display, MS Office, Natural Silver, 1.59 KG)",
+    "originalPrice": 47146,
+    "salePrice": 47990,
+    "price": 47990,
+    "images": [
+      "/product_images/laptops/lap_017_1.png",
+      "/product_images/laptops/lap_017_2.png",
+      "/product_images/laptops/lap_017_3.png",
+      "/product_images/laptops/lap_017_4.png",
+      "/product_images/laptops/lap_017_5.png",
+      "/product_images/laptops/lap_017_6.png",
+      "/product_images/laptops/lap_017_7.jpg",
+      "/product_images/laptops/lap_017_8.png"
+    ],
+    "specifications": {
+      "16": "9",
+      "Display": "39.62 cms (15.6 inches), FHD IPS",
+      "Memory": "8GB DDR4 RAM, 512GB M.2 PCIe NVMe SSD ROM",
+      "Processor": "AMD Ryzen 3 7320U",
+      "Graphics": "AMD Radeon",
+      "Included Software": "MS Office",
+      "Warranty": "1 Year Carry-In"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "reviews": [],
+    "image": "/product_images/laptops/lap_017_1.png",
+    "category": "laptops",
+    "stockLeft": 10
+  },
+  {
+    "id": 18,
+    "brand": "ASUS",
+    "name": "ASUS Vivobook 16 X1605VA-MB1627WS Intel Core i5 13th Gen Thin & Light Laptop (16GB, 512GB SSD, Windows 11 Home, 16 inch WUXGA IPS Display, MS Office 2024, Cool Silver, 1.88 KG)",
+    "originalPrice": 72990,
+    "salePrice": 66990,
+    "price": 66990,
+    "images": [
+      "/product_images/laptops/lap_018_1.jpg",
+      "/product_images/laptops/lap_018_2.jpg",
+      "/product_images/laptops/lap_018_3.jpg",
+      "/product_images/laptops/lap_018_4.jpg",
+      "/product_images/laptops/lap_018_5.png",
+      "/product_images/laptops/lap_018_6.png",
+      "/product_images/laptops/lap_018_7.png",
+      "/product_images/laptops/lap_018_8.jpg"
+    ],
+    "specifications": {
+      "16": "10",
+      "Display": "40.64 cms (16 inches), WUXGA IPS",
+      "Memory": "16GB DDR4 RAM, 512GB M.2 NVMe PCIe 4.0 SSD ROM",
+      "Processor": "Intel Core i5 13th Generation",
+      "OS": "Windows 11 Home",
+      "Graphics": "Intel UHD",
+      "Included Software": "MS Office Home 2024, McAfee, MyASUS, ScreenXpert, GlideX",
+      "Warranty": "1 year Onsite",
+      "Power Consumption65 WattsVoltage RatingOutput": "19 V DC, Input: 100 - 240 V AC Power Pin TypeDC Frequency50 - 60 Hz",
+      "Output": "19 V DC, Input: 100 - 240 V AC"
+    },
+    "rating": 4.8,
+    "reviewCount": 0,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "4 Ratings & 2 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "4 Ratings & 2 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Right from the online ordering to delivery very smooth and simple with attractive discounts.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Except late delivery, everything is fine nice discount on upi mode,love the product nice packaging.",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/laptops/lap_018_1.jpg",
+    "category": "laptops",
+    "stockLeft": 10
+  },
+  {
+    "id": 19,
+    "brand": "Croma",
+    "name": "Croma Bracket For Air Conditioner (Powder Coating Process, Grey)",
+    "originalPrice": 1199,
+    "salePrice": 799,
+    "price": 799,
+    "images": [
+      "/product_images/ac/ac_019_1.jpg",
+      "/product_images/ac/ac_019_2.jpg",
+      "/product_images/ac/ac_019_3.jpg",
+      "/product_images/ac/ac_019_4.jpg",
+      "/product_images/ac/ac_019_5.png",
+      "/product_images/ac/ac_019_6.jpg",
+      "/product_images/ac/ac_019_7.jpg"
+    ],
+    "specifications": {
+      "Compatible With": "1 and 1.5 Ton ACs"
+    },
+    "rating": 3.8,
+    "reviewCount": 19,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "19 Ratings & 10 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "19 Ratings & 10 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Bad experience. Installation individual of Croma tried to force hisown bracket. He charged me extra for installing this despite him self being a Croma employed staff",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Product is good. Budget friendly AC providing soothing cool air and powerful compressor, low noise makes it a good choice",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Much better than others available on market with reasonable price",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "faulty and defective item .Not used by voltas engineer",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Wall screw, come with this stand is of poor quality, not working in wall. \nI had to pay 700 for this stand, 200 for installation, and 100 for new screw. Total 1000 rupees.\nWhile, Panasonic AC outdoor unit stand is of 800 rupees with installation.",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/ac/ac_019_1.jpg",
+    "category": "ac",
+    "stockLeft": 10
+  },
+  {
+    "id": 20,
+    "brand": "Croma",
+    "name": "Croma 7 in 1 Convertible 1.5 Ton 3 Star Inverter Split AC with Self Diagnosis (2026 Model, Copper Condenser, CRLA018IND342404 )",
+    "originalPrice": 0,
+    "salePrice": 0,
+    "price": 0,
+    "images": [
+      "/product_images/ac/ac_020_1.png",
+      "/product_images/ac/ac_020_2.png",
+      "/product_images/ac/ac_020_3.png",
+      "/product_images/ac/ac_020_4.png",
+      "/product_images/ac/ac_020_6.png",
+      "/product_images/ac/ac_020_7.jpg",
+      "/product_images/ac/ac_020_8.png"
+    ],
+    "specifications": {
+      "Power Consumption": "842.01 kWh",
+      "Refrigerant": "R32",
+      "Maximum (100%)": "4800 W, Minimum (50%): 2400 W"
+    },
+    "rating": 4.8,
+    "reviewCount": 78,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "78 Ratings & 37 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "78 Ratings & 37 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Poor post sale service. No installation after 10 days also",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Good with efficient cooling and features. Installation was smooth and the person was skilled and did a good job",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Best product at best price. Highly recommended.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Awesome product",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Very nice cooling",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Very good product with in this price.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Affordable and tata trust.....",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "View All Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "View All Reviews",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/ac/ac_020_1.png",
+    "category": "ac",
+    "stockLeft": 10
+  },
+  {
+    "id": 21,
+    "brand": "Daikin",
+    "name": "DAIKIN 1.5 Ton 3 Star Inverter Split AC (Copper Condenser, PM2.5 Filter, ATKL50XV16VKA)",
+    "originalPrice": 55100,
+    "salePrice": 38990,
+    "price": 38990,
+    "images": [
+      "/product_images/ac/ac_021_1.jpg",
+      "/product_images/ac/ac_021_2.jpg",
+      "/product_images/ac/ac_021_3.jpg",
+      "/product_images/ac/ac_021_4.jpg",
+      "/product_images/ac/ac_021_5.png",
+      "/product_images/ac/ac_021_6.png",
+      "/product_images/ac/ac_021_7.jpg",
+      "/product_images/ac/ac_021_8.png"
+    ],
+    "specifications": {
+      "Power Consumption": "880.1 kWh",
+      "Refrigerant": "R32"
+    },
+    "rating": 4.8,
+    "reviewCount": 18,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "18 Ratings & 10 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "18 Ratings & 10 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Good product.Shopping experience at croma online was also good.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Simply Loved it.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Daikin AC is one of the best AC for purchasing in the market. You get instant cooling. The brand is reliable.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Product was good. Ticket was automatically raised for installation. Brand supported well.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Excellent product",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Best and powerful machine",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/ac/ac_021_1.jpg",
+    "category": "ac",
+    "stockLeft": 10
+  },
+  {
+    "id": 22,
+    "brand": "Croma",
+    "name": "Croma 7 in 1 Convertible 1 Ton 3 Star Inverter Split AC with Self Diagnosis (2026 Model, Copper Condenser, CRLA012IND342402)",
+    "originalPrice": 37000,
+    "salePrice": 28790,
+    "price": 28790,
+    "images": [
+      "/product_images/ac/ac_022_1.png",
+      "/product_images/ac/ac_022_2.png",
+      "/product_images/ac/ac_022_3.png",
+      "/product_images/ac/ac_022_4.png",
+      "/product_images/ac/ac_022_6.png",
+      "/product_images/ac/ac_022_7.jpg",
+      "/product_images/ac/ac_022_8.png"
+    ],
+    "specifications": {
+      "Power Consumption": "596.93 kWh",
+      "Refrigerant": "R32",
+      "Maximum (100%)": "3400 W, Minimum (50%): 1700 W"
+    },
+    "rating": 4.8,
+    "reviewCount": 47,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "47 Ratings & 30 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "47 Ratings & 30 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "This is a good product for this price.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Quick delivery and Easy installation",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Great Product..",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Liked the product",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Excellent performance",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Very good ac same as voltas",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "It is working fine. No issues till date.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "View All Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "View All Reviews",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/ac/ac_022_1.png",
+    "category": "ac",
+    "stockLeft": 10
+  },
+  {
+    "id": 23,
+    "brand": "V-guard",
+    "name": "V-GUARD Arizor 4170 12 Amps Voltage Stabilizer For 1.5 Ton Inverter Air Conditioner (170 - 270 V, Fail Safe Circuit Protection, White)",
+    "originalPrice": 2990,
+    "salePrice": 2490,
+    "price": 2490,
+    "images": [
+      "/product_images/ac/ac_023_1.jpg",
+      "/product_images/ac/ac_023_2.jpg",
+      "/product_images/ac/ac_023_3.jpg",
+      "/product_images/ac/ac_023_4.jpg",
+      "/product_images/ac/ac_023_5.png",
+      "/product_images/ac/ac_023_6.png",
+      "/product_images/ac/ac_023_7.jpg",
+      "/product_images/ac/ac_023_8.png"
+    ],
+    "specifications": {
+      "Ideal For": "Inverter Air Conditioner",
+      "Load Capacity": "Up to 1.5 Ton or 18000 BTU/Hour",
+      "Capacity": "12 Amps",
+      "Protection Type": "Effective Surge/Spike Protection | Thermal Overload Protection | Under/Over Voltage Protection"
+    },
+    "rating": 4.5,
+    "reviewCount": 38,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "38 Ratings & 24 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "38 Ratings & 24 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Good quality and delivery speed",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Good experience",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Best stabilizer underwear 3 thousand with lots of features and sleek design",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Good one with Display",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Affordable product",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Nice affordable product",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "View All Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "View All Reviews",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/ac/ac_023_1.jpg",
+    "category": "ac",
+    "stockLeft": 10
+  },
+  {
+    "id": 24,
+    "brand": "Blue",
+    "name": "Blue Star Z Series 5 in 1 Convertible 1.5 Ton 3 Star Inverter Split Smart AC with Voice Command Technology (2026 Model, Copper Condenser, IA318ZXUS)",
+    "originalPrice": 61000,
+    "salePrice": 37490,
+    "price": 37490,
+    "images": [
+      "/product_images/ac/ac_024_1.jpg",
+      "/product_images/ac/ac_024_2.jpg",
+      "/product_images/ac/ac_024_3.jpg",
+      "/product_images/ac/ac_024_4.jpg",
+      "/product_images/ac/ac_024_5.png",
+      "/product_images/ac/ac_024_6.png",
+      "/product_images/ac/ac_024_7.jpg",
+      "/product_images/ac/ac_024_8.png"
+    ],
+    "specifications": {
+      "Power Consumption": "918.45 kWh",
+      "Refrigerant": "R32"
+    },
+    "rating": 4.9,
+    "reviewCount": 13,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "13 Ratings & 7 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "13 Ratings & 7 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Best ac in segment",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Excellent 1.5 Ton AC from Blue Star. It cools the room very quickly and the smart features are highly convenient to use. On top of that, Croma delivery was exceptionally prompt and right on schedule. Highly satisfied with both the product and the service!",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Awesome product",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Good product and Maintained Best services by CROMA.",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/ac/ac_024_1.jpg",
+    "category": "ac",
+    "stockLeft": 10
+  },
+  {
+    "id": 25,
+    "brand": "Samsung",
+    "name": "SAMSUNG Stylish Grande 183 Litres3 Star Direct Cool Single Door Refrigerator with Anti Bacterial Gasket (RR20C2Y23S8/HL, Elegant Inox)",
+    "originalPrice": 19999,
+    "salePrice": 14490,
+    "price": 14490,
+    "images": [
+      "/product_images/refrigerators/ref_025_1.jpg",
+      "/product_images/refrigerators/ref_025_2.jpg",
+      "/product_images/refrigerators/ref_025_3.jpg",
+      "/product_images/refrigerators/ref_025_4.jpg",
+      "/product_images/refrigerators/ref_025_5.png",
+      "/product_images/refrigerators/ref_025_6.png",
+      "/product_images/refrigerators/ref_025_7.jpg",
+      "/product_images/refrigerators/ref_025_8.png"
+    ],
+    "specifications": {
+      "No. of Doors": "1",
+      "Ideal Family Size": "Couple",
+      "Manufacturer Name & Address": "Samsung Electronics Pvt. Ltd. 6th Floor DLF Centre Sansad Marg New Delhi - 110001"
+    },
+    "rating": 3.9,
+    "reviewCount": 15,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "15 Ratings & 3 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "15 Ratings & 3 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "giving issue after 8 months",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "No dent, scratch, defect. Original product with all original papers, packing intact. Assured by Croma.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "I PURCHASE THIS ORDER LAST 24 JULY2023 . ITES DELIVERY B/W IN 2 DAYS  . 26.07.2023. BUT STILL  MY PRODUCT CAN NOT BE DELAERY YET . I CALL SO MANY TIME TO CUSTOMER SUPPORT . BUT NO REASULT FOUND. ITS JUST WASTE OF TIME AND MONEY . DONT USE CROMA . THEY ANSWER ARE I TAKE YOUR DILIVERY ON HIGH PIRIORITY .  TILL THE TIME  MY PRODUCT WAS NOT RECIVED BY ME IT NO OPITION TO CANCEL MY ORDER IN IT . SO PLEASE  BY CUT THIS AAAP .",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/refrigerators/ref_025_1.jpg",
+    "category": "refrigerators",
+    "stockLeft": 10
+  },
+  {
+    "id": 26,
+    "brand": "LG",
+    "name": "LG 90 Litres 1 Star Direct Cool Single Door Refrigerator with Antibacterial Gasket (GL-M131RDSB, Dazzle Steel)",
+    "originalPrice": 0,
+    "salePrice": 0,
+    "price": 0,
+    "images": [
+      "/product_images/refrigerators/ref_026_1.jpg",
+      "/product_images/refrigerators/ref_026_2.jpg",
+      "/product_images/refrigerators/ref_026_3.jpg",
+      "/product_images/refrigerators/ref_026_4.jpg",
+      "/product_images/refrigerators/ref_026_5.png",
+      "/product_images/refrigerators/ref_026_6.png",
+      "/product_images/refrigerators/ref_026_7.jpg",
+      "/product_images/refrigerators/ref_026_8.jpg"
+    ],
+    "specifications": {
+      "No. of Doors": "1",
+      "Ideal Family Size": "Couple"
+    },
+    "rating": 5,
+    "reviewCount": 0,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "1 Rating & 1 Review",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "1 Rating & 1 Review",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/refrigerators/ref_026_1.jpg",
+    "category": "refrigerators",
+    "stockLeft": 10
+  },
+  {
+    "id": 27,
+    "brand": "Samsung",
+    "name": "SAMSUNG Horizontal Curve 189 Litres 5 Star Direct Cool Single Door Refrigerator with Anti Bacterial Gasket (RR21C2H25DX/HL, Luxe Brown)",
+    "originalPrice": 23999,
+    "salePrice": 16490,
+    "price": 16490,
+    "images": [
+      "/product_images/refrigerators/ref_027_1.jpg",
+      "/product_images/refrigerators/ref_027_2.jpg",
+      "/product_images/refrigerators/ref_027_3.jpg",
+      "/product_images/refrigerators/ref_027_4.jpg",
+      "/product_images/refrigerators/ref_027_5.png",
+      "/product_images/refrigerators/ref_027_6.png",
+      "/product_images/refrigerators/ref_027_7.jpg",
+      "/product_images/refrigerators/ref_027_8.png"
+    ],
+    "specifications": {
+      "No. of Doors": "1",
+      "Ideal Family Size": "Coupler",
+      "Manufacturer Name & Address": "Samsung Electronics Pvt. Ltd. 6th Floor DLF Centre Sansad Marg New Delhi - 110001"
+    },
+    "rating": 4.9,
+    "reviewCount": 11,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "11 Ratings & 4 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "11 Ratings & 4 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Nice fridge Nice experience from Croma for online buying best in dilevary on time dilevery",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "I just liked the built quality ☺️ and space init. The worst part is the key is made of plastic and only one key per refrigerator....",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "good things with low cost",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Premium refrigerator👌🏽",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/refrigerators/ref_027_1.jpg",
+    "category": "refrigerators",
+    "stockLeft": 10
+  },
+  {
+    "id": 28,
+    "brand": "LG",
+    "name": "LG 242 Litres 1 Star Frost Free Double Door Refrigerator with Multi Air Flow (GL-N292DDSY, Dazzle Steel)",
+    "originalPrice": 30999,
+    "salePrice": 23490,
+    "price": 23490,
+    "images": [
+      "/product_images/refrigerators/ref_028_1.png",
+      "/product_images/refrigerators/ref_028_2.png",
+      "/product_images/refrigerators/ref_028_3.png",
+      "/product_images/refrigerators/ref_028_4.png",
+      "/product_images/refrigerators/ref_028_5.png",
+      "/product_images/refrigerators/ref_028_6.png",
+      "/product_images/refrigerators/ref_028_7.jpg",
+      "/product_images/refrigerators/ref_028_8.jpg"
+    ],
+    "specifications": {
+      "No. of Doors": "2",
+      "Ideal For": "Family Of 4"
+    },
+    "rating": 4.5,
+    "reviewCount": 129,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "129 Ratings & 92 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "129 Ratings & 92 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Delivery is delayed for3days no proper response from croma very bad in delivery",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "The refrigerator is good...but chroma delivery service is very bad....I ordered this fridge online...the chroma delivery person was not ready to come for delivery until we agreed for Rs. 800 extra tip for delivering.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "The product seems good so far. As per the information provided by the technician, it started cooling within the said time. We are hoping to have the unit work I the same manner for a prolonged period of time, as we have had a bad experience prior to this unit received.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Functions of refrigerator is amazing, services provided by Croma was good, delivery of product was on time mine overall experience was good enough. I'm satisfied with the product.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Everything is fine",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "I have purchased LG 260 LTE refrigerator from Croma. I bought in cash price and it was delivered before 15 hours after payment. My experience is very good with Croma.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "View All Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "View All Reviews",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/refrigerators/ref_028_1.png",
+    "category": "refrigerators",
+    "stockLeft": 10
+  },
+  {
+    "id": 29,
+    "brand": "Haier",
+    "name": "Haier 190 Litres 2 Star Direct Cool Single Door Refrigerator with Diamond Edge Freezing Technology (HRD-2102BNS-P, Nickel Steel)",
+    "originalPrice": 18390,
+    "salePrice": 12990,
+    "price": 12990,
+    "images": [
+      "/product_images/refrigerators/ref_029_1.jpg",
+      "/product_images/refrigerators/ref_029_2.jpg",
+      "/product_images/refrigerators/ref_029_3.jpg",
+      "/product_images/refrigerators/ref_029_4.jpg",
+      "/product_images/refrigerators/ref_029_5.png",
+      "/product_images/refrigerators/ref_029_6.png",
+      "/product_images/refrigerators/ref_029_7.jpg",
+      "/product_images/refrigerators/ref_029_8.jpg"
+    ],
+    "specifications": {
+      "No. of Doors": "1",
+      "Ideal Family Size": "Couple"
+    },
+    "rating": 2,
+    "reviewCount": 0,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "1 Rating & 1 Review",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "1 Rating & 1 Review",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/refrigerators/ref_029_1.jpg",
+    "category": "refrigerators",
+    "stockLeft": 10
+  },
+  {
+    "id": 30,
+    "brand": "Samsung",
+    "name": "SAMSUNG 236 Litres 2 Star Frost Free Double Door Refrigerator with Deodorizer (RT28C3042S8/HL, Elegant Inox)",
+    "originalPrice": 0,
+    "salePrice": 0,
+    "price": 0,
+    "images": [
+      "/product_images/refrigerators/ref_030_1.png",
+      "/product_images/refrigerators/ref_030_2.jpg",
+      "/product_images/refrigerators/ref_030_3.jpg",
+      "/product_images/refrigerators/ref_030_4.jpg",
+      "/product_images/refrigerators/ref_030_5.png",
+      "/product_images/refrigerators/ref_030_6.png",
+      "/product_images/refrigerators/ref_030_7.jpg",
+      "/product_images/refrigerators/ref_030_8.png"
+    ],
+    "specifications": {
+      "No. of Doors": "2",
+      "Ideal For": "Family Of 4",
+      "Manufacturer Name & Address": "Samsung India Electronics Pvt. Ltd., 6th Floor, DLF Centre, Sansad Marg, New Delhi-110001"
+    },
+    "rating": 4.7,
+    "reviewCount": 14,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "14 Ratings & 13 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "14 Ratings & 13 Reviews",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/refrigerators/ref_030_1.png",
+    "category": "refrigerators",
+    "stockLeft": 10
+  },
+  {
+    "id": 31,
+    "brand": "Sony",
+    "name": "SONY MDR-EX255APBQIN Wired Earphone with Mic (In Ear, Black)",
+    "originalPrice": 1990,
+    "salePrice": 1799,
+    "price": 1799,
+    "images": [
+      "/product_images/audio/aud_031_1.jpg",
+      "/product_images/audio/aud_031_2.png",
+      "/product_images/audio/aud_031_3.png",
+      "/product_images/audio/aud_031_4.png",
+      "/product_images/audio/aud_031_5.png",
+      "/product_images/audio/aud_031_6.png"
+    ],
+    "specifications": {
+      "Orientation Type": "In Ear",
+      "With Mic": "Yes",
+      "Connector Type": "Wired | 12mm",
+      "USP": "In-line Microphone, Y-Shaped Cord Type",
+      "Warranty": "12 Months Warranty"
+    },
+    "rating": 4.2,
+    "reviewCount": 72,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "72 Ratings & 48 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "72 Ratings & 48 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Its very nice ...",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Good with music",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "play and pause button not working",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Damn! I was looking for something close to Airpods and found it. Buy this one guys. it's beyond excellent.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "The product is awesome not just in quality but also from price point. The sound quality is highly balanced. The bass is great if you are an EDM lover. On the other hand the mids and treble are also great for people like me who love to listen  old songs. Conclusion : Great product and also value for money.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Good working for all types of audio.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "View All Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "View All Reviews",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/audio/aud_031_1.jpg",
+    "category": "audio",
+    "stockLeft": 10
+  },
+  {
+    "id": 32,
+    "brand": "Apple",
+    "name": "Apple AirPods 4 with Charging Case",
+    "originalPrice": 12900,
+    "salePrice": 11900,
+    "price": 11900,
+    "images": [
+      "/product_images/audio/aud_032_1.jpg",
+      "/product_images/audio/aud_032_2.jpg",
+      "/product_images/audio/aud_032_3.jpg",
+      "/product_images/audio/aud_032_4.jpg",
+      "/product_images/audio/aud_032_5.png",
+      "/product_images/audio/aud_032_6.png",
+      "/product_images/audio/aud_032_7.png",
+      "/product_images/audio/aud_032_8.jpg"
+    ],
+    "specifications": {
+      "Orientation Type": "In Ear",
+      "Connectivity": "Bluetooth, Version 5.3",
+      "Battery Life": "30 Hours",
+      "Fast Charging": "Yes",
+      "Noise Cancellation": "No",
+      "Voice Assistant": "Siri",
+      "USP": "IP54 Dust, Sweat & Water Resistant, Adaptive EQ, Personalized Spatial Audio",
+      "Warranty": "12 Months Warranty",
+      "Manufacturer Name & Address": "Apple Inc, One Apple Park Way, Cupertino, Ca 95014, USA"
+    },
+    "rating": 3.5,
+    "reviewCount": 15,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "15 Ratings & 8 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "15 Ratings & 8 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Lovely, perfect condition",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "very bad packaging. received a damaged product. would not at all recommend buying from Croma again. please refrain from ordering items from Croma especially online",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Sounds similar to Pro2 but without ANC.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "case battery life is too low",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Not support sensor in Android phone ..i think it's also not comfortable with ear\nSo i suggest to don't by this product",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/audio/aud_032_1.jpg",
+    "category": "audio",
+    "stockLeft": 10
+  },
+  {
+    "id": 33,
+    "brand": "OnePlus",
+    "name": "OnePlus Nord Buds 4 Pro E518A TWS Earbuds with Active Noise Cancellation (IP55 Dust & Water Resistance, 6 Mic AI Clear Call, Raven Black)",
+    "originalPrice": 4599,
+    "salePrice": 3999,
+    "price": 3999,
+    "images": [
+      "/product_images/audio/aud_033_1.png",
+      "/product_images/audio/aud_033_2.png",
+      "/product_images/audio/aud_033_3.png",
+      "/product_images/audio/aud_033_4.png",
+      "/product_images/audio/aud_033_5.png",
+      "/product_images/audio/aud_033_6.jpg"
+    ],
+    "specifications": {
+      "Orientation Type": "In Ear",
+      "Connectivity": "Bluetooth, Version 6.0",
+      "Battery Life": "54 Hours",
+      "Fast Charging": "Yes",
+      "Noise Cancellation": "Active Noise Cancellation",
+      "Voice Assistant": "Google Gemini | Google Assistant | Apple Siri",
+      "USP": "Hi-Res Audio, 55 db Real-Time ANC",
+      "Warranty": "12 Months Warranty",
+      "Driver Sensitivity": "122dB @1mW | Microphone Sensitivity: -38dB",
+      "Bluetooth Codec": "LHDC 5.0/AAC/SBC | Bluetooth Transmission Protocol: BLE/SPP/HFP/A2DP/AVRCP",
+      "Earbuds": "About 60 Minutes | Earbuds + Case: About 90 Minutes",
+      "Earbuds + Case": "10 Minutes For 13 Hours"
+    },
+    "rating": 4.8,
+    "reviewCount": 12,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "12 Ratings & 7 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "12 Ratings & 7 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Product is good. and packing is too good.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Product is amazing with lot of features, however the price could have been a little lower.",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "Love the product",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/audio/aud_033_1.png",
+    "category": "audio",
+    "stockLeft": 10
+  },
+  {
+    "id": 34,
+    "brand": "Sony",
+    "name": "Sony IER-EX15C Wired Earphone with Mic (USB Type-C Connector, In Ear, Black)",
+    "originalPrice": 2490,
+    "salePrice": 1599,
+    "price": 1599,
+    "images": [
+      "/product_images/audio/aud_034_1.png",
+      "/product_images/audio/aud_034_2.png",
+      "/product_images/audio/aud_034_3.png",
+      "/product_images/audio/aud_034_4.png",
+      "/product_images/audio/aud_034_5.png",
+      "/product_images/audio/aud_034_6.jpg",
+      "/product_images/audio/aud_034_7.png",
+      "/product_images/audio/aud_034_8.png"
+    ],
+    "specifications": {
+      "Orientation Type": "In Ear",
+      "With Mic": "Yes",
+      "Connector Type": "Wired | USB-Type C",
+      "USP": "Powerful Bass, Volume Controls, Tangle-Free",
+      "Warranty": "12 Months Warranty"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "reviews": [],
+    "image": "/product_images/audio/aud_034_1.png",
+    "category": "audio",
+    "stockLeft": 10
+  },
+  {
+    "id": 35,
+    "brand": "Sony",
+    "name": "Sony IER-EX15C Wired Earphone with Mic (USB Type-C Connector, In Ear, Pink)",
+    "originalPrice": 2490,
+    "salePrice": 1599,
+    "price": 1599,
+    "images": [
+      "/product_images/audio/aud_035_1.png",
+      "/product_images/audio/aud_035_2.png",
+      "/product_images/audio/aud_035_3.png",
+      "/product_images/audio/aud_035_4.png",
+      "/product_images/audio/aud_035_5.png",
+      "/product_images/audio/aud_035_6.jpg",
+      "/product_images/audio/aud_035_7.png",
+      "/product_images/audio/aud_035_8.png"
+    ],
+    "specifications": {
+      "Orientation Type": "In Ear",
+      "With Mic": "Yes",
+      "Connector Type": "Wired | USB-Type C",
+      "USP": "Powerful Bass, Volume Controls, Tangle-Free",
+      "Warranty": "12 Months Warranty"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "reviews": [],
+    "image": "/product_images/audio/aud_035_1.png",
+    "category": "audio",
+    "stockLeft": 10
+  },
+  {
+    "id": 36,
+    "brand": "Amazon",
+    "name": "amazon Echo Pop with Built-in Alexa Smart Wi-Fi Speaker (Balanced Bass, Green)",
+    "originalPrice": 4999,
+    "salePrice": 3594,
+    "price": 3594,
+    "images": [
+      "/product_images/audio/aud_036_1.jpg",
+      "/product_images/audio/aud_036_2.jpg",
+      "/product_images/audio/aud_036_3.jpg",
+      "/product_images/audio/aud_036_4.jpg",
+      "/product_images/audio/aud_036_5.png",
+      "/product_images/audio/aud_036_6.png",
+      "/product_images/audio/aud_036_7.jpg",
+      "/product_images/audio/aud_036_8.jpg"
+    ],
+    "specifications": {
+      "Virtual Assistant": "Built-in Alexa",
+      "Connectivity": "Bluetooth | Wi-Fi",
+      "Power Source": "AC Adapter",
+      "Warranty": "12 Months Warranty"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "reviews": [],
+    "image": "/product_images/audio/aud_036_1.jpg",
+    "category": "audio",
+    "stockLeft": 10
+  },
+  {
+    "id": 37,
+    "brand": "Philips",
+    "name": "Philips OneChef Smart All in One Cooking Device 6L 2280 Watt with AmbiHeat Technology (Black)",
+    "originalPrice": 22994,
+    "salePrice": 19995,
+    "price": 19995,
+    "images": [
+      "/product_images/kitchen/kit_037_1.jpg",
+      "/product_images/kitchen/kit_037_2.jpg",
+      "/product_images/kitchen/kit_037_3.jpg",
+      "/product_images/kitchen/kit_037_4.jpg",
+      "/product_images/kitchen/kit_037_5.png",
+      "/product_images/kitchen/kit_037_6.png",
+      "/product_images/kitchen/kit_037_7.jpg",
+      "/product_images/kitchen/kit_037_8.png"
+    ],
+    "specifications": {
+      "Power Consumption": "2280Watt",
+      "Capacity": "6 Litres",
+      "Functions": "Airfry, Stirfry, Steam, Boil, Curry, Bake, Roast",
+      "Controls": "Digital",
+      "Display": "LED Display",
+      "Preset Menus": "14"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "reviews": [],
+    "image": "/product_images/kitchen/kit_037_1.jpg",
+    "category": "kitchen",
+    "stockLeft": 10
+  },
+  {
+    "id": 38,
+    "brand": "Philips",
+    "name": "PHILIPS OneBlade Rechargeable Cordless Shaver for Face for Men (60min Runtime, Unique OneBlade Technology, Lime Green & Charcoal Grey)",
+    "originalPrice": 0,
+    "salePrice": 0,
+    "price": 0,
+    "images": [
+      "/product_images/grooming/gro_038_1.png",
+      "/product_images/grooming/gro_038_2.png",
+      "/product_images/grooming/gro_038_3.png",
+      "/product_images/grooming/gro_038_4.png",
+      "/product_images/grooming/gro_038_5.png",
+      "/product_images/grooming/gro_038_6.png",
+      "/product_images/grooming/gro_038_7.jpg",
+      "/product_images/grooming/gro_038_8.png"
+    ],
+    "specifications": {
+      "Type": "Rechargeable Cordless",
+      "Attachments": "4 x Stubble Comb",
+      "Runtime": "60 minutes",
+      "Usage Type": "Wet & Dry",
+      "Charging Time": "4 Hour"
+    },
+    "rating": 4.4,
+    "reviewCount": 461,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "461 Ratings & 344 Reviews",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "461 Ratings & 344 Reviews",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/grooming/gro_038_1.png",
+    "category": "grooming",
+    "stockLeft": 10
+  },
+  {
+    "id": 39,
+    "brand": "Carlton",
+    "name": "Carlton London Face Cleanser (360 Degree Rotating Head, CLSHCF901SSCFC, White/Pink)",
+    "originalPrice": 0,
+    "salePrice": 0,
+    "price": 0,
+    "images": [
+      "/product_images/grooming/gro_039_1.jpg",
+      "/product_images/grooming/gro_039_2.jpg",
+      "/product_images/grooming/gro_039_3.jpg",
+      "/product_images/grooming/gro_039_4.jpg",
+      "/product_images/grooming/gro_039_5.png",
+      "/product_images/grooming/gro_039_6.png",
+      "/product_images/grooming/gro_039_7.jpg",
+      "/product_images/grooming/gro_039_8.jpg"
+    ],
+    "specifications": {
+      "Functions": "Cleansing",
+      "Ideal For": "Unisex, Cordless Operation",
+      "Operation Type": "Dry | Wet, Standard Battery Life: 2 Hours",
+      "Marketer Name & Address": "Opposite 32 milestone, Sector-30, Silokra Village, Gurgaon, Haryana, India ,122001"
+    },
+    "rating": 1,
+    "reviewCount": 0,
+    "reviews": [
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "1 Rating & 1 Review",
+        "rating": 0
+      },
+      {
+        "title": "",
+        "author": "Verified Buyer",
+        "text": "1 Rating & 1 Review",
+        "rating": 0
+      }
+    ],
+    "image": "/product_images/grooming/gro_039_1.jpg",
+    "category": "grooming",
+    "stockLeft": 10
+  }
+]

@@ -1,0 +1,1436 @@
+[
+  {
+    "id": 2,
+    "brand": "Samsung",
+    "name": "SAMSUNG Galaxy S26 Ultra 5G (12GB RAM, 256GB, Cobalt Violet)",
+    "originalPrice": 160999,
+    "salePrice": 134999,
+    "price": 139999,
+    "images": [
+      "/product_images/mobiles/mob_010_1.jpg",
+      "/product_images/mobiles/mob_010_2.jpg",
+      "/product_images/mobiles/mob_010_3.jpg",
+      "/product_images/mobiles/mob_010_4.jpg",
+      "/product_images/mobiles/mob_010_5.png",
+      "/product_images/mobiles/mob_010_6.png",
+      "/product_images/mobiles/mob_010_7.png",
+      "/product_images/mobiles/mob_010_8.jpg"
+    ],
+    "image": "/product_images/mobiles/002_1.png",
+    "specifications": {
+      "Display": "6.9\" Dynamic AMOLED 3X",
+      "Processor": "Exynos 2600",
+      "RAM": "16 GB",
+      "Storage": "512 GB",
+      "Battery": "6000 mAh",
+      "Camera": "200+50+12+10 MP Quad"
+    },
+    "rating": 4.5,
+    "reviewCount": 1967,
+    "reviews": [
+      {
+        "title": "Outstanding!",
+        "author": "Rahul K.",
+        "rating": 4.7,
+        "text": "Works as advertised. No complaints. Would buy again if needed."
+      },
+      {
+        "title": "Amazing features",
+        "author": "Sana Q.",
+        "rating": 4.3,
+        "text": "Been using this for a week. Build quality is solid. Would recommend."
+      },
+      {
+        "title": "Premium experience",
+        "author": "Siddharth R.",
+        "rating": 3.7,
+        "text": "Been using this for a week. Build quality is solid. Would recommend."
+      },
+      {
+        "title": "Outstanding!",
+        "author": "Karan N.",
+        "rating": 4.9,
+        "text": "After a month of use, I can confidently say this is a great buy."
+      }
+    ],
+    "category": "mobiles",
+    "stockLeft": 22
+  },
+  {
+    "id": 3,
+    "brand": "Google",
+    "name": "Google Pixel 10 5G (12GB RAM, 256GB, Obsidian)",
+    "originalPrice": 79999,
+    "salePrice": 89999,
+    "price": 74999,
+    "images": [
+      "/product_images/mobiles/mob_003_1.jpg",
+      "/product_images/mobiles/mob_003_2.jpg",
+      "/product_images/mobiles/mob_003_3.jpg",
+      "/product_images/mobiles/mob_003_4.jpg",
+      "/product_images/mobiles/mob_003_5.png",
+      "/product_images/mobiles/mob_003_6.png",
+      "/product_images/mobiles/mob_003_7.png",
+      "/product_images/mobiles/mob_003_8.jpg"
+    ],
+    "image": "/product_images/mobiles/003_1.png",
+    "specifications": {
+      "Display": "6.7\" LTPO OLED 120Hz",
+      "Processor": "Tensor G6",
+      "RAM": "16 GB",
+      "Storage": "256 GB",
+      "Battery": "5200 mAh",
+      "Camera": "50+48+48 MP Triple"
+    },
+    "rating": 5,
+    "reviewCount": 812,
+    "reviews": [
+      {
+        "title": "Outstanding!",
+        "author": "Kavita J.",
+        "rating": 4.6,
+        "text": "Works as advertised. No complaints. Would buy again if needed."
+      },
+      {
+        "title": "Solid performance",
+        "author": "Meera I.",
+        "rating": 3.6,
+        "text": "Works as advertised. No complaints. Would buy again if needed."
+      },
+      {
+        "title": "Premium experience",
+        "author": "Amit V.",
+        "rating": 3.8,
+        "text": "The features are impressive for the price. Definitely good value."
+      }
+    ],
+    "category": "mobiles",
+    "stockLeft": 8
+  },
+  {
+    "id": 5,
+    "brand": "Nothing",
+    "name": "Phone (3) (256 GB, Black)",
+    "originalPrice": 54999,
+    "salePrice": 49999,
+    "price": 49999,
+    "images": [
+      "/product_images/mobiles/5_g_1.jpg",
+      "/product_images/mobiles/5_g_2.jpg",
+      "/product_images/mobiles/5_g_3.jpg",
+      "/product_images/mobiles/5_g_4.jpg",
+      "/product_images/mobiles/5_g_5.jpg",
+      "/product_images/mobiles/5_g_6.jpg",
+      "/product_images/mobiles/5_g_7.jpg",
+      "/product_images/mobiles/5_g_8.jpg"
+    ],
+    "image": "/product_images/mobiles/005_1.png",
+    "specifications": {
+      "Display": "6.7\" LTPO AMOLED 120Hz",
+      "Processor": "Snapdragon 8s Gen 4",
+      "RAM": "12 GB",
+      "Storage": "256 GB",
+      "Battery": "5000 mAh",
+      "Camera": "50+50 MP Dual"
+    },
+    "rating": 4.3,
+    "reviewCount": 624,
+    "reviews": [
+      {
+        "title": "Perfect for daily use",
+        "author": "Sana Q.",
+        "rating": 3.9,
+        "text": "Excellent quality and fast delivery. Packaging was secure."
+      },
+      {
+        "title": "Good value for price",
+        "author": "Vikram P.",
+        "rating": 4.9,
+        "text": "Upgraded from my old device and the difference is night and day."
+      },
+      {
+        "title": "Happy with purchase",
+        "author": "Arjun M.",
+        "rating": 3.7,
+        "text": "The features are impressive for the price. Definitely good value."
+      }
+    ],
+    "category": "mobiles",
+    "stockLeft": 5
+  },
+  {
+    "id": 6,
+    "brand": "Apple",
+    "name": "MacBook Air M5 (16 GB, 512 GB SSD, Midnight)",
+    "originalPrice": 139900,
+    "salePrice": 129900,
+    "price": 129900,
+    "images": [
+      "/product_images/laptops/6_g_1.jpg",
+      "/product_images/laptops/6_g_2.jpg",
+      "/product_images/laptops/6_g_3.jpg",
+      "/product_images/laptops/6_g_4.jpg",
+      "/product_images/laptops/6_g_5.jpg",
+      "/product_images/laptops/6_g_6.jpg",
+      "/product_images/laptops/6_g_7.jpg",
+      "/product_images/laptops/6_g_8.jpg"
+    ],
+    "image": "/product_images/laptops/006_1.png",
+    "specifications": {
+      "Display": "15.3\" Liquid Retina",
+      "Processor": "Apple M5",
+      "RAM": "16 GB",
+      "Storage": "512 GB SSD",
+      "Battery": "Up to 18 hours",
+      "Weight": "1.24 kg"
+    },
+    "rating": 4.8,
+    "reviewCount": 1102,
+    "reviews": [
+      {
+        "title": "Premium experience",
+        "author": "Isha L.",
+        "rating": 4.2,
+        "text": "Upgraded from my old device and the difference is night and day."
+      },
+      {
+        "title": "Good value for price",
+        "author": "Neha G.",
+        "rating": 4.4,
+        "text": "I did a lot of research before buying this and I'm glad I chose this."
+      },
+      {
+        "title": "Solid performance",
+        "author": "Priya S.",
+        "rating": 3.8,
+        "text": "Good product overall. Battery life could be better but everything else works."
+      },
+      {
+        "title": "Premium experience",
+        "author": "Kavita J.",
+        "rating": 4.2,
+        "text": "I did a lot of research before buying this and I'm glad I chose this."
+      },
+      {
+        "title": "Happy with purchase",
+        "author": "Karan N.",
+        "rating": 4.6,
+        "text": "Works as advertised. No complaints. Would buy again if needed."
+      },
+      {
+        "title": "Outstanding!",
+        "author": "Sana Q.",
+        "rating": 3.5,
+        "text": "Works as advertised. No complaints. Would buy again if needed."
+      },
+      {
+        "title": "Perfect for daily use",
+        "author": "Arjun M.",
+        "rating": 5,
+        "text": "Upgraded from my old device and the difference is night and day."
+      }
+    ],
+    "category": "laptops",
+    "stockLeft": 18
+  },
+  {
+    "id": 7,
+    "brand": "Apple",
+    "name": "MacBook Pro Neo (18 GB, 1 TB SSD, Space Black)",
+    "originalPrice": 209900,
+    "salePrice": 199900,
+    "price": 199900,
+    "images": [
+      "/product_images/laptops/7_g_1.jpg",
+      "/product_images/laptops/7_g_2.jpg",
+      "/product_images/laptops/7_g_3.jpg",
+      "/product_images/laptops/7_g_4.jpg",
+      "/product_images/laptops/7_g_5.jpg",
+      "/product_images/laptops/7_g_6.jpg",
+      "/product_images/laptops/7_g_7.jpg",
+      "/product_images/laptops/7_g_8.jpg"
+    ],
+    "image": "/product_images/laptops/007_1.png",
+    "specifications": {
+      "Display": "16.2\" Mini-LED 120Hz",
+      "Processor": "Apple M5 Pro Max",
+      "RAM": "18 GB",
+      "Storage": "1 TB SSD",
+      "Battery": "Up to 22 hours",
+      "Weight": "2.14 kg"
+    },
+    "rating": 4.7,
+    "reviewCount": 876,
+    "reviews": [
+      {
+        "title": "Happy with purchase",
+        "author": "Kavita J.",
+        "rating": 3.6,
+        "text": "I did a lot of research before buying this and I'm glad I chose this."
+      },
+      {
+        "title": "Amazing features",
+        "author": "Ananya D.",
+        "rating": 4.2,
+        "text": "Good product overall. Battery life could be better but everything else works."
+      },
+      {
+        "title": "Decent build",
+        "author": "Deepak T.",
+        "rating": 4.3,
+        "text": "Been using this for a week. Build quality is solid. Would recommend."
+      }
+    ],
+    "category": "laptops",
+    "stockLeft": 3
+  },
+  {
+    "id": 8,
+    "brand": "ASUS",
+    "name": "ROG Strix G16 (32 GB, 1 TB SSD, RTX 5090)",
+    "originalPrice": 199999,
+    "salePrice": 189999,
+    "price": 189999,
+    "images": [
+      "/product_images/laptops/8_g_1.jpg",
+      "/product_images/laptops/8_g_2.jpg",
+      "/product_images/laptops/8_g_3.jpg",
+      "/product_images/laptops/8_g_4.jpg",
+      "/product_images/laptops/8_g_5.jpg",
+      "/product_images/laptops/8_g_6.jpg",
+      "/product_images/laptops/8_g_7.jpg",
+      "/product_images/laptops/8_g_8.jpg"
+    ],
+    "image": "/product_images/laptops/008_1.png",
+    "specifications": {
+      "Display": "16\" QHD+ 240Hz",
+      "Processor": "Intel Core Ultra 9 285HX",
+      "RAM": "32 GB",
+      "Storage": "1 TB SSD",
+      "GPU": "NVIDIA RTX 5090 16 GB",
+      "Weight": "2.5 kg"
+    },
+    "rating": 4.5,
+    "reviewCount": 456,
+    "reviews": [
+      {
+        "title": "Perfect for daily use",
+        "author": "Rahul K.",
+        "rating": 3.7,
+        "text": "Good product overall. Battery life could be better but everything else works."
+      },
+      {
+        "title": "Solid performance",
+        "author": "Kavita J.",
+        "rating": 4.1,
+        "text": "Works as advertised. No complaints. Would buy again if needed."
+      },
+      {
+        "title": "Does the job",
+        "author": "Ananya D.",
+        "rating": 4.2,
+        "text": "I did a lot of research before buying this and I'm glad I chose this."
+      },
+      {
+        "title": "Solid performance",
+        "author": "Sana Q.",
+        "rating": 3.9,
+        "text": "The features are impressive for the price. Definitely good value."
+      },
+      {
+        "title": "Great product!",
+        "author": "Arjun M.",
+        "rating": 4,
+        "text": "Been using this for a week. Build quality is solid. Would recommend."
+      },
+      {
+        "title": "Highly recommended",
+        "author": "Priya S.",
+        "rating": 3.6,
+        "text": "Been using this for a week. Build quality is solid. Would recommend."
+      }
+    ],
+    "category": "laptops",
+    "stockLeft": 7
+  },
+  {
+    "id": 9,
+    "brand": "Dell",
+    "name": "XPS 14 (16 GB, 1 TB SSD, Platinum)",
+    "originalPrice": 149999,
+    "salePrice": 139999,
+    "price": 139999,
+    "images": [
+      "/product_images/laptops/9_g_1.jpg",
+      "/product_images/laptops/9_g_2.jpg",
+      "/product_images/laptops/9_g_3.jpg",
+      "/product_images/laptops/9_g_4.jpg",
+      "/product_images/laptops/9_g_5.jpg",
+      "/product_images/laptops/9_g_6.jpg",
+      "/product_images/laptops/9_g_7.jpg",
+      "/product_images/laptops/9_g_8.jpg"
+    ],
+    "image": "/product_images/laptops/009_1.png",
+    "specifications": {
+      "Display": "14.5\" OLED 3.5K Touch",
+      "Processor": "Intel Core Ultra 7 265H",
+      "RAM": "16 GB",
+      "Storage": "1 TB SSD",
+      "Battery": "70 Wh",
+      "Weight": "1.52 kg"
+    },
+    "rating": 4.4,
+    "reviewCount": 345,
+    "reviews": [
+      {
+        "title": "Great product!",
+        "author": "Isha L.",
+        "rating": 4.5,
+        "text": "After a month of use, I can confidently say this is a great buy."
+      },
+      {
+        "title": "Great product!",
+        "author": "Kavita J.",
+        "rating": 3.9,
+        "text": "The features are impressive for the price. Definitely good value."
+      },
+      {
+        "title": "Good value for price",
+        "author": "Priya S.",
+        "rating": 4.1,
+        "text": "I did a lot of research before buying this and I'm glad I chose this."
+      },
+      {
+        "title": "Better than expected",
+        "author": "Sana Q.",
+        "rating": 3.9,
+        "text": "The features are impressive for the price. Definitely good value."
+      },
+      {
+        "title": "Solid performance",
+        "author": "Karan N.",
+        "rating": 4.5,
+        "text": "After a month of use, I can confidently say this is a great buy."
+      },
+      {
+        "title": "Outstanding!",
+        "author": "Rohit B.",
+        "rating": 4.3,
+        "text": "The features are impressive for the price. Definitely good value."
+      },
+      {
+        "title": "Great product!",
+        "author": "Rahul K.",
+        "rating": 4.2,
+        "text": "Good product overall. Battery life could be better but everything else works."
+      },
+      {
+        "title": "Happy with purchase",
+        "author": "Deepak T.",
+        "rating": 4.7,
+        "text": "Upgraded from my old device and the difference is night and day."
+      }
+    ],
+    "category": "laptops",
+    "stockLeft": 12
+  },
+  {
+    "id": 10,
+    "brand": "HP",
+    "name": "OmniBook 5 (16 GB, 512 GB SSD)",
+    "originalPrice": 114999,
+    "salePrice": 109999,
+    "price": 109999,
+    "images": [
+      "/product_images/laptops/10_g_1.jpg",
+      "/product_images/laptops/10_g_2.jpg",
+      "/product_images/laptops/10_g_3.jpg",
+      "/product_images/laptops/10_g_4.jpg",
+      "/product_images/laptops/10_g_5.jpg",
+      "/product_images/laptops/10_g_6.jpg",
+      "/product_images/laptops/10_g_7.jpg",
+      "/product_images/laptops/10_g_8.jpg"
+    ],
+    "image": "/product_images/laptops/010_1.png",
+    "specifications": {
+      "Display": "14\" 2.8K OLED 120Hz",
+      "Processor": "AMD Ryzen 9 8950HS",
+      "RAM": "16 GB",
+      "Storage": "512 GB SSD",
+      "Battery": "60 Wh",
+      "Weight": "1.38 kg"
+    },
+    "rating": 4.2,
+    "reviewCount": 289,
+    "reviews": [
+      {
+        "title": "Good but overpriced",
+        "author": "Amit V.",
+        "rating": 4.7,
+        "text": "Been using this for a week. Build quality is solid. Would recommend."
+      },
+      {
+        "title": "Does the job",
+        "author": "Vikram P.",
+        "rating": 3.8,
+        "text": "The features are impressive for the price. Definitely good value."
+      },
+      {
+        "title": "Great product!",
+        "author": "Siddharth R.",
+        "rating": 4.8,
+        "text": "After a month of use, I can confidently say this is a great buy."
+      },
+      {
+        "title": "Does the job",
+        "author": "Deepak T.",
+        "rating": 4,
+        "text": "Upgraded from my old device and the difference is night and day."
+      }
+    ],
+    "category": "laptops",
+    "stockLeft": 25
+  },
+  {
+    "id": 11,
+    "brand": "Samsung",
+    "name": "Neo QLED 65\" 8K Smart TV (2026)",
+    "originalPrice": 219999,
+    "salePrice": 189999,
+    "price": 189999,
+    "images": [
+      "/product_images/tvs/11_g_1.jpg",
+      "/product_images/tvs/11_g_2.jpg",
+      "/product_images/tvs/11_g_3.jpg",
+      "/product_images/tvs/11_g_4.jpg",
+      "/product_images/tvs/11_g_5.jpg",
+      "/product_images/tvs/11_g_6.jpg",
+      "/product_images/tvs/11_g_7.jpg",
+      "/product_images/tvs/11_g_8.jpg"
+    ],
+    "image": "/product_images/tvs/011_1.png",
+    "specifications": {
+      "Display": "65\" Neo QLED 8K",
+      "Resolution": "7680 x 4320",
+      "Refresh Rate": "240 Hz",
+      "Audio": "90W 6.2.4ch Dolby Atmos",
+      "Smart TV": "Tizen 8.0",
+      "HDMI": "4x HDMI 2.2"
+    },
+    "rating": 4.6,
+    "reviewCount": 723,
+    "reviews": [
+      {
+        "title": "Worth the money",
+        "author": "Neha G.",
+        "rating": 4.6,
+        "text": "I did a lot of research before buying this and I'm glad I chose this."
+      },
+      {
+        "title": "Outstanding!",
+        "author": "Rohit B.",
+        "rating": 3.7,
+        "text": "Excellent quality and fast delivery. Packaging was secure."
+      },
+      {
+        "title": "Solid performance",
+        "author": "Karan N.",
+        "rating": 4.5,
+        "text": "Excellent quality and fast delivery. Packaging was secure."
+      },
+      {
+        "title": "Worth the money",
+        "author": "Siddharth R.",
+        "rating": 4.9,
+        "text": "The features are impressive for the price. Definitely good value."
+      },
+      {
+        "title": "Good but overpriced",
+        "author": "Sana Q.",
+        "rating": 4,
+        "text": "Upgraded from my old device and the difference is night and day."
+      },
+      {
+        "title": "Great product!",
+        "author": "Ananya D.",
+        "rating": 4.3,
+        "text": "Been using this for a week. Build quality is solid. Would recommend."
+      },
+      {
+        "title": "Amazing features",
+        "author": "Kavita J.",
+        "rating": 4.6,
+        "text": "Works as advertised. No complaints. Would buy again if needed."
+      },
+      {
+        "title": "Decent build",
+        "author": "Vikram P.",
+        "rating": 4,
+        "text": "I did a lot of research before buying this and I'm glad I chose this."
+      }
+    ],
+    "category": "tvs",
+    "stockLeft": 10
+  },
+  {
+    "id": 12,
+    "brand": "LG",
+    "name": "OLED 55\" C5 4K Smart TV (2026)",
+    "originalPrice": 139999,
+    "salePrice": 113999,
+    "price": 113999,
+    "images": [
+      "/product_images/tvs/12_g_1.jpg",
+      "/product_images/tvs/12_g_2.jpg",
+      "/product_images/tvs/12_g_3.jpg",
+      "/product_images/tvs/12_g_4.jpg",
+      "/product_images/tvs/12_g_5.jpg",
+      "/product_images/tvs/12_g_6.jpg",
+      "/product_images/tvs/12_g_7.jpg",
+      "/product_images/tvs/12_g_8.jpg"
+    ],
+    "image": "/product_images/tvs/012_1.png",
+    "specifications": {
+      "Display": "55\" OLED evo 4K",
+      "Resolution": "3840 x 2160",
+      "Refresh Rate": "144 Hz",
+      "Audio": "60W 4.2ch Dolby Atmos",
+      "Smart TV": "webOS 25",
+      "HDMI": "4x HDMI 2.1"
+    },
+    "rating": 4.5,
+    "reviewCount": 891,
+    "reviews": [
+      {
+        "title": "Good value for price",
+        "author": "Vikram P.",
+        "rating": 4.7,
+        "text": "I did a lot of research before buying this and I'm glad I chose this."
+      },
+      {
+        "title": "Worth the money",
+        "author": "Ananya D.",
+        "rating": 3.5,
+        "text": "Upgraded from my old device and the difference is night and day."
+      },
+      {
+        "title": "Outstanding!",
+        "author": "Sana Q.",
+        "rating": 3.6,
+        "text": "After a month of use, I can confidently say this is a great buy."
+      },
+      {
+        "title": "Does the job",
+        "author": "Arjun M.",
+        "rating": 5,
+        "text": "Excellent quality and fast delivery. Packaging was secure."
+      },
+      {
+        "title": "Worth the money",
+        "author": "Rohit B.",
+        "rating": 3.7,
+        "text": "I did a lot of research before buying this and I'm glad I chose this."
+      },
+      {
+        "title": "Decent build",
+        "author": "Deepak T.",
+        "rating": 4.2,
+        "text": "Good product overall. Battery life could be better but everything else works."
+      },
+      {
+        "title": "Does the job",
+        "author": "Siddharth R.",
+        "rating": 4.1,
+        "text": "Works as advertised. No complaints. Would buy again if needed."
+      },
+      {
+        "title": "Good value for price",
+        "author": "Rahul K.",
+        "rating": 4.7,
+        "text": "Works as advertised. No complaints. Would buy again if needed."
+      }
+    ],
+    "category": "tvs",
+    "stockLeft": 14
+  },
+  {
+    "id": 13,
+    "brand": "Sony",
+    "name": "WH-1000XM5 Wireless ANC Headphones",
+    "originalPrice": 34990,
+    "salePrice": 29990,
+    "price": 29990,
+    "images": [
+      "/product_images/audio/13_g_1.jpg",
+      "/product_images/audio/13_g_2.jpg",
+      "/product_images/audio/13_g_3.jpg",
+      "/product_images/audio/13_g_4.jpg",
+      "/product_images/audio/13_g_5.jpg",
+      "/product_images/audio/13_g_6.jpg",
+      "/product_images/audio/13_g_7.jpg",
+      "/product_images/audio/13_g_8.jpg"
+    ],
+    "image": "/product_images/audio/013_1.png",
+    "specifications": {
+      "Driver": "30 mm",
+      "ANC": "Dual Noise Sensor",
+      "Battery": "40 hours",
+      "Codec": "LDAC, AAC, SBC",
+      "Weight": "254 g",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "rating": 4.7,
+    "reviewCount": 3456,
+    "reviews": [
+      {
+        "title": "Decent build",
+        "author": "Deepak T.",
+        "rating": 4.9,
+        "text": "I did a lot of research before buying this and I'm glad I chose this."
+      },
+      {
+        "title": "Better than expected",
+        "author": "Rohit B.",
+        "rating": 3.6,
+        "text": "Good product overall. Battery life could be better but everything else works."
+      },
+      {
+        "title": "Highly recommended",
+        "author": "Vikram P.",
+        "rating": 4.2,
+        "text": "Upgraded from my old device and the difference is night and day."
+      },
+      {
+        "title": "Does the job",
+        "author": "Kavita J.",
+        "rating": 3.9,
+        "text": "Been using this for a week. Build quality is solid. Would recommend."
+      },
+      {
+        "title": "Excellent quality",
+        "author": "Amit V.",
+        "rating": 3.7,
+        "text": "Upgraded from my old device and the difference is night and day."
+      },
+      {
+        "title": "Does the job",
+        "author": "Isha L.",
+        "rating": 4.7,
+        "text": "Been using this for a week. Build quality is solid. Would recommend."
+      },
+      {
+        "title": "Perfect for daily use",
+        "author": "Neha G.",
+        "rating": 4.6,
+        "text": "Good product overall. Battery life could be better but everything else works."
+      }
+    ],
+    "category": "audio",
+    "stockLeft": 40
+  },
+  {
+    "id": 14,
+    "brand": "Bose",
+    "name": "QuietComfort Ultra Wireless ANC Headphones",
+    "originalPrice": 39990,
+    "salePrice": 34990,
+    "price": 34990,
+    "images": [
+      "/product_images/audio/14_g_1.jpg",
+      "/product_images/audio/14_g_2.jpg",
+      "/product_images/audio/14_g_3.jpg",
+      "/product_images/audio/14_g_4.jpg",
+      "/product_images/audio/14_g_5.jpg",
+      "/product_images/audio/14_g_6.jpg",
+      "/product_images/audio/14_g_7.jpg",
+      "/product_images/audio/14_g_8.jpg"
+    ],
+    "image": "/product_images/audio/014_1.png",
+    "specifications": {
+      "Driver": "35 mm",
+      "ANC": "Adjustable Quiet/Aware",
+      "Battery": "32 hours",
+      "Codec": "SBC, AAC, aptX",
+      "Weight": "264 g",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "rating": 4.6,
+    "reviewCount": 2891,
+    "reviews": [
+      {
+        "title": "Good value for price",
+        "author": "Neha G.",
+        "rating": 4.8,
+        "text": "Good product overall. Battery life could be better but everything else works."
+      },
+      {
+        "title": "Better than expected",
+        "author": "Meera I.",
+        "rating": 4.1,
+        "text": "Been using this for a week. Build quality is solid. Would recommend."
+      },
+      {
+        "title": "Better than expected",
+        "author": "Rohit B.",
+        "rating": 3.9,
+        "text": "I did a lot of research before buying this and I'm glad I chose this."
+      },
+      {
+        "title": "Outstanding!",
+        "author": "Priya S.",
+        "rating": 4.1,
+        "text": "Been using this for a week. Build quality is solid. Would recommend."
+      },
+      {
+        "title": "Does the job",
+        "author": "Karan N.",
+        "rating": 4,
+        "text": "Been using this for a week. Build quality is solid. Would recommend."
+      }
+    ],
+    "category": "audio",
+    "stockLeft": 23
+  },
+  {
+    "id": 15,
+    "brand": "boAt",
+    "name": "Airdopes 141 Neo TWS Earbuds",
+    "originalPrice": 4990,
+    "salePrice": 1999,
+    "price": 1999,
+    "images": [
+      "/product_images/audio/15_g_1.jpg",
+      "/product_images/audio/15_g_2.jpg",
+      "/product_images/audio/15_g_3.jpg",
+      "/product_images/audio/15_g_4.jpg",
+      "/product_images/audio/15_g_5.jpg",
+      "/product_images/audio/15_g_6.jpg",
+      "/product_images/audio/15_g_7.jpg",
+      "/product_images/audio/15_g_8.jpg"
+    ],
+    "image": "/product_images/audio/015_1.png",
+    "specifications": {
+      "Driver": "13 mm",
+      "Battery": "60 hours (with case)",
+      "Waterproof": "IPX5",
+      "Codec": "SBC",
+      "Weight": "4.2 g per bud",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "rating": 4.2,
+    "reviewCount": 12456,
+    "reviews": [
+      {
+        "title": "Great product!",
+        "author": "Rohit B.",
+        "rating": 4,
+        "text": "Been using this for a week. Build quality is solid. Would recommend."
+      },
+      {
+        "title": "Outstanding!",
+        "author": "Karan N.",
+        "rating": 4.5,
+        "text": "Upgraded from my old device and the difference is night and day."
+      },
+      {
+        "title": "Amazing features",
+        "author": "Siddharth R.",
+        "rating": 3.6,
+        "text": "Excellent quality and fast delivery. Packaging was secure."
+      },
+      {
+        "title": "Better than expected",
+        "author": "Amit V.",
+        "rating": 3.9,
+        "text": "I did a lot of research before buying this and I'm glad I chose this."
+      },
+      {
+        "title": "Decent build",
+        "author": "Kavita J.",
+        "rating": 4.5,
+        "text": "Been using this for a week. Build quality is solid. Would recommend."
+      },
+      {
+        "title": "Does the job",
+        "author": "Deepak T.",
+        "rating": 4.4,
+        "text": "Works as advertised. No complaints. Would buy again if needed."
+      }
+    ],
+    "category": "audio",
+    "stockLeft": 100
+  },
+  {
+    "id": 16,
+    "brand": "OnePlus",
+    "name": "Buds Pro 3 Wireless ANC Earbuds",
+    "originalPrice": 14999,
+    "salePrice": 11999,
+    "price": 11999,
+    "images": [
+      "/product_images/audio/16_g_1.jpg",
+      "/product_images/audio/16_g_2.jpg",
+      "/product_images/audio/16_g_3.jpg",
+      "/product_images/audio/16_g_4.jpg",
+      "/product_images/audio/16_g_5.jpg",
+      "/product_images/audio/16_g_6.jpg",
+      "/product_images/audio/16_g_7.jpg",
+      "/product_images/audio/16_g_8.jpg"
+    ],
+    "image": "/product_images/audio/016_1.png",
+    "specifications": {
+      "Driver": "11+6 mm Dual",
+      "ANC": "Adaptive ANC 48dB",
+      "Battery": "44 hours (with case)",
+      "Waterproof": "IP55",
+      "Weight": "4.8 g per bud",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "rating": 4.4,
+    "reviewCount": 8765,
+    "reviews": [
+      {
+        "title": "Worth the money",
+        "author": "Sana Q.",
+        "rating": 4.1,
+        "text": "I did a lot of research before buying this and I'm glad I chose this."
+      },
+      {
+        "title": "Good but overpriced",
+        "author": "Siddharth R.",
+        "rating": 4.9,
+        "text": "Works as advertised. No complaints. Would buy again if needed."
+      },
+      {
+        "title": "Decent build",
+        "author": "Karan N.",
+        "rating": 3.8,
+        "text": "Excellent quality and fast delivery. Packaging was secure."
+      },
+      {
+        "title": "Excellent quality",
+        "author": "Priya S.",
+        "rating": 4.3,
+        "text": "The features are impressive for the price. Definitely good value."
+      },
+      {
+        "title": "Good value for price",
+        "author": "Rahul K.",
+        "rating": 4.4,
+        "text": "Excellent quality and fast delivery. Packaging was secure."
+      },
+      {
+        "title": "Worth the money",
+        "author": "Meera I.",
+        "rating": 4.8,
+        "text": "Excellent quality and fast delivery. Packaging was secure."
+      }
+    ],
+    "category": "audio",
+    "stockLeft": 55
+  },
+  {
+    "id": 17,
+    "brand": "Apple",
+    "name": "AirPods Pro 2 with USB-C (2026)",
+    "originalPrice": 29900,
+    "salePrice": 24900,
+    "price": 24900,
+    "images": [
+      "/product_images/audio/17_g_1.jpg",
+      "/product_images/audio/17_g_2.jpg",
+      "/product_images/audio/17_g_3.jpg",
+      "/product_images/audio/17_g_4.jpg",
+      "/product_images/audio/17_g_5.jpg",
+      "/product_images/audio/17_g_6.jpg",
+      "/product_images/audio/17_g_7.jpg",
+      "/product_images/audio/17_g_8.jpg"
+    ],
+    "image": "/product_images/audio/017_1.png",
+    "specifications": {
+      "Driver": "Apple-designed H3 chip",
+      "ANC": "Adaptive Transparency",
+      "Battery": "36 hours (with case)",
+      "Waterproof": "IPX4",
+      "Weight": "5.3 g per bud",
+      "Connectivity": "Bluetooth 5.3"
+    },
+    "rating": 4.8,
+    "reviewCount": 9823,
+    "reviews": [
+      {
+        "title": "Great product!",
+        "author": "Karan N.",
+        "rating": 4.2,
+        "text": "Been using this for a week. Build quality is solid. Would recommend."
+      },
+      {
+        "title": "Does the job",
+        "author": "Kavita J.",
+        "rating": 5,
+        "text": "Upgraded from my old device and the difference is night and day."
+      },
+      {
+        "title": "Good but overpriced",
+        "author": "Amit V.",
+        "rating": 5,
+        "text": "Excellent quality and fast delivery. Packaging was secure."
+      }
+    ],
+    "category": "audio",
+    "stockLeft": 30
+  },
+  {
+    "id": 18,
+    "brand": "Philips",
+    "name": "Philips OneChef Smart All in One Cooking Device 6L 2280 Watt with AmbiHeat Technology (Black)",
+    "originalPrice": 22994,
+    "salePrice": 24995,
+    "price": 19995,
+    "images": [
+      "/product_images/kitchen/kit_037_1.jpg",
+      "/product_images/kitchen/kit_037_2.jpg",
+      "/product_images/kitchen/kit_037_3.jpg",
+      "/product_images/kitchen/kit_037_4.jpg",
+      "/product_images/kitchen/kit_037_5.png",
+      "/product_images/kitchen/kit_037_6.png",
+      "/product_images/kitchen/kit_037_7.jpg",
+      "/product_images/kitchen/kit_037_8.png"
+    ],
+    "image": "/product_images/kitchen/018_1.png",
+    "specifications": {
+      "Capacity": "4.5 L",
+      "Power": "1800 W",
+      "Presets": "15 Smart Programs",
+      "Temperature": "80-200°C",
+      "Wifi": "Yes",
+      "Material": "Stainless Steel"
+    },
+    "rating": 4.3,
+    "reviewCount": 1456,
+    "reviews": [
+      {
+        "title": "Perfect for daily use",
+        "author": "Rahul K.",
+        "rating": 4.7,
+        "text": "Works as advertised. No complaints. Would buy again if needed."
+      },
+      {
+        "title": "Happy with purchase",
+        "author": "Kavita J.",
+        "rating": 4.3,
+        "text": "Works as advertised. No complaints. Would buy again if needed."
+      },
+      {
+        "title": "Worth the money",
+        "author": "Amit V.",
+        "rating": 4.1,
+        "text": "Works as advertised. No complaints. Would buy again if needed."
+      },
+      {
+        "title": "Amazing features",
+        "author": "Neha G.",
+        "rating": 4,
+        "text": "Works as advertised. No complaints. Would buy again if needed."
+      }
+    ],
+    "category": "kitchen",
+    "stockLeft": 20
+  },
+  {
+    "id": 19,
+    "brand": "Bajaj",
+    "name": "OTG 48 L Convection Microwave Oven",
+    "originalPrice": 9995,
+    "salePrice": 8495,
+    "price": 8495,
+    "images": [
+      "/product_images/kitchen/19_g_1.jpg",
+      "/product_images/kitchen/19_g_2.jpg",
+      "/product_images/kitchen/19_g_3.jpg",
+      "/product_images/kitchen/19_g_4.jpg",
+      "/product_images/kitchen/19_g_5.jpg",
+      "/product_images/kitchen/19_g_6.jpg",
+      "/product_images/kitchen/19_g_7.jpg",
+      "/product_images/kitchen/19_g_8.jpg"
+    ],
+    "image": "/product_images/kitchen/019_1.png",
+    "specifications": {
+      "Capacity": "48 L",
+      "Power": "1600 W",
+      "Convection": "Yes",
+      "Temperature": "50-250°C",
+      "Timer": "Up to 120 min",
+      "Material": "Stainless Steel"
+    },
+    "rating": 4.1,
+    "reviewCount": 2345,
+    "reviews": [
+      {
+        "title": "Happy with purchase",
+        "author": "Deepak T.",
+        "rating": 4.7,
+        "text": "After a month of use, I can confidently say this is a great buy."
+      },
+      {
+        "title": "Good but overpriced",
+        "author": "Meera I.",
+        "rating": 4.1,
+        "text": "Good product overall. Battery life could be better but everything else works."
+      },
+      {
+        "title": "Happy with purchase",
+        "author": "Priya S.",
+        "rating": 4.9,
+        "text": "Upgraded from my old device and the difference is night and day."
+      },
+      {
+        "title": "Does the job",
+        "author": "Karan N.",
+        "rating": 4.7,
+        "text": "Been using this for a week. Build quality is solid. Would recommend."
+      },
+      {
+        "title": "Happy with purchase",
+        "author": "Sana Q.",
+        "rating": 4.1,
+        "text": "Excellent quality and fast delivery. Packaging was secure."
+      }
+    ],
+    "category": "kitchen",
+    "stockLeft": 35
+  },
+  {
+    "id": 20,
+    "brand": "Prestige",
+    "name": "Iris Mixer Grinder 750W",
+    "originalPrice": 5495,
+    "salePrice": 4295,
+    "price": 4295,
+    "images": [
+      "/product_images/kitchen/20_g_1.jpg",
+      "/product_images/kitchen/20_g_2.jpg",
+      "/product_images/kitchen/20_g_3.jpg",
+      "/product_images/kitchen/20_g_4.jpg",
+      "/product_images/kitchen/20_g_5.jpg",
+      "/product_images/kitchen/20_g_6.jpg",
+      "/product_images/kitchen/20_g_7.jpg",
+      "/product_images/kitchen/20_g_8.jpg"
+    ],
+    "image": "/product_images/kitchen/020_1.png",
+    "specifications": {
+      "Power": "750 W",
+      "Jars": "3 (SS + SS + PP)",
+      "Speed": "3 Speed + Pulse",
+      "Material": "Stainless Steel Blades",
+      "Warranty": "2 Years",
+      "Weight": "4.2 kg"
+    },
+    "rating": 4.2,
+    "reviewCount": 5678,
+    "reviews": [
+      {
+        "title": "Happy with purchase",
+        "author": "Karan N.",
+        "rating": 3.7,
+        "text": "After a month of use, I can confidently say this is a great buy."
+      },
+      {
+        "title": "Worth the money",
+        "author": "Isha L.",
+        "rating": 3.6,
+        "text": "I did a lot of research before buying this and I'm glad I chose this."
+      },
+      {
+        "title": "Great product!",
+        "author": "Priya S.",
+        "rating": 3.7,
+        "text": "Works as advertised. No complaints. Would buy again if needed."
+      },
+      {
+        "title": "Does the job",
+        "author": "Arjun M.",
+        "rating": 3.9,
+        "text": "Been using this for a week. Build quality is solid. Would recommend."
+      },
+      {
+        "title": "Decent build",
+        "author": "Deepak T.",
+        "rating": 4.3,
+        "text": "Excellent quality and fast delivery. Packaging was secure."
+      },
+      {
+        "title": "Does the job",
+        "author": "Amit V.",
+        "rating": 4.6,
+        "text": "Been using this for a week. Build quality is solid. Would recommend."
+      }
+    ],
+    "category": "kitchen",
+    "stockLeft": 60
+  },
+  {
+    "id": 21,
+    "brand": "Philips",
+    "name": "OneBlade Face & Body Trimmer",
+    "originalPrice": 3995,
+    "salePrice": 2995,
+    "price": 2995,
+    "images": [
+      "/product_images/grooming/21_g_1.jpg",
+      "/product_images/grooming/21_g_2.jpg",
+      "/product_images/grooming/21_g_3.jpg",
+      "/product_images/grooming/21_g_4.jpg",
+      "/product_images/grooming/21_g_5.jpg",
+      "/product_images/grooming/21_g_6.jpg",
+      "/product_images/grooming/21_g_7.jpg",
+      "/product_images/grooming/21_g_8.jpg"
+    ],
+    "image": "/product_images/grooming/021_1.png",
+    "specifications": {
+      "Blade": "Dual Protection",
+      "Battery": "60 min cordless",
+      "Waterproof": "IPX7 (washable)",
+      "Settings": "3 Length combs",
+      "Charging": "USB-C, 8 hr full",
+      "Weight": "120 g"
+    },
+    "rating": 4.3,
+    "reviewCount": 9891,
+    "reviews": [
+      {
+        "title": "Solid performance",
+        "author": "Rahul K.",
+        "rating": 4.9,
+        "text": "I did a lot of research before buying this and I'm glad I chose this."
+      },
+      {
+        "title": "Decent build",
+        "author": "Vikram P.",
+        "rating": 3.8,
+        "text": "I did a lot of research before buying this and I'm glad I chose this."
+      },
+      {
+        "title": "Excellent quality",
+        "author": "Isha L.",
+        "rating": 3.9,
+        "text": "Excellent quality and fast delivery. Packaging was secure."
+      },
+      {
+        "title": "Perfect for daily use",
+        "author": "Ananya D.",
+        "rating": 4.4,
+        "text": "Excellent quality and fast delivery. Packaging was secure."
+      },
+      {
+        "title": "Solid performance",
+        "author": "Deepak T.",
+        "rating": 3.7,
+        "text": "The features are impressive for the price. Definitely good value."
+      }
+    ],
+    "category": "grooming",
+    "stockLeft": 80
+  },
+  {
+    "id": 22,
+    "brand": "Dyson",
+    "name": "Airwrap Multi-Styler Complete (Nickel/Copper)",
+    "originalPrice": 47990,
+    "salePrice": 42990,
+    "price": 42990,
+    "images": [
+      "/product_images/grooming/22_g_1.jpg",
+      "/product_images/grooming/22_g_2.jpg",
+      "/product_images/grooming/22_g_3.jpg",
+      "/product_images/grooming/22_g_4.jpg",
+      "/product_images/grooming/22_g_5.jpg",
+      "/product_images/grooming/22_g_6.jpg",
+      "/product_images/grooming/22_g_7.jpg",
+      "/product_images/grooming/22_g_8.jpg"
+    ],
+    "image": "/product_images/grooming/022_1.png",
+    "specifications": {
+      "Motor": "V9 Digital",
+      "Attachments": "6 Styling heads",
+      "Heat": "Intelligent heat control",
+      "Speed": "3 speeds",
+      "Cable": "2.7 m",
+      "Weight": "660 g"
+    },
+    "rating": 4.5,
+    "reviewCount": 1234,
+    "reviews": [
+      {
+        "title": "Decent build",
+        "author": "Amit V.",
+        "rating": 3.9,
+        "text": "Excellent quality and fast delivery. Packaging was secure."
+      },
+      {
+        "title": "Worth the money",
+        "author": "Karan N.",
+        "rating": 3.5,
+        "text": "Good product overall. Battery life could be better but everything else works."
+      },
+      {
+        "title": "Outstanding!",
+        "author": "Deepak T.",
+        "rating": 3.9,
+        "text": "Upgraded from my old device and the difference is night and day."
+      },
+      {
+        "title": "Worth the money",
+        "author": "Rohit B.",
+        "rating": 4.1,
+        "text": "The features are impressive for the price. Definitely good value."
+      }
+    ],
+    "category": "grooming",
+    "stockLeft": 6
+  },
+  {
+    "id": 23,
+    "brand": "Samsung",
+    "name": "653 L 3-Door French Door Refrigerator",
+    "originalPrice": 99990,
+    "salePrice": 89990,
+    "price": 89990,
+    "images": [
+      "/product_images/refrigerators/23_g_1.jpg",
+      "/product_images/refrigerators/23_g_2.jpg",
+      "/product_images/refrigerators/23_g_3.jpg",
+      "/product_images/refrigerators/23_g_4.jpg",
+      "/product_images/refrigerators/23_g_5.jpg",
+      "/product_images/refrigerators/23_g_6.jpg",
+      "/product_images/refrigerators/23_g_7.jpg",
+      "/product_images/refrigerators/23_g_8.jpg"
+    ],
+    "image": "/product_images/refrigerators/023_1.png",
+    "specifications": {
+      "Capacity": "653 L",
+      "Type": "French Door 3-Door",
+      "Energy Rating": "5 Star",
+      "Cooling": "Digital Inverter Twin Cooling+",
+      "Convertible": "Yes",
+      "Warranty": "20 Years Compressor"
+    },
+    "rating": 4.4,
+    "reviewCount": 678,
+    "reviews": [
+      {
+        "title": "Solid performance",
+        "author": "Neha G.",
+        "rating": 4.8,
+        "text": "Upgraded from my old device and the difference is night and day."
+      },
+      {
+        "title": "Excellent quality",
+        "author": "Rohit B.",
+        "rating": 4.5,
+        "text": "After a month of use, I can confidently say this is a great buy."
+      },
+      {
+        "title": "Premium experience",
+        "author": "Deepak T.",
+        "rating": 4.6,
+        "text": "The features are impressive for the price. Definitely good value."
+      },
+      {
+        "title": "Outstanding!",
+        "author": "Karan N.",
+        "rating": 4.2,
+        "text": "After a month of use, I can confidently say this is a great buy."
+      },
+      {
+        "title": "Decent build",
+        "author": "Isha L.",
+        "rating": 4.4,
+        "text": "Excellent quality and fast delivery. Packaging was secure."
+      }
+    ],
+    "category": "refrigerators",
+    "stockLeft": 9
+  },
+  {
+    "id": 24,
+    "brand": "Whirlpool",
+    "name": "192 L 2-Door Direct Cool Refrigerator",
+    "originalPrice": 32990,
+    "salePrice": 27990,
+    "price": 27990,
+    "images": [
+      "/product_images/refrigerators/24_g_1.jpg",
+      "/product_images/refrigerators/24_g_2.jpg",
+      "/product_images/refrigerators/24_g_3.jpg",
+      "/product_images/refrigerators/24_g_4.jpg",
+      "/product_images/refrigerators/24_g_5.jpg",
+      "/product_images/refrigerators/24_g_6.jpg",
+      "/product_images/refrigerators/24_g_7.jpg",
+      "/product_images/refrigerators/24_g_8.jpg"
+    ],
+    "image": "/product_images/refrigerators/024_1.png",
+    "specifications": {
+      "Capacity": "192 L",
+      "Type": "Direct Cool 2-Door",
+      "Energy Rating": "3 Star",
+      "Cooling": "IntelliCool",
+      "Convertible": "No",
+      "Warranty": "10 Years Compressor"
+    },
+    "rating": 4.1,
+    "reviewCount": 3456,
+    "reviews": [
+      {
+        "title": "Does the job",
+        "author": "Kavita J.",
+        "rating": 4.2,
+        "text": "After a month of use, I can confidently say this is a great buy."
+      },
+      {
+        "title": "Perfect for daily use",
+        "author": "Siddharth R.",
+        "rating": 4.7,
+        "text": "The features are impressive for the price. Definitely good value."
+      },
+      {
+        "title": "Good value for price",
+        "author": "Meera I.",
+        "rating": 4,
+        "text": "I did a lot of research before buying this and I'm glad I chose this."
+      },
+      {
+        "title": "Perfect for daily use",
+        "author": "Neha G.",
+        "rating": 4.2,
+        "text": "Upgraded from my old device and the difference is night and day."
+      },
+      {
+        "title": "Outstanding!",
+        "author": "Rahul K.",
+        "rating": 4.7,
+        "text": "After a month of use, I can confidently say this is a great buy."
+      },
+      {
+        "title": "Good but overpriced",
+        "author": "Vikram P.",
+        "rating": 3.9,
+        "text": "Upgraded from my old device and the difference is night and day."
+      },
+      {
+        "title": "Good but overpriced",
+        "author": "Ananya D.",
+        "rating": 4.8,
+        "text": "Upgraded from my old device and the difference is night and day."
+      },
+      {
+        "title": "Happy with purchase",
+        "author": "Deepak T.",
+        "rating": 4,
+        "text": "Excellent quality and fast delivery. Packaging was secure."
+      }
+    ],
+    "category": "refrigerators",
+    "stockLeft": 45
+  }
+]

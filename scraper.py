@@ -280,7 +280,7 @@ class CromaScraper:
                 }
             """)
 
-            # 2. Images from DOM gallery in Croma's exact order (filter out non-product images)
+            # 2. Images from DOM in Croma's exact visual order (gallery thumbnails first, then LD+JSON)
             images = await page.evaluate("""
                 () => {
                     const seen = new Set();
@@ -292,11 +292,14 @@ class CromaScraper:
                     };
                     const isProductImage = (u) => {
                         const low = u.toLowerCase();
-                        if (low.includes('/cms/') || low.includes('lazyloading') || low.includes('bank') || low.includes('hdfc') || low.includes('idfc')) return false;
-                        return low.includes('/images/') || low.includes('media.tatacroma');
+                        if (low.includes('/cms/') || low.includes('lazyloading') || low.includes('bank') ||
+                            low.includes('hdfc') || low.includes('idfc') || low.includes('banner') ||
+                            low.includes('promo') || low.includes('logo') || low.includes('icon') ||
+                            low.includes('ic_') || low.includes('badge')) return false;
+                        return low.includes('/images/') || low.includes('media.tatacroma') ||
+                               low.includes('media-ik.croma') || low.includes('croma.com');
                     };
 
-                    // Collect image URL from DOM — prefer data-src (lazy) over src
                     const collectSrc = (el) => {
                         let src = el.getAttribute('data-src') || el.getAttribute('src') || '';
                         if (!src || src.includes('data:') || src.endsWith('.svg')) return '';
@@ -305,26 +308,65 @@ class CromaScraper:
                         return isVideo(cleaned) || !isProductImage(cleaned) ? '' : cleaned;
                     };
 
-                    // Gather in DOM order
-                    const all = document.querySelectorAll(
-                        'img[src*="media-ik.croma"], img[data-src*="media-ik.croma"], ' +
-                        'img[src*="media.tatacroma"], img[data-src*="media.tatacroma"], ' +
-                        '[class*="gallery"] img, [class*="carousel"] img'
-                    );
-                    all.forEach(img => {
-                        const cleaned = collectSrc(img);
-                        if (cleaned && !seen.has(cleaned)) {
-                            seen.add(cleaned);
-                            result.push(cleaned);
-                        }
-                    });
+                    // 1. Gallery thumbnails from DOM in visual order (exact Croma order)
+                    const gallerySelectors = [
+                        '[class*="gallery"] img',
+                        '[class*="carousel"] img',
+                        '[class*="slider"] img',
+                        '[class*="media-gallery"] img',
+                        '[class*="product-image"] img',
+                        '[class*="pdp-image"] img',
+                        '[class*="thumb"] img',
+                    ];
 
-                    return result;
+                    // Try each gallery selector; use the first one that finds multiple images
+                    for (const sel of gallerySelectors) {
+                        const els = document.querySelectorAll(sel);
+                        if (els.length > 1) {
+                            els.forEach(img => {
+                                const cleaned = collectSrc(img);
+                                if (cleaned && !seen.has(cleaned) && result.length < 10) {
+                                    seen.add(cleaned);
+                                    result.push(cleaned);
+                                }
+                            });
+                            if (result.length > 0) break;
+                        }
+                    }
+
+                    // 2. Supplement from LD+JSON (only images not already found in gallery)
+                    try {
+                        const ldScripts = document.querySelectorAll('script[type="application/ld+json"]');
+                        for (const script of ldScripts) {
+                            const data = JSON.parse(script.textContent);
+                            const imageField = data.image || (data[0] && data[0].image);
+                            if (Array.isArray(imageField)) {
+                                imageField.forEach(url => {
+                                    const cleaned = (typeof url === 'string' ? url : '').replace(/\\?.*/, '');
+                                    if (cleaned && !seen.has(cleaned) && isProductImage(cleaned) && result.length < 10) {
+                                        seen.add(cleaned);
+                                        result.push(cleaned);
+                                    }
+                                });
+                            }
+                        }
+                    } catch(e) {}
+
+                    // 3. Fallback: any product image on the page
+                    if (result.length === 0) {
+                        document.querySelectorAll('img[src*="media-ik.croma"], img[data-src*="media-ik.croma"], ' +
+                            'img[src*="media.tatacroma"], img[data-src*="media.tatacroma"]').forEach(img => {
+                            const cleaned = collectSrc(img);
+                            if (cleaned && !seen.has(cleaned) && result.length < 10) {
+                                seen.add(cleaned);
+                                result.push(cleaned);
+                            }
+                        });
+                    }
+
+                    return result.slice(0, 10);
                 }
             """)
-            # Rotate left by 1 — moves _0 (main image) toward the front
-            if len(images) > 1:
-                images = images[1:] + images[:1]
             product.images = images[:10]
 
             # 3. Price
@@ -417,19 +459,12 @@ class CromaScraper:
             product.rating = rating_info.get("stars", 0)
             product.reviewCount = rating_info.get("count", 0) or rating_info.get("reviewCount", 0)
 
-            # 8. Reviews from API + DOM fallback
-            reviews = []
+            # 8. Reviews from DOM
             try:
-                api_reviews = await self._fetch_reviews(page, url)
-                if isinstance(api_reviews, list):
-                    reviews = api_reviews
+                reviews = await self._extract_reviews_from_dom(page)
             except Exception as e:
-                log.debug("    Review API failed: %s", e)
-            if not reviews:
-                try:
-                    reviews = await self._extract_reviews_from_dom(page)
-                except Exception as e:
-                    log.debug("    DOM review extraction failed: %s", e)
+                log.debug("    DOM review extraction failed: %s", e)
+                reviews = []
             product.reviews = reviews
 
             if not product.name:
@@ -500,100 +535,125 @@ class CromaScraper:
         """)
         return specs
 
-    async def _fetch_reviews(self, page, product_url: str) -> list:
-        """Fetch reviews from Croma API within browser context."""
-        pid_match = re.search(r'/p/(\d+)', product_url)
-        if not pid_match:
-            return []
-        pid = pid_match.group(1)
-
-        result = await page.evaluate("""
-            async (productId) => {
-                const reviews = [];
-                try {
-                    // Try fetching from known Croma review APIs
-                    const endpoints = [
-                        `https://api.croma.com/productdetails/allchannels/v1/reviewcount/${productId}`,
-                    ];
-                    const resp = await fetch(endpoints[0]);
-                    if (resp.ok) {
-                        const data = await resp.json();
-                        // data format: { "1": N, "2": N, "3": N, "4": N, "5": N }
-                        return { type: 'counts', data };
-                    }
-                } catch(e) {}
-                return reviews;
-            }
-        """, pid)
-
-        if isinstance(result, dict) and result.get("type") == "counts":
-            return result["data"]
-
-        return []
-
     async def _extract_reviews_from_dom(self, page) -> list:
-        """Extract reviews from the product page DOM as fallback."""
+        """Extract individual review texts from the product page DOM."""
         reviews = await page.evaluate("""
             () => {
                 const results = [];
 
-                // Try clicking review tab if present
-                document.querySelectorAll('button, [role="tab"], li, a').forEach(t => {
+                // Try clicking review/ratings tab to reveal reviews
+                const tabTexts = ['reviews', 'ratings & reviews', 'customer reviews', 'ratings'];
+                document.querySelectorAll('button, [role="tab"], li, a, [class*="tab"]').forEach(t => {
                     const txt = t.textContent.trim().toLowerCase();
-                    if (txt === 'reviews' || txt === 'ratings & reviews') {
+                    if (tabTexts.some(tt => txt === tt || txt.includes(tt))) {
                         t.click();
                     }
                 });
 
                 return new Promise((resolve) => {
                     setTimeout(() => {
-                        const reviewSelectors = [
-                            '[class*="review"]',
-                            '[class*="Review"]',
-                            '[class*="feedback"]',
-                            '[class*="comment"]',
-                            '.customer-review',
+                        // Croma-specific review item selectors (ordered by specificity)
+                        const reviewItemSelectors = [
+                            '[class*="reviewCard"]',
+                            '[class*="review-card"]',
+                            '[class*="reviewItem"]',
+                            '[class*="review-item"]',
+                            '[data-testid*="review"]',
+                            '[class*="customerReview"]',
+                            '.review-container [class*="item"]',
+                            '.prd-review',
+                            '[class*="review-list"] > div',
+                            '[class*="reviews-list"] > div',
+                            '[class*="feedback-list"] > div',
                         ];
 
                         let items = [];
-                        for (const sel of reviewSelectors) {
+                        for (const sel of reviewItemSelectors) {
                             items = document.querySelectorAll(sel);
                             if (items.length > 0) break;
                         }
 
+                        // Fallback: broader review-like containers
+                        if (items.length === 0) {
+                            for (const sel of ['[class*="review"]', '[class*="Review"]', '[class*="feedback"]', '[class*="comment"]']) {
+                                items = document.querySelectorAll(sel);
+                                if (items.length > 0) break;
+                            }
+                        }
+
                         items.forEach(item => {
-                            const textEl = item.querySelector('[class*="text"], [class*="comment"], p, [class*="description"]');
-                            const titleEl = item.querySelector('[class*="title"], [class*="heading"], h3, h4, strong');
-                            const ratingEl = item.querySelector('[class*="star"], [class*="rating"], [class*="score"]');
-                            const authorEl = item.querySelector('[class*="author"], [class*="name"], [class*="user"]');
+                            const text = (
+                                item.querySelector('[class*="review-text"], [class*="reviewText"], [class*="comment-text"], ' +
+                                    '[class*="description"], [class*="feedback-text"], p, [class*="review-body"], ' +
+                                    '[class*="text-content"]')?.textContent?.trim() ||
+                                item.textContent.trim()
+                            );
+
+                            const title = (
+                                item.querySelector('[class*="review-title"], [class*="reviewTitle"], [class*="heading"], ' +
+                                    'h3, h4, strong, [class*="title-text"]')?.textContent?.trim() ||
+                                ''
+                            );
+
+                            const author = (
+                                item.querySelector('[class*="author"], [class*="reviewer"], [class*="user-name"], ' +
+                                    '[class*="customer-name"], [class*="username"], [class*="userName"]')?.textContent?.trim() ||
+                                ''
+                            );
 
                             let rating = 0;
+                            const ratingEl = item.querySelector(
+                                '[class*="star"], [class*="rating"], [class*="score"], [class*="Rating"]'
+                            );
                             if (ratingEl) {
                                 const m = ratingEl.textContent.match(/(\\d+(\\.\\d+)?)/);
                                 if (m) rating = parseFloat(m[1]);
                             }
 
-                            let text = textEl ? textEl.textContent.trim() : '';
-                            const title = titleEl ? titleEl.textContent.trim() : '';
-                            const author = authorEl ? authorEl.textContent.trim() : '';
-
-                            // Skip placeholder / empty reviews
-                            if (!text || text.length < 10 || text.includes('Be the First') || text.includes('No reviews')) return;
+                            // Filter out placeholder / summary / empty / UI text
+                            const noisePatterns = [
+                                /be the first/i, /write a review/i, /review this product/i,
+                                /customer reviews?:?/i, /newest first/i, /overall rating/i,
+                                /verified purchase/i, /^\\(\\d+(\\.\\d+)?\\)\\s*\\|/,
+                                /^[\\s\\d.]+$/, /no reviews/i, /^ratings?$/i,
+                            ];
+                            const isNoise = noisePatterns.some(p => p.test(text)) ||
+                                           text.length < 15 ||
+                                           text === title ||
+                                           (text.includes('|') && text.length < 30);
+                            if (isNoise) return;
 
                             results.push({
                                 title: title || '',
                                 author: author || 'Verified Buyer',
                                 text: text,
-                                rating: rating,
+                                rating: rating > 0 && rating <= 5 ? rating : 0,
                             });
                         });
 
                         resolve(results);
-                    }, 1500);
+                    }, 2000);
                 });
             }
         """)
         return reviews[:20]
+
+    def _detect_image_ext(self, data: bytes) -> str:
+        if len(data) < 4:
+            return ".jpg"
+        # JPEG: FF D8 FF
+        if data[0] == 0xFF and data[1] == 0xD8 and data[2] == 0xFF:
+            return ".jpg"
+        # PNG: 89 50 4E 47
+        if data[0] == 0x89 and data[1] == 0x50 and data[2] == 0x4E and data[3] == 0x47:
+            return ".png"
+        # WebP: 52 49 46 46 ... 57 45 42 50
+        if data[0] == 0x52 and data[1] == 0x49 and data[2] == 0x46 and data[3] == 0x46:
+            return ".webp"
+        # GIF: 47 49 46 38
+        if data[0] == 0x47 and data[1] == 0x49 and data[2] == 0x46 and data[3] == 0x38:
+            return ".gif"
+        return ".jpg"
 
     async def _download_images(self, product: ScrapedProduct, cat_id: str):
         if not product.images:
@@ -604,32 +664,27 @@ class CromaScraper:
 
         downloaded = []
         for idx, img_url in enumerate(product.images):
-            if idx >= 5:
+            if idx >= 8:
                 break
-            # Skip video URLs as safety net
-            ext = self._guess_extension(img_url)
-            if ext in VIDEO_EXTENSIONS:
+            url_ext = self._guess_extension(img_url)
+            if url_ext in VIDEO_EXTENSIONS:
                 log.debug("    Skipping video URL: %s", img_url[:80])
                 continue
             try:
-                filename = f"{product.id}_{idx+1}{ext}"
-                filepath = cat_dir / filename
-
-                if filepath.exists():
-                    downloaded.append(f"/product_images/{cat_id}/{filename}")
-                    continue
-
                 page = await self.new_page()
                 try:
                     resp = await page.goto(img_url, timeout=30000, wait_until="commit")
                     if resp and resp.ok:
                         data = await resp.body()
                         if len(data) > 2048:
+                            actual_ext = self._detect_image_ext(data)
+                            filename = f"{product.id}_{idx+1}{actual_ext}"
+                            filepath = cat_dir / filename
                             filepath.write_bytes(data)
                             downloaded.append(f"/product_images/{cat_id}/{filename}")
-                            log.debug("    Downloaded: %s (%d bytes)", filename, len(data))
+                            log.debug("    Downloaded: %s (%d bytes, %s)", filename, len(data), actual_ext)
                         else:
-                            log.debug("    Image too small: %s (%d bytes)", filename, len(data))
+                            log.debug("    Image too small: %s (%d bytes)", img_url[:60], len(data))
                 finally:
                     await page.close()
 

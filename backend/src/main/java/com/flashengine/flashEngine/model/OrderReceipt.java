@@ -2,8 +2,6 @@ package com.flashengine.flashEngine.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "order_receipts")
@@ -25,16 +23,8 @@ public class OrderReceipt {
     @Column(name = "purchase_time")
     private LocalDateTime purchaseTime;
 
-    @OneToMany(mappedBy = "orderReceipt", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<OrderItem> items = new ArrayList<>();
-
     public OrderReceipt() {}
 
-    public void addItem(OrderItem item) {
-        items.add(item);
-    }
-
-    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -49,7 +39,4 @@ public class OrderReceipt {
 
     public LocalDateTime getPurchaseTime() { return purchaseTime; }
     public void setPurchaseTime(LocalDateTime purchaseTime) { this.purchaseTime = purchaseTime; }
-
-    public List<OrderItem> getItems() { return items; }
-    public void setItems(List<OrderItem> items) { this.items = items; }
 }

@@ -1,656 +1,1161 @@
 [
   {
     "id": 1,
-    "brand": "Oppo",
-    "name": "oppo Reno 16c 5G (8GB RAM, 256GB, Twilight Violet)",
-    "originalPrice": 79999,
-    "salePrice": 49999,
-    "price": 49999,
+    "brand": "Apple",
+    "name": "iPhone 17 Pro Max (256 GB, Desert Titanium)",
+    "originalPrice": 169900,
+    "salePrice": 159900,
+    "price": 159900,
     "images": [
-      "/product_images/mobiles/mob_001_1.png",
-      "/product_images/mobiles/mob_001_2.png",
-      "/product_images/mobiles/mob_001_3.png",
-      "/product_images/mobiles/mob_001_4.png",
-      "/product_images/mobiles/mob_001_5.png"
+      "/product_images/mobiles/iphone16promax_white_1.jpg",
+      "/product_images/mobiles/iphone16promax_white_2.jpg",
+      "/product_images/mobiles/iphone16promax_white_3.jpg",
+      "/product_images/mobiles/iphone16promax_white_4.jpg",
+      "/product_images/mobiles/iphone16promax_white_5.jpg",
+      "/product_images/mobiles/iphone16promax_white_6.jpg",
+      "/product_images/mobiles/iphone16promax_white_7.jpg",
+      "/product_images/mobiles/iphone16promax_white_8.jpg"
     ],
+    "image": "/product_images/mobiles/001_1.png",
     "specifications": {
-      "Display": "6.57 inches (16.69 cm), Crystal Guard + AMOLED, 120 Hz Refresh Rate​",
-      "Memory": "8GB RAM, 256GB ROM, Memory Card (Hybrid) upto 256GB",
-      "Processor": "MediaTek Dimensity 7300-Energy, Octa-Core, 2.5GHz",
-      "Camera": "50MP + 50MP + 8MP Triple Rear Camera & 50MP Front Camera",
-      "Battery": "7000mAh with 80W SUPERVOOC Flash Charge​",
-      "USP": "AI LinkBoost 4.0, O+ Connect, IP69K Water and Dust Resistance",
-      "Audio Sharing, Bluetooth Audio Codec": "SBC, AAC, LDAC, aptX, aptX HD",
-      "Manufacturer Name & Address": "5th Floor, Tower B, Building No. 8, DLF Cyber City, Gurgaon, Haryana - 122002"
+      "Display": "6.9\" LTPO Super Retina XDR OLED",
+      "Processor": "A19 Bionic",
+      "RAM": "8 GB",
+      "Storage": "256 GB",
+      "Battery": "5000 mAh",
+      "Camera": "48+48+12 MP Triple"
     },
-    "rating": 0,
-    "reviewCount": 0,
-    "reviews": [],
-    "image": "/product_images/mobiles/mob_001_1.png",
+    "rating": 4.6,
+    "reviewCount": 2843,
+    "reviews": [
+      {
+        "title": "Amazing features",
+        "author": "Rohit B.",
+        "rating": 4.5,
+        "text": "Been using this for a week. Build quality is solid. Would recommend."
+      },
+      {
+        "title": "Amazing features",
+        "author": "Siddharth R.",
+        "rating": 5,
+        "text": "Works as advertised. No complaints. Would buy again if needed."
+      },
+      {
+        "title": "Worth the money",
+        "author": "Neha G.",
+        "rating": 4.1,
+        "text": "Good product overall. Battery life could be better but everything else works."
+      }
+    ],
     "category": "mobiles",
-    "stockLeft": 10
+    "stockLeft": 15
   },
   {
-    "id": 2,
-    "brand": "Vivo",
+    "id": 4,
+    "brand": "OnePlus",
+    "name": "OnePlus 15 (256 GB, Ceramic White)",
+    "originalPrice": 74999,
+    "salePrice": 69999,
+    "price": 69999,
+    "images": [
+      "/product_images/mobiles/oneplus13_1.jpg",
+      "/product_images/mobiles/oneplus13_2.jpg",
+      "/product_images/mobiles/oneplus13_3.jpg",
+      "/product_images/mobiles/oneplus13_4.jpg",
+      "/product_images/mobiles/oneplus13_5.jpg"
+    ],
+    "image": "/product_images/mobiles/004_1.png",
+    "specifications": {
+      "Display": "6.82\" LTPO AMOLED 120Hz",
+      "Processor": "Snapdragon 8 Gen 5",
+      "RAM": "12 GB",
+      "Storage": "256 GB",
+      "Battery": "5500 mAh",
+      "Camera": "50+50+64 MP Triple"
+    },
+    "rating": 4.4,
+    "reviewCount": 1534,
+    "reviews": [
+      {
+        "title": "Premium experience",
+        "author": "Sana Q.",
+        "rating": 3.7,
+        "text": "Works as advertised. No complaints. Would buy again if needed."
+      },
+      {
+        "title": "Solid performance",
+        "author": "Arjun M.",
+        "rating": 4.7,
+        "text": "The features are impressive for the price. Definitely good value."
+      },
+      {
+        "title": "Premium experience",
+        "author": "Amit V.",
+        "rating": 4.1,
+        "text": "Good product overall. Battery life could be better but everything else works."
+      },
+      {
+        "title": "Premium experience",
+        "author": "Isha L.",
+        "rating": 4.2,
+        "text": "The features are impressive for the price. Definitely good value."
+      },
+      {
+        "title": "Happy with purchase",
+        "author": "Karan N.",
+        "rating": 4.4,
+        "text": "Works as advertised. No complaints. Would buy again if needed."
+      },
+      {
+        "title": "Great product!",
+        "author": "Rohit B.",
+        "rating": 3.8,
+        "text": "After a month of use, I can confidently say this is a great buy."
+      },
+      {
+        "title": "Decent build",
+        "author": "Deepak T.",
+        "rating": 3.9,
+        "text": "Good product overall. Battery life could be better but everything else works."
+      }
+    ],
+    "category": "mobiles",
+    "stockLeft": 30
+  },
+  {
+    "id": 25,
+    "brand": "LG",
+    "name": "LG 242 Litres 1 Star Frost Free Double Door Refrigerator with Multi Air Flow (GL-N292DDSY, Dazzle Steel)",
+    "originalPrice": 30999,
+    "salePrice": 35990,
+    "price": 23490,
+    "images": [
+      "/product_images/refrigerators/ref_028_1.png",
+      "/product_images/refrigerators/ref_028_2.png",
+      "/product_images/refrigerators/ref_028_3.png",
+      "/product_images/refrigerators/ref_028_4.png",
+      "/product_images/refrigerators/ref_028_5.png",
+      "/product_images/refrigerators/ref_028_6.png",
+      "/product_images/refrigerators/ref_028_7.jpg",
+      "/product_images/refrigerators/ref_028_8.jpg"
+    ],
+    "image": "/product_images/refrigerators/025_1.jpg",
+    "specifications": {
+      "Capacity": "242 L",
+      "Type": "Frost-Free 2-Door",
+      "Energy Rating": "4 Star",
+      "Cooling": "Smart Inverter",
+      "Convertible": "Yes",
+      "Warranty": "10 Years Compressor"
+    },
+    "rating": 4.5,
+    "reviewCount": 129,
+    "reviews": [
+      {
+        "title": "Premium experience",
+        "author": "Isha L.",
+        "rating": 4.3,
+        "text": "I did a lot of research before buying this and I'm glad I chose this."
+      },
+      {
+        "title": "Good but overpriced",
+        "author": "Neha G.",
+        "rating": 4.1,
+        "text": "After a month of use, I can confidently say this is a great buy."
+      },
+      {
+        "title": "Good but overpriced",
+        "author": "Kavita J.",
+        "rating": 3.7,
+        "text": "Good product overall. Battery life could be better but everything else works."
+      },
+      {
+        "title": "Good but overpriced",
+        "author": "Amit V.",
+        "rating": 4.1,
+        "text": "Excellent quality and fast delivery. Packaging was secure."
+      },
+      {
+        "title": "Does the job",
+        "author": "Sana Q.",
+        "rating": 4.6,
+        "text": "Good product overall. Battery life could be better but everything else works."
+      },
+      {
+        "title": "Good value for price",
+        "author": "Arjun M.",
+        "rating": 3.8,
+        "text": "Upgraded from my old device and the difference is night and day."
+      }
+    ],
+    "category": "refrigerators",
+    "stockLeft": 28
+  },
+  {
+    "id": 26,
+    "name": "oppo Reno 16c 5G (8GB RAM, 256GB, Twilight Violet)",
+    "brand": "Oppo",
+    "description": "",
+    "price": 49999,
+    "originalPrice": 79999,
+    "discount": 0,
+    "rating": 0,
+    "reviewCount": 0,
+    "stock": 0,
+    "category": "mobiles",
+    "images": [
+      "/product_images/mobiles/mob_001_1.jpg",
+      "/product_images/mobiles/mob_001_2.jpg",
+      "/product_images/mobiles/mob_001_3.jpg",
+      "/product_images/mobiles/mob_001_4.jpg",
+      "/product_images/mobiles/mob_001_5.png",
+      "/product_images/mobiles/mob_001_6.png",
+      "/product_images/mobiles/mob_001_7.jpg",
+      "/product_images/mobiles/mob_001_8.png"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 27,
     "name": "vivo X300 FE 5G (12GB RAM, 256GB, Noir Black)",
-    "originalPrice": 119999,
-    "salePrice": 86999,
+    "brand": "Vivo",
+    "description": "",
     "price": 86999,
+    "originalPrice": 119999,
+    "discount": 0,
+    "rating": 0,
+    "reviewCount": 0,
+    "stock": 0,
+    "category": "mobiles",
     "images": [
       "/product_images/mobiles/mob_002_1.png",
       "/product_images/mobiles/mob_002_2.png",
       "/product_images/mobiles/mob_002_3.png",
       "/product_images/mobiles/mob_002_4.png",
-      "/product_images/mobiles/mob_002_5.png"
+      "/product_images/mobiles/mob_002_5.png",
+      "/product_images/mobiles/mob_002_6.png",
+      "/product_images/mobiles/mob_002_7.png",
+      "/product_images/mobiles/mob_002_8.jpg"
     ],
-    "specifications": {
-      "Display": "6.31 inches (16.04cm), AMOLED, 120 Hz Refresh Rate",
-      "Memory": "12GB RAM, 256GB ROM",
-      "Processor": "Snapdragon 8 Gen 5, Octa Core, 3.80 GHz",
-      "Camera": "50 MP + 50 MP + 8 MP Triple Rear & 50 MP Front Camera",
-      "Battery": "6500 mAh with 90W FlashCharge",
-      "USP": "Bypass Charging, AI Creative Camera, 3D Ultrasonic Single-point Fingerprint Sensor",
-      "CPU Clock Speed": "2 × 3.80 GHz + 6 × 3.32 GHz, 3 nm Process Node"
-    },
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 28,
+    "name": "vivo V70 5G (8GB RAM, 256GB, Lemon Yellow)",
+    "brand": "Vivo",
+    "description": "",
+    "price": 53999,
+    "originalPrice": 65999,
+    "discount": 0,
     "rating": 0,
     "reviewCount": 0,
-    "reviews": [],
-    "image": "/product_images/mobiles/mob_002_1.png",
+    "stock": 0,
     "category": "mobiles",
-    "stockLeft": 10
-  },
-  {
-    "id": 3,
-    "brand": "Google",
-    "name": "Google Pixel 10 5G (12GB RAM, 256GB, Obsidian)",
-    "originalPrice": 79999,
-    "salePrice": 74999,
-    "price": 74999,
     "images": [
-      "/product_images/mobiles/mob_003_1.png",
-      "/product_images/mobiles/mob_003_2.png",
-      "/product_images/mobiles/mob_003_3.png",
-      "/product_images/mobiles/mob_003_4.png",
-      "/product_images/mobiles/mob_003_5.png"
+      "/product_images/mobiles/mob_004_1.png",
+      "/product_images/mobiles/mob_004_2.png",
+      "/product_images/mobiles/mob_004_3.png",
+      "/product_images/mobiles/mob_004_4.png",
+      "/product_images/mobiles/mob_004_5.png",
+      "/product_images/mobiles/mob_004_6.png",
+      "/product_images/mobiles/mob_004_7.png",
+      "/product_images/mobiles/mob_004_8.jpg"
     ],
-    "specifications": {
-      "20": "9",
-      "Display": "6.3 inches (16 cm), OLED, 120 Hz Refresh Rate",
-      "Memory": "12GB RAM, 256GB ROM",
-      "Processor": "Google Tensor G5, Octa Core",
-      "Camera": "48 MP + 13 MP + 10.8 MP Triple Rear & 10.5 MP Front Camera",
-      "Battery": "4970 mAh",
-      "USP": "IP68 Dust & Water Resistant, Google Advanced AI, Corning Gorilla Glass Victus"
-    },
-    "rating": 5,
-    "reviewCount": 0,
-    "reviews": [],
-    "image": "/product_images/mobiles/mob_003_1.png",
-    "category": "mobiles",
-    "stockLeft": 10
+    "specs": [],
+    "colors": []
   },
   {
-    "id": 4,
-    "brand": "Croma",
-    "name": "Croma 80 cm (32 inch) 2 Star HD QLED Smart Google TV 5.0 with Quad Core Processor (2026 model)",
-    "originalPrice": 18000,
-    "salePrice": 14490,
-    "price": 14490,
-    "images": [
-      "/product_images/tvs/tvs_004_1.png",
-      "/product_images/tvs/tvs_004_2.png",
-      "/product_images/tvs/tvs_004_3.png",
-      "/product_images/tvs/tvs_004_4.png",
-      "/product_images/tvs/tvs_004_5.png"
-    ],
-    "specifications": {
-      "16": "9",
-      "Accessibility Options": "Captions, High-contrast Text, Text-to-Speech, TalkBack Switch Access",
-      "High-Capacity USB Support": "4GB Upto 128GB, Formatted in FAT32 or NTFS"
-    },
-    "rating": 4.9,
-    "reviewCount": 0,
-    "reviews": [
-      {
-        "title": "",
-        "author": "Verified Buyer",
-        "text": "7 Ratings & 6 Reviews",
-        "rating": 0
-      }
-    ],
-    "image": "/product_images/tvs/tvs_004_1.png",
-    "category": "tvs",
-    "stockLeft": 10
-  },
-  {
-    "id": 5,
-    "brand": "Croma",
-    "name": "Croma 127cm (50 inch) 2 Star 4K Ultra HD LED Smart Google TV 5.0 with Dolby Audio",
-    "originalPrice": 40900,
-    "salePrice": 27990,
-    "price": 27990,
-    "images": [
-      "/product_images/tvs/tvs_005_1.png",
-      "/product_images/tvs/tvs_005_2.png",
-      "/product_images/tvs/tvs_005_3.png",
-      "/product_images/tvs/tvs_005_4.png",
-      "/product_images/tvs/tvs_005_5.png"
-    ],
-    "specifications": {
-      "16": "9"
-    },
-    "rating": 4.9,
-    "reviewCount": 17,
-    "reviews": [
-      {
-        "title": "",
-        "author": "Verified Buyer",
-        "text": "17 Ratings & 12 Reviews",
-        "rating": 0
-      }
-    ],
-    "image": "/product_images/tvs/tvs_005_1.png",
-    "category": "tvs",
-    "stockLeft": 10
-  },
-  {
-    "id": 6,
-    "brand": "Croma",
-    "name": "Croma 109 cm (43 inch) 2 Star QLED 4K Ultra HD Smart Google TV 5.0 with Dolby Audio",
-    "originalPrice": 29000,
-    "salePrice": 23990,
-    "price": 23990,
-    "images": [
-      "/product_images/tvs/tvs_006_1.png",
-      "/product_images/tvs/tvs_006_2.png",
-      "/product_images/tvs/tvs_006_3.png",
-      "/product_images/tvs/tvs_006_4.png",
-      "/product_images/tvs/tvs_006_5.png"
-    ],
-    "specifications": {
-      "16": "9"
-    },
-    "rating": 4.2,
-    "reviewCount": 51,
-    "reviews": [
-      {
-        "title": "",
-        "author": "Verified Buyer",
-        "text": "51 Ratings & 34 Reviews",
-        "rating": 0
-      }
-    ],
-    "image": "/product_images/tvs/tvs_006_1.png",
-    "category": "tvs",
-    "stockLeft": 10
-  },
-  {
-    "id": 7,
-    "brand": "Microsoft",
-    "name": "Microsoft Surface Pro 11th Edition Wi-Fi Windows 11 Home Tablet (13 Inch, 16GB RAM, 512GB ROM, Microsoft 365 for 6 Months, Black)",
-    "originalPrice": 177999,
-    "salePrice": 174990,
-    "price": 174990,
-    "images": [
-      "/product_images/laptops/lap_007_1.png",
-      "/product_images/laptops/lap_007_2.png",
-      "/product_images/laptops/lap_007_3.png",
-      "/product_images/laptops/lap_007_4.png",
-      "/product_images/laptops/lap_007_5.png"
-    ],
-    "specifications": {
-      "3": "2"
-    },
-    "rating": 0,
-    "reviewCount": 0,
-    "reviews": [],
-    "image": "/product_images/laptops/lap_007_1.png",
-    "category": "laptops",
-    "stockLeft": 10
-  },
-  {
-    "id": 8,
-    "brand": "Microsoft",
-    "name": "Microsoft Surface Pro 11th Edition Wi-Fi Windows 11 Home Tablet (13 Inch, 16GB RAM, 256GB ROM, Platinum)",
-    "originalPrice": 124999,
-    "salePrice": 122990,
-    "price": 122990,
-    "images": [
-      "/product_images/laptops/lap_008_1.png",
-      "/product_images/laptops/lap_008_2.png",
-      "/product_images/laptops/lap_008_3.png",
-      "/product_images/laptops/lap_008_4.png",
-      "/product_images/laptops/lap_008_5.png"
-    ],
-    "specifications": {
-      "3": "2"
-    },
-    "rating": 0,
-    "reviewCount": 0,
-    "reviews": [],
-    "image": "/product_images/laptops/lap_008_1.png",
-    "category": "laptops",
-    "stockLeft": 10
-  },
-  {
-    "id": 9,
-    "brand": "ASUS",
-    "name": "Asus TUF A15 AMD Ryzen 7 170 Gaming Laptop (16GB, 512GB SSD, Windows 11 Home, 4GB Graphics, 15.6 inch 144 Hz Full HD IPS Display, NVIDIA GeForce RTX 3050, MS Office Home 2024, Graphite Black, 2.30 KG)",
-    "originalPrice": 131990,
-    "salePrice": 78990,
-    "price": 78990,
-    "images": [
-      "/product_images/laptops/lap_009_1.png",
-      "/product_images/laptops/lap_009_2.png",
-      "/product_images/laptops/lap_009_3.png",
-      "/product_images/laptops/lap_009_4.png",
-      "/product_images/laptops/lap_009_5.png"
-    ],
-    "specifications": {
-      "16": "9",
-      "Display": "39.62 cms (15.6 inches), FHD IPS",
-      "Processor": "AMD Ryzen 7 170",
-      "OS": "Windows 11 Home",
-      "Graphics": "NVIDIA GeForce RTX 3050",
-      "Included Software": "Microsoft 365 Basic, MS Office Home 2024, Xbox Game Pass Premium, McAfee Antivirus",
-      "Warranty": "1 Year Onsite",
-      "Power Consumption180 WattsVoltage RatingInput": "100 - 200V AC, Output: 20V DC Frequency50/60 Hz",
-      "Input": "100 - 200V AC, Output: 20V DC"
-    },
-    "rating": 0,
-    "reviewCount": 0,
-    "reviews": [],
-    "image": "/product_images/laptops/lap_009_1.png",
-    "category": "laptops",
-    "stockLeft": 10
-  },
-  {
-    "id": 10,
-    "brand": "Croma",
-    "name": "Croma Bracket For Air Conditioner (Powder Coating Process, Grey)",
-    "originalPrice": 1199,
-    "salePrice": 799,
-    "price": 799,
-    "images": [
-      "/product_images/ac/ac_010_1.png",
-      "/product_images/ac/ac_010_2.png",
-      "/product_images/ac/ac_010_3.png",
-      "/product_images/ac/ac_010_4.png",
-      "/product_images/ac/ac_010_5.png"
-    ],
-    "specifications": {
-      "Compatible With": "1 and 1.5 Ton ACs"
-    },
-    "rating": 3.8,
-    "reviewCount": 19,
-    "reviews": [
-      {
-        "title": "",
-        "author": "Verified Buyer",
-        "text": "19 Ratings & 10 Reviews",
-        "rating": 0
-      }
-    ],
-    "image": "/product_images/ac/ac_010_1.png",
-    "category": "ac",
-    "stockLeft": 10
-  },
-  {
-    "id": 11,
-    "brand": "Croma",
-    "name": "Croma 7 in 1 Convertible 1.5 Ton 3 Star Inverter Split AC with Self Diagnosis (2026 Model, Copper Condenser, CRLA018IND342404 )",
-    "originalPrice": 42000,
-    "salePrice": 30290,
-    "price": 30290,
-    "images": [
-      "/product_images/ac/ac_011_1.png",
-      "/product_images/ac/ac_011_2.png",
-      "/product_images/ac/ac_011_3.png",
-      "/product_images/ac/ac_011_4.png",
-      "/product_images/ac/ac_011_5.png"
-    ],
-    "specifications": {
-      "Power Consumption": "842.01 kWh",
-      "Refrigerant": "R32",
-      "Maximum (100%)": "4800 W, Minimum (50%): 2400 W"
-    },
-    "rating": 4.8,
-    "reviewCount": 78,
-    "reviews": [
-      {
-        "title": "",
-        "author": "Verified Buyer",
-        "text": "78 Ratings & 37 Reviews",
-        "rating": 0
-      }
-    ],
-    "image": "/product_images/ac/ac_011_1.png",
-    "category": "ac",
-    "stockLeft": 10
-  },
-  {
-    "id": 12,
-    "brand": "Croma",
-    "name": "Croma 7 in 1 Convertible 1 Ton 3 Star Inverter Split AC with Self Diagnosis (2026 Model, Copper Condenser, CRLA012IND342402)",
-    "originalPrice": 37000,
-    "salePrice": 28790,
-    "price": 28790,
-    "images": [
-      "/product_images/ac/ac_012_1.png",
-      "/product_images/ac/ac_012_2.png",
-      "/product_images/ac/ac_012_3.png",
-      "/product_images/ac/ac_012_4.png",
-      "/product_images/ac/ac_012_5.png"
-    ],
-    "specifications": {
-      "Power Consumption": "596.93 kWh",
-      "Refrigerant": "R32",
-      "Maximum (100%)": "3400 W, Minimum (50%): 1700 W"
-    },
-    "rating": 4.8,
-    "reviewCount": 47,
-    "reviews": [
-      {
-        "title": "",
-        "author": "Verified Buyer",
-        "text": "47 Ratings & 30 Reviews",
-        "rating": 0
-      }
-    ],
-    "image": "/product_images/ac/ac_012_1.png",
-    "category": "ac",
-    "stockLeft": 10
-  },
-  {
-    "id": 13,
-    "brand": "Samsung",
-    "name": "SAMSUNG Stylish Grande 183 Litres3 Star Direct Cool Single Door Refrigerator with Anti Bacterial Gasket (RR20C2Y23S8/HL, Elegant Inox)",
+    "id": 29,
+    "name": "oppo K14x 5G (6GB RAM, 128GB, Icy Blue)",
+    "brand": "Oppo",
+    "description": "",
+    "price": 18999,
     "originalPrice": 19999,
-    "salePrice": 14490,
-    "price": 14490,
-    "images": [
-      "/product_images/refrigerators/ref_013_1.png",
-      "/product_images/refrigerators/ref_013_2.png",
-      "/product_images/refrigerators/ref_013_3.png",
-      "/product_images/refrigerators/ref_013_4.png",
-      "/product_images/refrigerators/ref_013_5.png"
-    ],
-    "specifications": {
-      "No. of Doors": "1",
-      "Ideal Family Size": "Couple",
-      "Manufacturer Name & Address": "Samsung Electronics Pvt. Ltd. 6th Floor DLF Centre Sansad Marg New Delhi - 110001"
-    },
-    "rating": 3.9,
-    "reviewCount": 15,
-    "reviews": [
-      {
-        "title": "",
-        "author": "Verified Buyer",
-        "text": "15 Ratings & 3 Reviews",
-        "rating": 0
-      }
-    ],
-    "image": "/product_images/refrigerators/ref_013_1.png",
-    "category": "refrigerators",
-    "stockLeft": 10
-  },
-  {
-    "id": 14,
-    "brand": "LG",
-    "name": "LG 90 Litres 1 Star Direct Cool Single Door Refrigerator with Antibacterial Gasket (GL-M131RDSB, Dazzle Steel)",
-    "originalPrice": 0,
-    "salePrice": 0,
-    "price": 0,
-    "images": [
-      "/product_images/refrigerators/ref_014_1.png",
-      "/product_images/refrigerators/ref_014_2.png",
-      "/product_images/refrigerators/ref_014_3.png",
-      "/product_images/refrigerators/ref_014_4.png",
-      "/product_images/refrigerators/ref_014_5.png"
-    ],
-    "specifications": {
-      "No. of Doors": "1",
-      "Ideal Family Size": "Couple"
-    },
-    "rating": 5,
+    "discount": 0,
+    "rating": 0,
     "reviewCount": 0,
-    "reviews": [
-      {
-        "title": "",
-        "author": "Verified Buyer",
-        "text": "1 Rating & 1 Review",
-        "rating": 0
-      }
+    "stock": 0,
+    "category": "mobiles",
+    "images": [
+      "/product_images/mobiles/mob_005_1.jpg",
+      "/product_images/mobiles/mob_005_2.jpg",
+      "/product_images/mobiles/mob_005_3.jpg",
+      "/product_images/mobiles/mob_005_4.jpg",
+      "/product_images/mobiles/mob_005_5.png",
+      "/product_images/mobiles/mob_005_6.png",
+      "/product_images/mobiles/mob_005_7.png",
+      "/product_images/mobiles/mob_005_8.jpg"
     ],
-    "image": "/product_images/refrigerators/ref_014_1.png",
-    "category": "refrigerators",
-    "stockLeft": 10
+    "specs": [],
+    "colors": []
   },
   {
-    "id": 15,
+    "id": 30,
+    "name": "vivo T5X 5G (8GB RAM, 128GB, Cyber Green)",
+    "brand": "Vivo",
+    "description": "",
+    "price": 24499,
+    "originalPrice": 30999,
+    "discount": 0,
+    "rating": 0,
+    "reviewCount": 0,
+    "stock": 0,
+    "category": "mobiles",
+    "images": [
+      "/product_images/mobiles/mob_006_1.png",
+      "/product_images/mobiles/mob_006_2.png",
+      "/product_images/mobiles/mob_006_3.png",
+      "/product_images/mobiles/mob_006_4.png",
+      "/product_images/mobiles/mob_006_5.png",
+      "/product_images/mobiles/mob_006_6.png",
+      "/product_images/mobiles/mob_006_7.png",
+      "/product_images/mobiles/mob_006_8.jpg"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 31,
+    "name": "SAMSUNG Galaxy S25 5G (12GB RAM, 256GB, Silver Shadow)",
     "brand": "Samsung",
-    "name": "SAMSUNG Horizontal Curve 189 Litres 5 Star Direct Cool Single Door Refrigerator with Anti Bacterial Gasket (RR21C2H25DX/HL, Luxe Brown)",
-    "originalPrice": 23999,
-    "salePrice": 16490,
-    "price": 16490,
-    "images": [
-      "/product_images/refrigerators/ref_015_1.png",
-      "/product_images/refrigerators/ref_015_2.png",
-      "/product_images/refrigerators/ref_015_3.png",
-      "/product_images/refrigerators/ref_015_4.png",
-      "/product_images/refrigerators/ref_015_5.png"
-    ],
-    "specifications": {
-      "No. of Doors": "1",
-      "Ideal Family Size": "Coupler",
-      "Manufacturer Name & Address": "Samsung Electronics Pvt. Ltd. 6th Floor DLF Centre Sansad Marg New Delhi - 110001"
-    },
-    "rating": 4.9,
-    "reviewCount": 11,
-    "reviews": [
-      {
-        "title": "",
-        "author": "Verified Buyer",
-        "text": "11 Ratings & 4 Reviews",
-        "rating": 0
-      }
-    ],
-    "image": "/product_images/refrigerators/ref_015_1.png",
-    "category": "refrigerators",
-    "stockLeft": 10
-  },
-  {
-    "id": 16,
-    "brand": "Sony",
-    "name": "Sony IER-EX15C Wired Earphone with Mic (USB Type-C Connector, In Ear, Pink)",
-    "originalPrice": 2490,
-    "salePrice": 1599,
-    "price": 1599,
-    "images": [
-      "/product_images/audio/aud_016_1.png",
-      "/product_images/audio/aud_016_2.png",
-      "/product_images/audio/aud_016_3.png",
-      "/product_images/audio/aud_016_4.png",
-      "/product_images/audio/aud_016_5.png"
-    ],
-    "specifications": {
-      "Orientation Type": "In Ear",
-      "With Mic": "Yes",
-      "Connector Type": "Wired | USB-Type C",
-      "USP": "Powerful Bass, Volume Controls, Tangle-Free",
-      "Warranty": "12 Months Warranty"
-    },
-    "rating": 0,
-    "reviewCount": 0,
-    "reviews": [],
-    "image": "/product_images/audio/aud_016_1.png",
-    "category": "audio",
-    "stockLeft": 10
-  },
-  {
-    "id": 17,
-    "brand": "Apple",
-    "name": "Apple AirPods 4 with Charging Case",
-    "originalPrice": 12900,
-    "salePrice": 11900,
-    "price": 11900,
-    "images": [
-      "/product_images/audio/aud_017_1.png",
-      "/product_images/audio/aud_017_2.png",
-      "/product_images/audio/aud_017_3.png",
-      "/product_images/audio/aud_017_4.png",
-      "/product_images/audio/aud_017_5.png"
-    ],
-    "specifications": {
-      "Orientation Type": "In Ear",
-      "Connectivity": "Bluetooth, Version 5.3",
-      "Battery Life": "30 Hours",
-      "Fast Charging": "Yes",
-      "Noise Cancellation": "No",
-      "Voice Assistant": "Siri",
-      "USP": "IP54 Dust, Sweat & Water Resistant, Adaptive EQ, Personalized Spatial Audio",
-      "Warranty": "12 Months Warranty",
-      "Manufacturer Name & Address": "Apple Inc, One Apple Park Way, Cupertino, Ca 95014, USA"
-    },
-    "rating": 3.5,
-    "reviewCount": 15,
-    "reviews": [
-      {
-        "title": "",
-        "author": "Verified Buyer",
-        "text": "15 Ratings & 8 Reviews",
-        "rating": 0
-      }
-    ],
-    "image": "/product_images/audio/aud_017_1.png",
-    "category": "audio",
-    "stockLeft": 10
-  },
-  {
-    "id": 18,
-    "brand": "Sony",
-    "name": "Sony IER-EX15C Wired Earphone with Mic (USB Type-C Connector, In Ear, Black)",
-    "originalPrice": 2490,
-    "salePrice": 1599,
-    "price": 1599,
-    "images": [
-      "/product_images/audio/aud_018_1.png",
-      "/product_images/audio/aud_018_2.png",
-      "/product_images/audio/aud_018_3.png",
-      "/product_images/audio/aud_018_4.png",
-      "/product_images/audio/aud_018_5.png"
-    ],
-    "specifications": {
-      "Orientation Type": "In Ear",
-      "With Mic": "Yes",
-      "Connector Type": "Wired | USB-Type C",
-      "USP": "Powerful Bass, Volume Controls, Tangle-Free",
-      "Warranty": "12 Months Warranty"
-    },
-    "rating": 0,
-    "reviewCount": 0,
-    "reviews": [],
-    "image": "/product_images/audio/aud_018_1.png",
-    "category": "audio",
-    "stockLeft": 10
-  },
-  {
-    "id": 19,
-    "brand": "Philips",
-    "name": "Philips OneChef Smart All in One Cooking Device 6L 2280 Watt with AmbiHeat Technology (Black)",
-    "originalPrice": 22994,
-    "salePrice": 19995,
-    "price": 19995,
-    "images": [
-      "/product_images/kitchen/kit_019_1.png",
-      "/product_images/kitchen/kit_019_2.png",
-      "/product_images/kitchen/kit_019_3.png",
-      "/product_images/kitchen/kit_019_4.png",
-      "/product_images/kitchen/kit_019_5.png"
-    ],
-    "specifications": {
-      "Power Consumption": "2280Watt",
-      "Capacity": "6 Litres",
-      "Functions": "Airfry, Stirfry, Steam, Boil, Curry, Bake, Roast",
-      "Controls": "Digital",
-      "Display": "LED Display",
-      "Preset Menus": "14"
-    },
-    "rating": 0,
-    "reviewCount": 0,
-    "reviews": [],
-    "image": "/product_images/kitchen/kit_019_1.png",
-    "category": "kitchen",
-    "stockLeft": 10
-  },
-  {
-    "id": 20,
-    "brand": "Philips",
-    "name": "PHILIPS OneBlade Rechargeable Cordless Shaver for Face for Men (60min Runtime, Unique OneBlade Technology, Lime Green & Charcoal Grey)",
-    "originalPrice": 0,
-    "salePrice": 0,
-    "price": 0,
-    "images": [
-      "/product_images/grooming/gro_020_1.png",
-      "/product_images/grooming/gro_020_2.png",
-      "/product_images/grooming/gro_020_3.png",
-      "/product_images/grooming/gro_020_4.png",
-      "/product_images/grooming/gro_020_5.png"
-    ],
-    "specifications": {
-      "Type": "Rechargeable Cordless",
-      "Attachments": "4 x Stubble Comb",
-      "Runtime": "60 minutes",
-      "Usage Type": "Wet & Dry",
-      "Charging Time": "4 Hour"
-    },
-    "rating": 4.4,
-    "reviewCount": 461,
-    "reviews": [
-      {
-        "title": "",
-        "author": "Verified Buyer",
-        "text": "461 Ratings & 344 Reviews",
-        "rating": 0
-      }
-    ],
-    "image": "/product_images/grooming/gro_020_1.png",
-    "category": "grooming",
-    "stockLeft": 10
-  },
-  {
-    "id": 21,
-    "brand": "Carlton",
-    "name": "Carlton London Face Cleanser (360 Degree Rotating Head, CLSHCF901SSCFC, White/Pink)",
-    "originalPrice": 0,
-    "salePrice": 0,
-    "price": 0,
-    "images": [
-      "/product_images/grooming/gro_021_1.png",
-      "/product_images/grooming/gro_021_2.png",
-      "/product_images/grooming/gro_021_3.png",
-      "/product_images/grooming/gro_021_4.png",
-      "/product_images/grooming/gro_021_5.png"
-    ],
-    "specifications": {
-      "Functions": "Cleansing",
-      "Ideal For": "Unisex, Cordless Operation",
-      "Operation Type": "Dry | Wet, Standard Battery Life: 2 Hours",
-      "Marketer Name & Address": "Opposite 32 milestone, Sector-30, Silokra Village, Gurgaon, Haryana, India ,122001"
-    },
+    "description": "",
+    "price": 75199,
+    "originalPrice": 80999,
+    "discount": 0,
     "rating": 1,
     "reviewCount": 0,
-    "reviews": [
-      {
-        "title": "",
-        "author": "Verified Buyer",
-        "text": "1 Rating & 1 Review",
-        "rating": 0
-      }
+    "stock": 0,
+    "category": "mobiles",
+    "images": [
+      "/product_images/mobiles/mob_007_1.jpg",
+      "/product_images/mobiles/mob_007_2.jpg",
+      "/product_images/mobiles/mob_007_3.jpg",
+      "/product_images/mobiles/mob_007_4.jpg",
+      "/product_images/mobiles/mob_007_5.png",
+      "/product_images/mobiles/mob_007_6.png",
+      "/product_images/mobiles/mob_007_7.png",
+      "/product_images/mobiles/mob_007_8.jpg"
     ],
-    "image": "/product_images/grooming/gro_021_1.png",
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 32,
+    "name": "realme 16T 5G (6GB RAM, 128GB, Starlight Red)",
+    "brand": "Realme",
+    "description": "",
+    "price": 29999,
+    "originalPrice": 50999,
+    "discount": 0,
+    "rating": 0,
+    "reviewCount": 0,
+    "stock": 0,
+    "category": "mobiles",
+    "images": [
+      "/product_images/mobiles/mob_008_1.png",
+      "/product_images/mobiles/mob_008_2.png",
+      "/product_images/mobiles/mob_008_3.png",
+      "/product_images/mobiles/mob_008_4.png",
+      "/product_images/mobiles/mob_008_5.png",
+      "/product_images/mobiles/mob_008_6.png",
+      "/product_images/mobiles/mob_008_7.png",
+      "/product_images/mobiles/mob_008_8.jpg"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 33,
+    "name": "vivo Y51 Pro 5G (8GB RAM, 256GB, Festive Red)",
+    "brand": "Vivo",
+    "description": "",
+    "price": 33999,
+    "originalPrice": 53999,
+    "discount": 0,
+    "rating": 0,
+    "reviewCount": 0,
+    "stock": 0,
+    "category": "mobiles",
+    "images": [
+      "/product_images/mobiles/mob_009_1.jpg",
+      "/product_images/mobiles/mob_009_2.jpg",
+      "/product_images/mobiles/mob_009_3.jpg",
+      "/product_images/mobiles/mob_009_4.jpg",
+      "/product_images/mobiles/mob_009_5.png",
+      "/product_images/mobiles/mob_009_6.png",
+      "/product_images/mobiles/mob_009_7.png",
+      "/product_images/mobiles/mob_009_8.jpg"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 34,
+    "name": "Croma 80 cm (32 inch) 2 Star HD QLED Smart Google TV 5.0 with Quad Core Processor (2026 model)",
+    "brand": "Croma",
+    "description": "",
+    "price": 14490,
+    "originalPrice": 18000,
+    "discount": 0,
+    "rating": 4.9,
+    "reviewCount": 0,
+    "stock": 0,
+    "category": "tvs",
+    "images": [
+      "/product_images/tvs/tvs_007_1.png",
+      "/product_images/tvs/tvs_007_2.png",
+      "/product_images/tvs/tvs_007_3.png",
+      "/product_images/tvs/tvs_007_4.jpg",
+      "/product_images/tvs/tvs_007_5.png",
+      "/product_images/tvs/tvs_007_6.png",
+      "/product_images/tvs/tvs_007_7.jpg",
+      "/product_images/tvs/tvs_007_8.png"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 35,
+    "name": "Croma 127cm (50 inch) 2 Star 4K Ultra HD LED Smart Google TV 5.0 with Dolby Audio",
+    "brand": "Croma",
+    "description": "",
+    "price": 27990,
+    "originalPrice": 40900,
+    "discount": 0,
+    "rating": 4.9,
+    "reviewCount": 17,
+    "stock": 0,
+    "category": "tvs",
+    "images": [
+      "/product_images/tvs/tvs_008_1.png",
+      "/product_images/tvs/tvs_008_2.png",
+      "/product_images/tvs/tvs_008_3.png",
+      "/product_images/tvs/tvs_008_4.png",
+      "/product_images/tvs/tvs_008_5.png",
+      "/product_images/tvs/tvs_008_6.png",
+      "/product_images/tvs/tvs_008_7.png",
+      "/product_images/tvs/tvs_008_8.jpg"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 36,
+    "name": "Croma 109 cm (43 inch) 2 Star QLED 4K Ultra HD Smart Google TV 5.0 with Dolby Audio",
+    "brand": "Croma",
+    "description": "",
+    "price": 23990,
+    "originalPrice": 29000,
+    "discount": 0,
+    "rating": 4.2,
+    "reviewCount": 51,
+    "stock": 0,
+    "category": "tvs",
+    "images": [
+      "/product_images/tvs/tvs_009_1.png",
+      "/product_images/tvs/tvs_009_2.png",
+      "/product_images/tvs/tvs_009_3.png",
+      "/product_images/tvs/tvs_009_4.png",
+      "/product_images/tvs/tvs_009_6.png",
+      "/product_images/tvs/tvs_009_7.png",
+      "/product_images/tvs/tvs_009_8.jpg"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 37,
+    "name": "Croma 80 cm (32 inch) 1 Star HD Ready LED Smart Linux TV with A+ Grade Panel (2026 model)",
+    "brand": "Croma",
+    "description": "",
+    "price": 11990,
+    "originalPrice": 18000,
+    "discount": 0,
+    "rating": 4.8,
+    "reviewCount": 12,
+    "stock": 0,
+    "category": "tvs",
+    "images": [
+      "/product_images/tvs/tvs_010_1.png",
+      "/product_images/tvs/tvs_010_2.png",
+      "/product_images/tvs/tvs_010_3.png",
+      "/product_images/tvs/tvs_010_4.png",
+      "/product_images/tvs/tvs_010_5.png",
+      "/product_images/tvs/tvs_010_6.png",
+      "/product_images/tvs/tvs_010_7.jpg",
+      "/product_images/tvs/tvs_010_8.png"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 38,
+    "name": "Croma 80cm (32 inch) 1 Star HD LED Smart Google TV 5.0 with Dolby Audio (2026 Model)",
+    "brand": "Croma",
+    "description": "",
+    "price": 13490,
+    "originalPrice": 19000,
+    "discount": 0,
+    "rating": 3.8,
+    "reviewCount": 0,
+    "stock": 0,
+    "category": "tvs",
+    "images": [
+      "/product_images/tvs/tvs_011_1.png",
+      "/product_images/tvs/tvs_011_2.png",
+      "/product_images/tvs/tvs_011_3.png",
+      "/product_images/tvs/tvs_011_4.png",
+      "/product_images/tvs/tvs_011_5.png",
+      "/product_images/tvs/tvs_011_6.png",
+      "/product_images/tvs/tvs_011_7.png",
+      "/product_images/tvs/tvs_011_8.jpg"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 39,
+    "name": "Croma 127 cm (50 inch) 3 Star QLED 4K Ultra HD Smart Google TV 5.0 with Dolby Vision & Dolby Atmos",
+    "brand": "Croma",
+    "description": "",
+    "price": 33990,
+    "originalPrice": 48500,
+    "discount": 0,
+    "rating": 4.3,
+    "reviewCount": 0,
+    "stock": 0,
+    "category": "tvs",
+    "images": [
+      "/product_images/tvs/tvs_012_1.png",
+      "/product_images/tvs/tvs_012_2.png",
+      "/product_images/tvs/tvs_012_3.png",
+      "/product_images/tvs/tvs_012_4.png",
+      "/product_images/tvs/tvs_012_5.png",
+      "/product_images/tvs/tvs_012_6.png",
+      "/product_images/tvs/tvs_012_7.png",
+      "/product_images/tvs/tvs_012_8.jpg"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 40,
+    "name": "Microsoft Surface Pro 11th Edition Wi-Fi Windows 11 Home Tablet (13 Inch, 16GB RAM, 512GB ROM, Microsoft 365 for 6 Months, Black)",
+    "brand": "Microsoft",
+    "description": "",
+    "price": 174990,
+    "originalPrice": 177999,
+    "discount": 0,
+    "rating": 0,
+    "reviewCount": 0,
+    "stock": 0,
+    "category": "laptops",
+    "images": [
+      "/product_images/laptops/lap_013_1.jpg",
+      "/product_images/laptops/lap_013_2.jpg",
+      "/product_images/laptops/lap_013_3.jpg",
+      "/product_images/laptops/lap_013_4.png",
+      "/product_images/laptops/lap_013_5.jpg",
+      "/product_images/laptops/lap_013_6.png",
+      "/product_images/laptops/lap_013_7.jpg",
+      "/product_images/laptops/lap_013_8.jpg"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 41,
+    "name": "Microsoft Surface Pro 11th Edition Wi-Fi Windows 11 Home Tablet (13 Inch, 16GB RAM, 256GB ROM, Platinum)",
+    "brand": "Microsoft",
+    "description": "",
+    "price": 122990,
+    "originalPrice": 124999,
+    "discount": 0,
+    "rating": 0,
+    "reviewCount": 0,
+    "stock": 0,
+    "category": "laptops",
+    "images": [
+      "/product_images/laptops/lap_014_1.jpg",
+      "/product_images/laptops/lap_014_2.jpg",
+      "/product_images/laptops/lap_014_3.jpg",
+      "/product_images/laptops/lap_014_4.jpg",
+      "/product_images/laptops/lap_014_5.png",
+      "/product_images/laptops/lap_014_6.png",
+      "/product_images/laptops/lap_014_7.jpg",
+      "/product_images/laptops/lap_014_8.png"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 42,
+    "name": "Asus TUF A15 AMD Ryzen 7 170 Gaming Laptop (16GB, 512GB SSD, Windows 11 Home, 4GB Graphics, 15.6 inch 144 Hz Full HD IPS Display, NVIDIA GeForce RTX 3050, MS Office Home 2024, Graphite Black, 2.30 KG)",
+    "brand": "ASUS",
+    "description": "",
+    "price": 78990,
+    "originalPrice": 131990,
+    "discount": 0,
+    "rating": 0,
+    "reviewCount": 0,
+    "stock": 0,
+    "category": "laptops",
+    "images": [
+      "/product_images/laptops/lap_015_1.png",
+      "/product_images/laptops/lap_015_2.png",
+      "/product_images/laptops/lap_015_3.png",
+      "/product_images/laptops/lap_015_4.png",
+      "/product_images/laptops/lap_015_5.png",
+      "/product_images/laptops/lap_015_6.png",
+      "/product_images/laptops/lap_015_7.jpg",
+      "/product_images/laptops/lap_015_8.jpg"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 43,
+    "name": "HP OMEN 16 Intel Core Ultra 7 Gaming Laptop (24GB, 1TB SSD, Windows 11 Home, 8GB Graphics, 16 inch 165 Hz 2K IPS Display, NVIDIA GeForce RTX 5060, MS Office Home 2024, Shadow Black, 2.43 KG)",
+    "brand": "HP",
+    "description": "",
+    "price": 168990,
+    "originalPrice": 179857,
+    "discount": 0,
+    "rating": 0,
+    "reviewCount": 0,
+    "stock": 0,
+    "category": "laptops",
+    "images": [
+      "/product_images/laptops/lap_016_1.png",
+      "/product_images/laptops/lap_016_2.png",
+      "/product_images/laptops/lap_016_3.png",
+      "/product_images/laptops/lap_016_4.png",
+      "/product_images/laptops/lap_016_5.png",
+      "/product_images/laptops/lap_016_6.png",
+      "/product_images/laptops/lap_016_7.png",
+      "/product_images/laptops/lap_016_8.jpg"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 44,
+    "name": "HP 15-fc0499AU AMD Ryzen 3 Laptop (8GB, 512GB SSD, Windows 11 Home, 15.6 inch Full HD IPS Display, MS Office, Natural Silver, 1.59 KG)",
+    "brand": "HP",
+    "description": "",
+    "price": 47990,
+    "originalPrice": 47146,
+    "discount": 0,
+    "rating": 0,
+    "reviewCount": 0,
+    "stock": 0,
+    "category": "laptops",
+    "images": [
+      "/product_images/laptops/lap_017_1.png",
+      "/product_images/laptops/lap_017_2.png",
+      "/product_images/laptops/lap_017_3.png",
+      "/product_images/laptops/lap_017_4.png",
+      "/product_images/laptops/lap_017_5.png",
+      "/product_images/laptops/lap_017_6.png",
+      "/product_images/laptops/lap_017_7.jpg",
+      "/product_images/laptops/lap_017_8.png"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 45,
+    "name": "ASUS Vivobook 16 X1605VA-MB1627WS Intel Core i5 13th Gen Thin & Light Laptop (16GB, 512GB SSD, Windows 11 Home, 16 inch WUXGA IPS Display, MS Office 2024, Cool Silver, 1.88 KG)",
+    "brand": "ASUS",
+    "description": "",
+    "price": 66990,
+    "originalPrice": 72990,
+    "discount": 0,
+    "rating": 4.8,
+    "reviewCount": 0,
+    "stock": 0,
+    "category": "laptops",
+    "images": [
+      "/product_images/laptops/lap_018_1.jpg",
+      "/product_images/laptops/lap_018_2.jpg",
+      "/product_images/laptops/lap_018_3.jpg",
+      "/product_images/laptops/lap_018_4.jpg",
+      "/product_images/laptops/lap_018_5.png",
+      "/product_images/laptops/lap_018_6.png",
+      "/product_images/laptops/lap_018_7.png",
+      "/product_images/laptops/lap_018_8.jpg"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 46,
+    "name": "Croma Bracket For Air Conditioner (Powder Coating Process, Grey)",
+    "brand": "Croma",
+    "description": "",
+    "price": 799,
+    "originalPrice": 1199,
+    "discount": 0,
+    "rating": 3.8,
+    "reviewCount": 19,
+    "stock": 0,
+    "category": "ac",
+    "images": [
+      "/product_images/ac/ac_019_1.jpg",
+      "/product_images/ac/ac_019_2.jpg",
+      "/product_images/ac/ac_019_3.jpg",
+      "/product_images/ac/ac_019_4.jpg",
+      "/product_images/ac/ac_019_5.png",
+      "/product_images/ac/ac_019_6.jpg",
+      "/product_images/ac/ac_019_7.jpg"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 47,
+    "name": "Croma 7 in 1 Convertible 1.5 Ton 3 Star Inverter Split AC with Self Diagnosis (2026 Model, Copper Condenser, CRLA018IND342404 )",
+    "brand": "Croma",
+    "description": "",
+    "price": 0,
+    "originalPrice": 0,
+    "discount": 0,
+    "rating": 4.8,
+    "reviewCount": 78,
+    "stock": 0,
+    "category": "ac",
+    "images": [
+      "/product_images/ac/ac_020_1.png",
+      "/product_images/ac/ac_020_2.png",
+      "/product_images/ac/ac_020_3.png",
+      "/product_images/ac/ac_020_4.png",
+      "/product_images/ac/ac_020_6.png",
+      "/product_images/ac/ac_020_7.jpg",
+      "/product_images/ac/ac_020_8.png"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 48,
+    "name": "DAIKIN 1.5 Ton 3 Star Inverter Split AC (Copper Condenser, PM2.5 Filter, ATKL50XV16VKA)",
+    "brand": "Daikin",
+    "description": "",
+    "price": 38990,
+    "originalPrice": 55100,
+    "discount": 0,
+    "rating": 4.8,
+    "reviewCount": 18,
+    "stock": 0,
+    "category": "ac",
+    "images": [
+      "/product_images/ac/ac_021_1.jpg",
+      "/product_images/ac/ac_021_2.jpg",
+      "/product_images/ac/ac_021_3.jpg",
+      "/product_images/ac/ac_021_4.jpg",
+      "/product_images/ac/ac_021_5.png",
+      "/product_images/ac/ac_021_6.png",
+      "/product_images/ac/ac_021_7.jpg",
+      "/product_images/ac/ac_021_8.png"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 49,
+    "name": "Croma 7 in 1 Convertible 1 Ton 3 Star Inverter Split AC with Self Diagnosis (2026 Model, Copper Condenser, CRLA012IND342402)",
+    "brand": "Croma",
+    "description": "",
+    "price": 28790,
+    "originalPrice": 37000,
+    "discount": 0,
+    "rating": 4.8,
+    "reviewCount": 47,
+    "stock": 0,
+    "category": "ac",
+    "images": [
+      "/product_images/ac/ac_022_1.png",
+      "/product_images/ac/ac_022_2.png",
+      "/product_images/ac/ac_022_3.png",
+      "/product_images/ac/ac_022_4.png",
+      "/product_images/ac/ac_022_6.png",
+      "/product_images/ac/ac_022_7.jpg",
+      "/product_images/ac/ac_022_8.png"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 50,
+    "name": "V-GUARD Arizor 4170 12 Amps Voltage Stabilizer For 1.5 Ton Inverter Air Conditioner (170 - 270 V, Fail Safe Circuit Protection, White)",
+    "brand": "V-guard",
+    "description": "",
+    "price": 2490,
+    "originalPrice": 2990,
+    "discount": 0,
+    "rating": 4.5,
+    "reviewCount": 38,
+    "stock": 0,
+    "category": "ac",
+    "images": [
+      "/product_images/ac/ac_023_1.jpg",
+      "/product_images/ac/ac_023_2.jpg",
+      "/product_images/ac/ac_023_3.jpg",
+      "/product_images/ac/ac_023_4.jpg",
+      "/product_images/ac/ac_023_5.png",
+      "/product_images/ac/ac_023_6.png",
+      "/product_images/ac/ac_023_7.jpg",
+      "/product_images/ac/ac_023_8.png"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 51,
+    "name": "Blue Star Z Series 5 in 1 Convertible 1.5 Ton 3 Star Inverter Split Smart AC with Voice Command Technology (2026 Model, Copper Condenser, IA318ZXUS)",
+    "brand": "Blue",
+    "description": "",
+    "price": 37490,
+    "originalPrice": 61000,
+    "discount": 0,
+    "rating": 4.9,
+    "reviewCount": 13,
+    "stock": 0,
+    "category": "ac",
+    "images": [
+      "/product_images/ac/ac_024_1.jpg",
+      "/product_images/ac/ac_024_2.jpg",
+      "/product_images/ac/ac_024_3.jpg",
+      "/product_images/ac/ac_024_4.jpg",
+      "/product_images/ac/ac_024_5.png",
+      "/product_images/ac/ac_024_6.png",
+      "/product_images/ac/ac_024_7.jpg",
+      "/product_images/ac/ac_024_8.png"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 52,
+    "name": "SAMSUNG Stylish Grande 183 Litres3 Star Direct Cool Single Door Refrigerator with Anti Bacterial Gasket (RR20C2Y23S8/HL, Elegant Inox)",
+    "brand": "Samsung",
+    "description": "",
+    "price": 14490,
+    "originalPrice": 19999,
+    "discount": 0,
+    "rating": 3.9,
+    "reviewCount": 15,
+    "stock": 0,
+    "category": "refrigerators",
+    "images": [
+      "/product_images/refrigerators/ref_025_1.jpg",
+      "/product_images/refrigerators/ref_025_2.jpg",
+      "/product_images/refrigerators/ref_025_3.jpg",
+      "/product_images/refrigerators/ref_025_4.jpg",
+      "/product_images/refrigerators/ref_025_5.png",
+      "/product_images/refrigerators/ref_025_6.png",
+      "/product_images/refrigerators/ref_025_7.jpg",
+      "/product_images/refrigerators/ref_025_8.png"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 53,
+    "name": "LG 90 Litres 1 Star Direct Cool Single Door Refrigerator with Antibacterial Gasket (GL-M131RDSB, Dazzle Steel)",
+    "brand": "LG",
+    "description": "",
+    "price": 0,
+    "originalPrice": 0,
+    "discount": 0,
+    "rating": 5,
+    "reviewCount": 0,
+    "stock": 0,
+    "category": "refrigerators",
+    "images": [
+      "/product_images/refrigerators/ref_026_1.jpg",
+      "/product_images/refrigerators/ref_026_2.jpg",
+      "/product_images/refrigerators/ref_026_3.jpg",
+      "/product_images/refrigerators/ref_026_4.jpg",
+      "/product_images/refrigerators/ref_026_5.png",
+      "/product_images/refrigerators/ref_026_6.png",
+      "/product_images/refrigerators/ref_026_7.jpg",
+      "/product_images/refrigerators/ref_026_8.jpg"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 54,
+    "name": "SAMSUNG Horizontal Curve 189 Litres 5 Star Direct Cool Single Door Refrigerator with Anti Bacterial Gasket (RR21C2H25DX/HL, Luxe Brown)",
+    "brand": "Samsung",
+    "description": "",
+    "price": 16490,
+    "originalPrice": 23999,
+    "discount": 0,
+    "rating": 4.9,
+    "reviewCount": 11,
+    "stock": 0,
+    "category": "refrigerators",
+    "images": [
+      "/product_images/refrigerators/ref_027_1.jpg",
+      "/product_images/refrigerators/ref_027_2.jpg",
+      "/product_images/refrigerators/ref_027_3.jpg",
+      "/product_images/refrigerators/ref_027_4.jpg",
+      "/product_images/refrigerators/ref_027_5.png",
+      "/product_images/refrigerators/ref_027_6.png",
+      "/product_images/refrigerators/ref_027_7.jpg",
+      "/product_images/refrigerators/ref_027_8.png"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 55,
+    "name": "Haier 190 Litres 2 Star Direct Cool Single Door Refrigerator with Diamond Edge Freezing Technology (HRD-2102BNS-P, Nickel Steel)",
+    "brand": "Haier",
+    "description": "",
+    "price": 12990,
+    "originalPrice": 18390,
+    "discount": 0,
+    "rating": 2,
+    "reviewCount": 0,
+    "stock": 0,
+    "category": "refrigerators",
+    "images": [
+      "/product_images/refrigerators/ref_029_1.jpg",
+      "/product_images/refrigerators/ref_029_2.jpg",
+      "/product_images/refrigerators/ref_029_3.jpg",
+      "/product_images/refrigerators/ref_029_4.jpg",
+      "/product_images/refrigerators/ref_029_5.png",
+      "/product_images/refrigerators/ref_029_6.png",
+      "/product_images/refrigerators/ref_029_7.jpg",
+      "/product_images/refrigerators/ref_029_8.jpg"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 56,
+    "name": "SAMSUNG 236 Litres 2 Star Frost Free Double Door Refrigerator with Deodorizer (RT28C3042S8/HL, Elegant Inox)",
+    "brand": "Samsung",
+    "description": "",
+    "price": 0,
+    "originalPrice": 0,
+    "discount": 0,
+    "rating": 4.7,
+    "reviewCount": 14,
+    "stock": 0,
+    "category": "refrigerators",
+    "images": [
+      "/product_images/refrigerators/ref_030_1.png",
+      "/product_images/refrigerators/ref_030_2.jpg",
+      "/product_images/refrigerators/ref_030_3.jpg",
+      "/product_images/refrigerators/ref_030_4.jpg",
+      "/product_images/refrigerators/ref_030_5.png",
+      "/product_images/refrigerators/ref_030_6.png",
+      "/product_images/refrigerators/ref_030_7.jpg",
+      "/product_images/refrigerators/ref_030_8.png"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 57,
+    "name": "SONY MDR-EX255APBQIN Wired Earphone with Mic (In Ear, Black)",
+    "brand": "Sony",
+    "description": "",
+    "price": 1799,
+    "originalPrice": 1990,
+    "discount": 0,
+    "rating": 4.2,
+    "reviewCount": 72,
+    "stock": 0,
+    "category": "audio",
+    "images": [
+      "/product_images/audio/aud_031_1.jpg",
+      "/product_images/audio/aud_031_2.png",
+      "/product_images/audio/aud_031_3.png",
+      "/product_images/audio/aud_031_4.png",
+      "/product_images/audio/aud_031_5.png",
+      "/product_images/audio/aud_031_6.png"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 58,
+    "name": "Apple AirPods 4 with Charging Case",
+    "brand": "Apple",
+    "description": "",
+    "price": 11900,
+    "originalPrice": 12900,
+    "discount": 0,
+    "rating": 3.5,
+    "reviewCount": 15,
+    "stock": 0,
+    "category": "audio",
+    "images": [
+      "/product_images/audio/aud_032_1.jpg",
+      "/product_images/audio/aud_032_2.jpg",
+      "/product_images/audio/aud_032_3.jpg",
+      "/product_images/audio/aud_032_4.jpg",
+      "/product_images/audio/aud_032_5.png",
+      "/product_images/audio/aud_032_6.png",
+      "/product_images/audio/aud_032_7.png",
+      "/product_images/audio/aud_032_8.jpg"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 59,
+    "name": "OnePlus Nord Buds 4 Pro E518A TWS Earbuds with Active Noise Cancellation (IP55 Dust & Water Resistance, 6 Mic AI Clear Call, Raven Black)",
+    "brand": "OnePlus",
+    "description": "",
+    "price": 3999,
+    "originalPrice": 4599,
+    "discount": 0,
+    "rating": 4.8,
+    "reviewCount": 12,
+    "stock": 0,
+    "category": "audio",
+    "images": [
+      "/product_images/audio/aud_033_1.png",
+      "/product_images/audio/aud_033_2.png",
+      "/product_images/audio/aud_033_3.png",
+      "/product_images/audio/aud_033_4.png",
+      "/product_images/audio/aud_033_5.png",
+      "/product_images/audio/aud_033_6.jpg"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 60,
+    "name": "Sony IER-EX15C Wired Earphone with Mic (USB Type-C Connector, In Ear, Black)",
+    "brand": "Sony",
+    "description": "",
+    "price": 1599,
+    "originalPrice": 2490,
+    "discount": 0,
+    "rating": 0,
+    "reviewCount": 0,
+    "stock": 0,
+    "category": "audio",
+    "images": [
+      "/product_images/audio/aud_034_1.png",
+      "/product_images/audio/aud_034_2.png",
+      "/product_images/audio/aud_034_3.png",
+      "/product_images/audio/aud_034_4.png",
+      "/product_images/audio/aud_034_5.png",
+      "/product_images/audio/aud_034_6.jpg",
+      "/product_images/audio/aud_034_7.png",
+      "/product_images/audio/aud_034_8.png"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 61,
+    "name": "Sony IER-EX15C Wired Earphone with Mic (USB Type-C Connector, In Ear, Pink)",
+    "brand": "Sony",
+    "description": "",
+    "price": 1599,
+    "originalPrice": 2490,
+    "discount": 0,
+    "rating": 0,
+    "reviewCount": 0,
+    "stock": 0,
+    "category": "audio",
+    "images": [
+      "/product_images/audio/aud_035_1.png",
+      "/product_images/audio/aud_035_2.png",
+      "/product_images/audio/aud_035_3.png",
+      "/product_images/audio/aud_035_4.png",
+      "/product_images/audio/aud_035_5.png",
+      "/product_images/audio/aud_035_6.jpg",
+      "/product_images/audio/aud_035_7.png",
+      "/product_images/audio/aud_035_8.png"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 62,
+    "name": "amazon Echo Pop with Built-in Alexa Smart Wi-Fi Speaker (Balanced Bass, Green)",
+    "brand": "Amazon",
+    "description": "",
+    "price": 3594,
+    "originalPrice": 4999,
+    "discount": 0,
+    "rating": 0,
+    "reviewCount": 0,
+    "stock": 0,
+    "category": "audio",
+    "images": [
+      "/product_images/audio/aud_036_1.jpg",
+      "/product_images/audio/aud_036_2.jpg",
+      "/product_images/audio/aud_036_3.jpg",
+      "/product_images/audio/aud_036_4.jpg",
+      "/product_images/audio/aud_036_5.png",
+      "/product_images/audio/aud_036_6.png",
+      "/product_images/audio/aud_036_7.jpg",
+      "/product_images/audio/aud_036_8.jpg"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 63,
+    "name": "PHILIPS OneBlade Rechargeable Cordless Shaver for Face for Men (60min Runtime, Unique OneBlade Technology, Lime Green & Charcoal Grey)",
+    "brand": "Philips",
+    "description": "",
+    "price": 0,
+    "originalPrice": 0,
+    "discount": 0,
+    "rating": 4.4,
+    "reviewCount": 461,
+    "stock": 0,
     "category": "grooming",
-    "stockLeft": 10
+    "images": [
+      "/product_images/grooming/gro_038_1.png",
+      "/product_images/grooming/gro_038_2.png",
+      "/product_images/grooming/gro_038_3.png",
+      "/product_images/grooming/gro_038_4.png",
+      "/product_images/grooming/gro_038_5.png",
+      "/product_images/grooming/gro_038_6.png",
+      "/product_images/grooming/gro_038_7.jpg",
+      "/product_images/grooming/gro_038_8.png"
+    ],
+    "specs": [],
+    "colors": []
+  },
+  {
+    "id": 64,
+    "name": "Carlton London Face Cleanser (360 Degree Rotating Head, CLSHCF901SSCFC, White/Pink)",
+    "brand": "Carlton",
+    "description": "",
+    "price": 0,
+    "originalPrice": 0,
+    "discount": 0,
+    "rating": 1,
+    "reviewCount": 0,
+    "stock": 0,
+    "category": "grooming",
+    "images": [
+      "/product_images/grooming/gro_039_1.jpg",
+      "/product_images/grooming/gro_039_2.jpg",
+      "/product_images/grooming/gro_039_3.jpg",
+      "/product_images/grooming/gro_039_4.jpg",
+      "/product_images/grooming/gro_039_5.png",
+      "/product_images/grooming/gro_039_6.png",
+      "/product_images/grooming/gro_039_7.jpg",
+      "/product_images/grooming/gro_039_8.jpg"
+    ],
+    "specs": [],
+    "colors": []
   }
 ]

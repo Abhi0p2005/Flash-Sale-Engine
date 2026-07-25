@@ -14,21 +14,23 @@ public class CacheWarmupRunner implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
-        System.out.println("Starting Redis Cache Warmup Pipeline...");
-        
-        // Example: Preload inventory data for product IDs 1 to 100
-        String inventoryKey = "inventory:product:1";
+    public void run(String... args) {
+        try {
+            System.out.println("Starting Redis Cache Warmup Pipeline...");
+            
+            String inventoryKey = "inventory:product:1";
 
-        //only seed if not already seeded
-        Boolean hasKey = redisTemplate.hasKey(inventoryKey);
-        if (Boolean.FALSE.equals(hasKey)) {
-            int initialStock = 1000; // Example stock count
-            redisTemplate.opsForValue().set(inventoryKey, String.valueOf(initialStock));
-            System.out.println("Cache Warmup Complete : Seeded " + inventoryKey + " with stock count: " + initialStock);
-        }
-        else {
-            System.out.println("Cache Warmup Skipped : " + inventoryKey + " already exists with stock count: " + redisTemplate.opsForValue().get(inventoryKey));
+            Boolean hasKey = redisTemplate.hasKey(inventoryKey);
+            if (Boolean.FALSE.equals(hasKey)) {
+                int initialStock = 1000;
+                redisTemplate.opsForValue().set(inventoryKey, String.valueOf(initialStock));
+                System.out.println("Cache Warmup Complete : Seeded " + inventoryKey + " with stock count: " + initialStock);
+            }
+            else {
+                System.out.println("Cache Warmup Skipped : " + inventoryKey + " already exists with stock count: " + redisTemplate.opsForValue().get(inventoryKey));
+            }
+        } catch (Exception e) {
+            System.err.println("Redis unavailable — CacheWarmup skipped: " + e.getMessage());
         }
     }
 }

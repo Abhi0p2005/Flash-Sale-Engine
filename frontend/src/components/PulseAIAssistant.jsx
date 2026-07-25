@@ -7,9 +7,9 @@ const SUGGESTIONS = [
   'checkout with my Home address',
   'Is shipping free?',
   'What\'s the return policy?',
-  'add iPhone 13 Pro to cart',
   'show my cart',
   'show my orders',
+  'show laptops under ₹1,00,000',
 ];
 
 export default function PulseAIAssistant({
@@ -97,10 +97,13 @@ export default function PulseAIAssistant({
       return 'Navigating to order history.';
     }
 
-    if (/(?:filter|show)\s+mobiles?\s+(?:under|below|less than|≤)\s*₹?(\d[\d,]*)/.test(lower)) {
+    if (/(?:filter|show)\s+(.+?)\s+(?:under|below|less than|≤)\s*₹?([\d,]+)/.test(lower)) {
+      const m = lower.match(/(?:filter|show)\s+(.+?)\s+(?:under|below|less than|≤)\s*₹?([\d,]+)/);
+      const category = m[1].trim();
+      const price = parseInt(m[2].replace(/,/g, ''));
       setActiveTab('catalog');
-      setStatusMessage({ type: 'success', text: 'Filtering mobiles under ₹40,000.' });
-      return 'Filtering mobiles under ₹40,000.';
+      setStatusMessage({ type: 'success', text: `Filtering ${category} under ₹${price.toLocaleString('en-IN')}.` });
+      return `Filtering **${category}** under ₹${price.toLocaleString('en-IN')}.`;
     }
 
     return null;

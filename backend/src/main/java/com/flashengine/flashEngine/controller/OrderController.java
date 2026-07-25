@@ -52,30 +52,15 @@ public class OrderController {
     @Autowired
     private OrderReceiptRepository orderRepository;
 
-    // 1. THIS IS THE ENDPOINT METHOD (Put this inside your controller class)
     @PostMapping("/orders")
     public ResponseEntity<String> saveOrderReceipt(@RequestBody OrderRequestDTO dto) {
         try {
-            // Create a parent receipt and fill it with data from the incoming blueprint (dto)
             OrderReceipt receipt = new OrderReceipt();
             receipt.setCustomerName(dto.getCustomerName());
             receipt.setMaskedCardNumber(dto.getCardNumber());
             receipt.setTotalPrice(dto.getTotalPrice());
             receipt.setPurchaseTime(LocalDateTime.now());
 
-            // Loop through each item in the shopping cart payload and link it to the receipt
-            for (OrderRequestDTO.ItemDTO itemDto : dto.getItemsBought()) {
-                OrderItem item = new OrderItem(
-                    Long.valueOf(itemDto.getProductId()),
-                    null,
-                    null,
-                    itemDto.getQuantity(),
-                    itemDto.getPricePaid()
-                );
-                receipt.addItem(item); // This links parent and child tables
-            }
-
-            // Save everything to PostgreSQL in one shot!
             orderRepository.save(receipt);
 
             return ResponseEntity.ok("Receipt cataloged successfully in PostgreSQL!");

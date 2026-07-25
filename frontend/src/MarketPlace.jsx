@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { cromaCategories } from './cromaData.js';
+import CategoryBar from './CategoryBar';
+import SideNav from './SideNav';
+import LogoutModal from './LogoutModal';
 import {
   ShoppingCart,
   User,
@@ -21,6 +24,7 @@ import {
   ChevronRight,
   Star,
   FileText,
+  LogOut,
 } from 'lucide-react';
 
 export default function MarketPlace({
@@ -63,26 +67,41 @@ export default function MarketPlace({
   cartItemCount,
   filteredProducts,
   brandList,
+  user,
+  showAuth,
+  setShowAuth,
+  authMode,
+  setAuthMode,
+  handleLogin,
+  handleRegister,
+  handleLogout,
+  handleDeleteAddress,
+  loadingProducts,
 }) {
   const totalStock = products.reduce((s, p) => s + (p.stockLeft || 0), 0);
   const flashCount = products.filter((p) => (p.stockLeft || 0) <= 10).length;
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isLogoutOpen, setIsLogoutOpen] = useState(false);
 
-  const onSelectProduct = (product) => setSelectedProduct(product);
+  const onSelectProduct = (product) => {
+    setSelectedProduct(product);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   const onCloseDetail = () => setSelectedProduct(null);
 
   return (
     <div className="min-h-screen bg-ink-900 text-white antialiased">
       <header className="sticky top-0 z-40 bg-ink-900/85 backdrop-blur-xl border-b border-line-800">
-        <div className="max-w-[1440px] mx-auto px-6 h-16 flex items-center gap-6">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
           <button
             onClick={() => {
               setActiveTab('catalog');
               setIsMenuOpen(false);
               setSelectedCategory(null);
               setSelectedBrand(null);
+              onCloseDetail();
             }}
-            className="flex items-center gap-2.5 group"
+            className="flex items-center gap-2.5 group shrink-0"
           >
             <div className="w-8 h-8 border border-neon-500 flex items-center justify-center relative">
               <Zap size={15} strokeWidth={2.5} className="text-neon-500" />
@@ -94,32 +113,7 @@ export default function MarketPlace({
             </span>
           </button>
 
-          <nav className="hidden md:flex items-center gap-0 border border-line-800 h-9 ml-4">
-            {[
-              { id: 'catalog', label: 'catalog', Icon: Layers },
-              { id: 'history', label: 'orders', Icon: ClipboardList },
-              { id: 'addresses', label: 'nodes', Icon: MapPin },
-              { id: 'profile', label: 'profile', Icon: User },
-            ].map(({ id, label, Icon }) => (
-              <button
-                key={id}
-                onClick={() => {
-                  setActiveTab(id);
-                  setIsMenuOpen(false);
-                }}
-                className={`h-full px-3 flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.18em] border-r border-line-800 last:border-r-0 transition-colors ${
-                  activeTab === id
-                    ? 'bg-neon-500 text-ink-950'
-                    : 'text-mute-300 hover:text-white hover:bg-ink-700'
-                }`}
-              >
-                <Icon size={12} strokeWidth={2} />
-                {label}
-              </button>
-            ))}
-          </nav>
-
-          <div className="hidden lg:flex flex-1 max-w-md relative">
+          <div className="hidden lg:flex flex-1 max-w-lg mx-auto relative">
             <Search
               size={14}
               strokeWidth={2}
@@ -134,72 +128,78 @@ export default function MarketPlace({
             />
           </div>
 
-          <div className="flex-1 md:flex-none" />
-          <div className="hidden sm:flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-mute-400">
-            <span className="relative w-1.5 h-1.5">
-              <span className="absolute inset-0 bg-neon-500 pulse-neon" />
-            </span>
-            <span>engine · live</span>
-          </div>
+          <div className="flex items-center gap-3 shrink-0">
+            <div className="hidden sm:flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-mute-400">
+              <span className="relative w-1.5 h-1.5">
+                <span className="absolute inset-0 bg-neon-500 pulse-neon" />
+              </span>
+              <span>engine · live</span>
+            </div>
 
-          <button
-            onClick={() => setIsCartOpen(true)}
-            className="relative flex items-center gap-2 border border-line-800 hover:border-neon-500 text-white h-9 px-3 transition-colors"
-          >
-            <ShoppingCart size={14} strokeWidth={2} />
-            <span className="font-mono text-[11px] uppercase tracking-[0.18em]">basket</span>
-            <span className="font-mono text-[11px] text-neon-500">[{cartItemCount}]</span>
-          </button>
-
-          <button
-            onClick={() => setIsMenuOpen((v) => !v)}
-            className="md:hidden border border-line-800 w-9 h-9 flex items-center justify-center text-white"
-          >
-            {isMenuOpen ? <X size={16} /> : <Menu size={16} />}
-          </button>
-        </div>
-
-        {isMenuOpen && (
-          <div className="md:hidden border-t border-line-800 bg-ink-850">
-            {[
-              { id: 'catalog', label: 'Catalog' },
-              { id: 'history', label: 'Orders' },
-              { id: 'addresses', label: 'Delivery Nodes' },
-              { id: 'profile', label: 'Profile' },
-            ].map((n) => (
+            {user ? (
               <button
-                key={n.id}
-                onClick={() => {
-                  setActiveTab(n.id);
-                  setIsMenuOpen(false);
-                }}
-                className="w-full text-left px-6 py-3 border-b border-line-900 font-mono text-[12px] uppercase tracking-[0.18em] text-mute-300 hover:text-neon-500 hover:bg-ink-800"
+                onClick={() => setIsLogoutOpen(true)}
+                className="hidden sm:flex items-center gap-2 border border-line-800 hover:border-neon-500/60 text-mute-300 hover:text-neon-300 h-9 px-3 transition-colors group"
               >
-                → {n.label}
+                <User size={12} strokeWidth={2} className="group-hover:text-neon-400" />
+                <span className="font-mono text-[10px] uppercase tracking-[0.18em]">{user.name || user.email}</span>
+                <LogOut size={10} strokeWidth={2} className="text-mute-600 group-hover:text-neon-400/70 transition-colors" />
               </button>
-            ))}
+            ) : (
+              <button
+                onClick={() => { setAuthMode('login'); setShowAuth(true); }}
+                className="hidden sm:flex items-center gap-2 border border-line-800 hover:border-neon-500 text-mute-300 hover:text-white h-9 px-3 transition-colors"
+              >
+                <User size={12} strokeWidth={2} />
+                <span className="font-mono text-[10px] uppercase tracking-[0.18em]">login</span>
+              </button>
+            )}
+
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="relative flex items-center gap-2 border border-line-800 hover:border-neon-500 text-white h-9 px-3 transition-colors"
+            >
+              <ShoppingCart size={14} strokeWidth={2} />
+              <span className="font-mono text-[11px] uppercase tracking-[0.18em]">basket</span>
+              <span className="font-mono text-[11px] text-neon-500">[{cartItemCount}]</span>
+            </button>
+
+            {isMenuOpen && (
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="border border-neon-500/40 bg-neon-500/8 w-9 h-9 flex items-center justify-center text-neon-400 transition-colors"
+                aria-label="Close menu"
+              >
+                <X size={16} strokeWidth={2} />
+              </button>
+            )}
+            {!isMenuOpen && (
+              <button
+                onClick={() => setIsMenuOpen(true)}
+                className="border border-line-800 hover:border-neon-500/50 w-9 h-9 flex items-center justify-center text-white hover:text-neon-400 transition-all duration-200 hover:shadow-[0_0_10px_-2px_rgba(0,255,170,0.15)]"
+                aria-label="Open menu"
+              >
+                <Menu size={16} strokeWidth={2} />
+              </button>
+            )}
           </div>
-        )}
+        </div>
       </header>
 
       {statusMessage && (
         <div
-          className={`border-b ${
+          className={`fixed top-20 right-6 z-50 max-w-sm animate-in slide-in-from-top-2 fade-in duration-200 border ${
             statusMessage.type === 'success'
-              ? 'border-neon-500/30 bg-neon-950/40 text-neon-500'
-              : 'border-red-900/40 bg-red-950/30 text-red-400'
-          }`}
+              ? 'border-neon-500/40 bg-ink-900 text-neon-400'
+              : 'border-red-500/40 bg-ink-900 text-red-400'
+          } shadow-[0_0_25px_-5px_rgba(0,255,170,0.12)]`}
         >
-          <div className="max-w-[1440px] mx-auto px-6 py-2.5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em]">
-            {statusMessage.type === 'success' ? (
-              <CheckCircle2 size={13} />
-            ) : (
-              <AlertTriangle size={13} />
-            )}
+          <div className="flex items-center gap-3 px-5 py-3 font-mono text-[11px] uppercase tracking-[0.18em]">
+            <div className={`w-1.5 h-1.5 rounded-full ${statusMessage.type === 'success' ? 'bg-neon-500' : 'bg-red-500'} animate-pulse`} />
             {statusMessage.text}
             <button
               onClick={() => setStatusMessage(null)}
-              className="ml-auto text-mute-400 hover:text-white"
+              className="ml-auto text-mute-500 hover:text-white transition-colors"
             >
               <X size={12} />
             </button>
@@ -214,6 +214,38 @@ export default function MarketPlace({
             addToCart={addToCart}
             onClose={onCloseDetail}
           />
+        ) : loadingProducts ? (
+          <div>
+            <section className="border border-line-800 grid grid-cols-1 lg:grid-cols-12 mb-6 animate-pulse">
+              <div className="lg:col-span-7 p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-line-800">
+                <div className="h-3 bg-ink-700 rounded w-1/4 mb-8" />
+                <div className="h-10 bg-ink-700 rounded w-3/4 mb-3" />
+                <div className="h-10 bg-ink-700 rounded w-1/2 mb-6" />
+                <div className="h-4 bg-ink-700 rounded w-2/3 mb-8" />
+                <div className="flex gap-3">
+                  <div className="h-9 bg-ink-700 rounded w-28" />
+                  <div className="h-9 bg-ink-700 rounded w-28" />
+                  <div className="h-9 bg-ink-700 rounded w-28" />
+                </div>
+              </div>
+              <div className="lg:col-span-5 p-6 lg:p-8 bg-ink-850">
+                <div className="h-32 bg-ink-700 rounded mb-4" />
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="border border-line-800 p-3">
+                    <div className="h-3 bg-ink-700 rounded w-2/3 mb-2" />
+                    <div className="h-6 bg-ink-700 rounded w-1/2" />
+                  </div>
+                  <div className="border border-line-800 p-3">
+                    <div className="h-3 bg-ink-700 rounded w-2/3 mb-2" />
+                    <div className="h-6 bg-ink-700 rounded w-1/2" />
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 border-t border-l border-line-800">
+              {[1,2,3,4,5,6,7,8].map(i => <SkeletonCard key={i} />)}
+            </section>
+          </div>
         ) : activeTab === 'catalog' ? (
           <CatalogView
             products={products}
@@ -231,7 +263,7 @@ export default function MarketPlace({
             onSelectProduct={onSelectProduct}
           />
         ) : activeTab === 'profile' ? (
-          <ProfileView userProfile={userProfile} orderHistory={orderHistory} />
+          <ProfileView userProfile={userProfile} orderHistory={orderHistory} user={user} setShowAuth={setShowAuth} setAuthMode={setAuthMode} />
         ) : activeTab === 'history' ? (
           <HistoryView orderHistory={orderHistory} setActiveTab={setActiveTab} />
         ) : (
@@ -242,6 +274,10 @@ export default function MarketPlace({
             newAddressDetail={newAddressDetail}
             setNewAddressDetail={setNewAddressDetail}
             handleAddAddress={handleAddAddress}
+            handleDeleteAddress={handleDeleteAddress}
+            user={user}
+            setShowAuth={setShowAuth}
+            setAuthMode={setAuthMode}
           />
         )}
       </main>
@@ -444,6 +480,25 @@ export default function MarketPlace({
           </div>
         </div>
       )}
+
+      <SideNav
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        isOpen={isMenuOpen}
+        onClose={() => setIsMenuOpen(false)}
+        onCartOpen={() => setIsCartOpen(true)}
+        cartItemCount={cartItemCount}
+        user={user}
+        onLogoutClick={() => setIsLogoutOpen(true)}
+      />
+
+      {isLogoutOpen && (
+        <LogoutModal
+          user={user}
+          onConfirm={() => { handleLogout(); setIsLogoutOpen(false); }}
+          onCancel={() => setIsLogoutOpen(false)}
+        />
+      )}
     </div>
   );
 }
@@ -537,50 +592,12 @@ function CatalogView({
         <StatTile label="categories" value={cromaCategories.length} sub="product taxonomies" />
       </section>
 
-      <section className="mb-6">
-        <div className="flex items-center justify-between mb-3">
-          <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-mute-500">
-            [01] · taxonomies
-          </div>
-          {(selectedCategory || selectedBrand) && (
-            <button
-              onClick={() => { setSelectedCategory(null); setSelectedBrand(null); }}
-              className="font-mono text-[10px] uppercase tracking-[0.22em] text-neon-500 hover:text-neon-400"
-            >
-              clear filters ✕
-            </button>
-          )}
-        </div>
-        <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 border border-line-800 border-b-0">
-          <button
-            onClick={() => { setSelectedCategory(null); setSelectedBrand(null); }}
-            className={`aspect-square border-r border-b border-line-800 flex flex-col items-center justify-center gap-2 transition-colors ${
-              selectedCategory === null
-                ? 'bg-neon-500 text-ink-950'
-                : 'text-mute-300 hover:bg-ink-800 hover:text-white'
-            }`}
-          >
-            <Layers size={18} strokeWidth={1.75} />
-            <span className="font-mono text-[10px] uppercase tracking-[0.16em]">all</span>
-          </button>
-          {cromaCategories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => { setSelectedCategory(cat.id); setSelectedBrand(null); }}
-              className={`aspect-square border-r border-b border-line-800 flex flex-col items-center justify-center gap-2 transition-colors ${
-                selectedCategory === cat.id
-                  ? 'bg-neon-500 text-ink-950'
-                  : 'text-mute-300 hover:bg-ink-800 hover:text-white'
-              }`}
-            >
-              <span className="text-2xl leading-none">{cat.icon}</span>
-              <span className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-center px-1 leading-tight">
-                {cat.name}
-              </span>
-            </button>
-          ))}
-        </div>
-      </section>
+      <CategoryBar
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+        selectedBrand={selectedBrand}
+        setSelectedBrand={setSelectedBrand}
+      />
 
       {brandList.length > 0 && (
         <section className="mb-6">
@@ -824,6 +841,60 @@ function ProductCard({ product, addToCart, index, onSelectProduct }) {
   );
 }
 
+function SkeletonCard() {
+  return (
+    <div className="relative border-r border-b border-line-800 bg-ink-900 animate-pulse">
+      <div className="relative aspect-square border-b border-line-800 bg-ink-850 flex items-center justify-center">
+        <div className="w-20 h-20 border border-line-700/50" />
+      </div>
+      <div className="p-4 space-y-3">
+        <div className="h-3 bg-ink-700 rounded w-1/3" />
+        <div className="h-4 bg-ink-700 rounded w-3/4" />
+        <div className="flex items-center justify-between">
+          <div className="h-5 bg-ink-700 rounded w-1/4" />
+          <div className="h-3 bg-ink-700 rounded w-1/5" />
+        </div>
+        <div className="h-8 bg-ink-700 rounded w-full" />
+      </div>
+    </div>
+  );
+}
+
+function ProductDetailSkeleton() {
+  return (
+    <section className="border border-line-800 animate-pulse">
+      <div className="h-12 border-b border-line-800 bg-ink-900" />
+      <div className="bg-ink-850 border-b border-line-800 flex items-center justify-center min-h-[320px]">
+        <div className="w-48 h-48 border border-line-700/50" />
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-12">
+        <div className="lg:col-span-5 p-6 lg:p-8 border-b lg:border-b-0 lg:border-r border-line-800 space-y-4">
+          <div className="h-3 bg-ink-700 rounded w-1/4" />
+          <div className="h-6 bg-ink-700 rounded w-3/4" />
+          <div className="h-8 bg-ink-700 rounded w-1/3" />
+          <div className="h-6 bg-ink-700 rounded w-1/4" />
+          <div className="h-11 bg-ink-700 rounded w-full mt-6" />
+          <div className="space-y-2 mt-8">
+            {[1,2,3,4,5].map(i => (
+              <div key={i} className="h-4 bg-ink-700 rounded w-full" />
+            ))}
+          </div>
+        </div>
+        <div className="lg:col-span-7 p-6 lg:p-8 space-y-4">
+          <div className="h-3 bg-ink-700 rounded w-1/4" />
+          {[1,2,3].map(i => (
+            <div key={i} className="border border-line-800 p-4 space-y-2">
+              <div className="h-4 bg-ink-700 rounded w-1/2" />
+              <div className="h-3 bg-ink-700 rounded w-1/4" />
+              <div className="h-4 bg-ink-700 rounded w-3/4" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ProductDetail({ product, addToCart, onClose }) {
   const [imgIdx, setImgIdx] = useState(0);
   const images = product.images?.length > 0 ? product.images : null;
@@ -885,6 +956,29 @@ function ProductDetail({ product, addToCart, onClose }) {
             </div>
           )}
         </div>
+        {/* Thumbnail strip */}
+        {images && images.length > 1 && (
+          <div className="flex items-center justify-center gap-2 pb-4 pt-2 overflow-x-auto no-scrollbar">
+            {images.map((img, i) => (
+              <button
+                key={i}
+                onClick={() => setImgIdx(i)}
+                className={`w-14 h-14 shrink-0 border transition-all duration-200 ${
+                  i === imgIdx
+                    ? 'border-neon-500 shadow-[0_0_8px_-2px_rgba(0,255,135,0.3)]'
+                    : 'border-line-800 hover:border-line-600 opacity-60 hover:opacity-100'
+                }`}
+              >
+                <img
+                  src={img}
+                  alt={`${product.name} view ${i + 1}`}
+                  className="w-full h-full object-contain p-1"
+                  onError={(e) => { e.target.style.display = 'none'; }}
+                />
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Content grid: details + specs + reviews */}
@@ -998,7 +1092,23 @@ function ProductDetail({ product, addToCart, onClose }) {
   );
 }
 
-function ProfileView({ userProfile, orderHistory }) {
+function ProfileView({ userProfile, orderHistory, user, setShowAuth, setAuthMode }) {
+  if (!user) {
+    return (
+      <section className="border border-line-800 p-16 text-center">
+        <User size={28} className="text-mute-500 mx-auto mb-3" strokeWidth={1.5} />
+        <p className="font-mono text-[12px] uppercase tracking-[0.22em] text-mute-400">unauthenticated</p>
+        <p className="text-mute-500 mt-2 text-[13px]">Login or register to view your profile, orders, and delivery nodes.</p>
+        <button
+          onClick={() => { setAuthMode('login'); setShowAuth(true); }}
+          className="mt-6 border border-line-700 hover:border-neon-500 hover:bg-neon-500 hover:text-ink-950 text-white font-mono text-[11px] uppercase tracking-[0.22em] px-4 h-10 inline-flex items-center gap-2 transition-colors"
+        >
+          authenticate <ArrowRight size={12} strokeWidth={2.5} />
+        </button>
+      </section>
+    );
+  }
+
   return (
     <section className="grid grid-cols-1 lg:grid-cols-12 gap-0 border border-line-800">
       <div className="lg:col-span-4 p-8 border-b lg:border-b-0 lg:border-r border-line-800 bg-ink-850">
@@ -1109,7 +1219,23 @@ function HistoryView({ orderHistory, setActiveTab }) {
 function AddressesView({
   userProfile, newAddressType, setNewAddressType,
   newAddressDetail, setNewAddressDetail, handleAddAddress,
+  handleDeleteAddress, user, setShowAuth, setAuthMode,
 }) {
+  if (!user) {
+    return (
+      <section className="border border-line-800 p-16 text-center">
+        <MapPin size={28} className="text-mute-500 mx-auto mb-3" strokeWidth={1.5} />
+        <p className="font-mono text-[12px] uppercase tracking-[0.22em] text-mute-400">unauthenticated</p>
+        <p className="text-mute-500 mt-2 text-[13px]">Login to manage delivery nodes.</p>
+        <button
+          onClick={() => { setAuthMode('login'); setShowAuth(true); }}
+          className="mt-6 border border-line-700 hover:border-neon-500 hover:bg-neon-500 hover:text-ink-950 text-white font-mono text-[11px] uppercase tracking-[0.22em] px-4 h-10 inline-flex items-center gap-2 transition-colors"
+        >
+          authenticate <ArrowRight size={12} strokeWidth={2.5} />
+        </button>
+      </section>
+    );
+  }
   return (
     <section className="grid grid-cols-1 lg:grid-cols-12 gap-6">
       <div className="lg:col-span-7 border border-line-800">
@@ -1127,7 +1253,16 @@ function AddressesView({
                   {addr.type}
                 </span>
               </div>
-              <div className="col-span-9 sm:col-span-10 text-[13px] text-mute-300 leading-relaxed">{addr.detail}</div>
+              <div className="col-span-7 sm:col-span-8 text-[13px] text-mute-300 leading-relaxed">{addr.detail}</div>
+              <div className="col-span-2 sm:col-span-2 flex justify-end">
+                <button
+                  onClick={() => handleDeleteAddress(addr.id)}
+                  className="text-mute-500 hover:text-red-400 transition-colors"
+                  aria-label="Delete address"
+                >
+                  <Trash2 size={13} />
+                </button>
+              </div>
             </div>
           ))
         )}

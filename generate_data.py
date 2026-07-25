@@ -11,7 +11,7 @@ import json
 import random
 import shutil
 from pathlib import Path
-from PIL import Image, ImageEnhance
+from PIL import Image
 
 PRODUCTS = [
     # Mobiles
@@ -112,38 +112,19 @@ def main():
             simple_dest = DEST_DIR / p["category"] / f"{p['id']:03d}_1{ext}"
             shutil.copy2(src, simple_dest)
             paths = [f"/product_images/{p['category']}/{p['id']:03d}_1{ext}"]
+            print(f"  [1/1] {p['img']} -> {p['id']:03d}_1{ext} (copy fallback)")
             img = None
 
         if img is not None:
-            orig_w, orig_h = img.size
-
-            def save_variation(pil_img, idx, fmt_ext):
+            def save_image(pil_img, idx, fmt_ext):
                 fname = f"{p['id']:03d}_{idx}{fmt_ext}"
                 out = DEST_DIR / p["category"] / fname
                 out_pil = pil_img.convert("RGB")
                 out_pil.save(out, quality=92)
                 return f"/product_images/{p['category']}/{fname}"
 
-            # 1. Original (full frame)
-            paths = [save_variation(img, 1, ext)]
-            print(f"  [1/4] {p['img']} -> {p['id']:03d}_1{ext} (original)")
-
-            # 2. Zoom / close-up crop (center 80%)
-            zoom = img.crop((orig_w*0.1, orig_h*0.1, orig_w*0.9, orig_h*0.9)).resize((orig_w, orig_h), Image.LANCZOS)
-            paths.append(save_variation(zoom, 2, ".jpg" if ext != ".jpg" else ".png"))
-            print(f"  [2/4] {p['id']:03d}_2 (close-up zoom)")
-
-            # 3. Rotated slightly (4.5°)
-            rot = img.rotate(4.5, expand=False, fillcolor=(240, 240, 240, 255), resample=Image.BICUBIC)
-            paths.append(save_variation(rot, 3, ".jpg" if ext != ".jpg" else ".png"))
-            print(f"  [3/4] {p['id']:03d}_3 (angled view)")
-
-            # 4. Enhanced saturation / contrast (simulating studio lighting)
-            enh = ImageEnhance.Color(img).enhance(1.35)
-            enh = ImageEnhance.Contrast(enh).enhance(1.15)
-            enh = ImageEnhance.Brightness(enh).enhance(1.05)
-            paths.append(save_variation(enh, 4, ".jpg" if ext != ".jpg" else ".png"))
-            print(f"  [4/4] {p['id']:03d}_4 (enhanced lighting)")
+            paths = [save_image(img, 1, ext)]
+            print(f"  [1/1] {p['img']} -> {p['id']:03d}_1{ext} (original)")
 
             img.close()
 

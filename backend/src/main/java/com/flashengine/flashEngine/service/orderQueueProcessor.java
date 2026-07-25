@@ -22,28 +22,32 @@ public class orderQueueProcessor {
         this.objectMapper = new ObjectMapper();
     }
 
-    @Scheduled(fixedDelay = 10)
+    @Scheduled(fixedDelay = 5000)
     public void processQueue() {
-        String orderJson = redisTemplate.opsForList().rightPop("orders:queue");
-        
-        if (orderJson != null) {
-            try {
-                System.out.println("Processing JSON payload: " + orderJson); // Debug Log
-                
-                OrderPayload payload = objectMapper.readValue(orderJson, OrderPayload.class);
+        try {
+            String orderJson = redisTemplate.opsForList().rightPop("orders:queue");
+            
+            if (orderJson != null) {
+                try {
+                    System.out.println("Processing JSON payload: " + orderJson);
+                    
+                    OrderPayload payload = objectMapper.readValue(orderJson, OrderPayload.class);
 
-                Orders order = new Orders();
-                order.setProductId(payload.getProductId());
-                order.setUserId(payload.getUserId());
-                order.setStatus("SUCCESS REDIS");
-                order.setCreatedAt(LocalDateTime.now());
+                    Orders order = new Orders();
+                    order.setProductId(payload.getProductId());
+                    order.setUserId(payload.getUserId());
+                    order.setStatus("SUCCESS REDIS");
+                    order.setCreatedAt(LocalDateTime.now());
 
-                ordersRepository.save(order);
-                System.out.println("Successfully saved order to DB for User: " + payload.getUserId());
-                
-            } catch (Exception e) {
-                System.err.println("ERROR PROCESSING ORDER PAYLOAD " +  e.getMessage());
+                    ordersRepository.save(order);
+                    System.out.println("Successfully saved order to DB for User: " + payload.getUserId());
+                    
+                } catch (Exception e) {
+                    System.err.println("ERROR PROCESSING ORDER PAYLOAD " +  e.getMessage());
+                }
             }
+        } catch (Exception e) {
+            System.err.println("Redis unavailable — QueueProcessor skipped: " + e.getMessage());
         }
     }
 }
