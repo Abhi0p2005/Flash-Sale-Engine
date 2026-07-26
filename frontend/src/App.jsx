@@ -209,6 +209,10 @@ export default function App() {
 
   const handleProcessPayment = async (e) => {
     e.preventDefault();
+    if (!selectedAddressId) {
+      setStatusMessage({ type: 'error', text: 'Select a delivery node before authorizing payment.' });
+      return;
+    }
     setLoading(true);
     setStatusMessage(null);
     try {

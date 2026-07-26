@@ -414,9 +414,12 @@ export default function MarketPlace({
                   value={selectedAddressId}
                   onChange={(e) => setSelectedAddressId(Number(e.target.value))}
                 >
+                  {userProfile.addresses.length === 0 && (
+                    <option value="" disabled>— no delivery nodes saved —</option>
+                  )}
                   {userProfile.addresses.map((a) => (
                     <option key={a.id} value={a.id}>
-                      [{a.type}] {a.detail.substring(0, 40)}…
+                      [{a.type}] {(a.detail || a.line1 || '').substring(0, 40)}…
                     </option>
                   ))}
                 </select>
