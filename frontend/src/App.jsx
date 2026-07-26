@@ -79,24 +79,15 @@ export default function App() {
 
   useEffect(() => {
     setLoadingProducts(true);
-    api.fetchProducts().then((data) => {
-      if (data && data.length > 0) {
-        return data;
+    setProducts(scrapedProducts);
+    api.fetchStockBatch(scrapedProducts.map(p => p.id)).then((stockMap) => {
+      if (stockMap) {
+        setProducts(prev => prev.map(p => ({
+          ...p,
+          stockLeft: stockMap[String(p.id)] ?? stockMap[p.id] ?? p.stockLeft ?? 0,
+        })));
       }
-      throw new Error('API returned empty');
-    }).catch(() => {
-      return scrapedProducts;
-    }).then((products) => {
-      setProducts(products);
-      api.fetchStockBatch(products.map(p => p.id)).then((stockMap) => {
-        if (stockMap) {
-          setProducts(prev => prev.map(p => ({
-            ...p,
-            stockLeft: stockMap[String(p.id)] ?? stockMap[p.id] ?? p.stockLeft ?? 0,
-          })));
-        }
-      }).catch(() => {});
-    }).finally(() => setLoadingProducts(false));
+    }).catch(() => {}).finally(() => setLoadingProducts(false));
   }, []);
 
   useEffect(() => {

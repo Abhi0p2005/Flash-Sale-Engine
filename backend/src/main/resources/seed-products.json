@@ -1,0 +1,305 @@
+[
+  {
+    "id": 1,
+    "brand": "Apple",
+    "name": "iPhone 17 Pro Max (256 GB, Desert Titanium)",
+    "originalPrice": 169900,
+    "salePrice": 159900,
+    "image": "/product_images/mobiles/001_1.png",
+    "category": "mobiles",
+    "stockLeft": 15
+  },
+  {
+    "id": 4,
+    "brand": "OnePlus",
+    "name": "OnePlus 15 (256 GB, Ceramic White)",
+    "originalPrice": 74999,
+    "salePrice": 69999,
+    "image": "/product_images/mobiles/004_1.png",
+    "category": "mobiles",
+    "stockLeft": 30
+  },
+  {
+    "id": 25,
+    "brand": "LG",
+    "name": "LG 242 Litres 1 Star Frost Free Double Door Refrigerator with Multi Air Flow (GL-N292DDSY, Dazzle Steel)",
+    "originalPrice": 30999,
+    "salePrice": 35990,
+    "image": "/product_images/refrigerators/025_1.jpg",
+    "category": "refrigerators",
+    "stockLeft": 28
+  },
+  {
+    "id": 26,
+    "brand": "Oppo",
+    "name": "oppo Reno 16c 5G (8GB RAM, 256GB, Twilight Violet)",
+    "originalPrice": 79999,
+    "category": "mobiles"
+  },
+  {
+    "id": 27,
+    "brand": "Vivo",
+    "name": "vivo X300 FE 5G (12GB RAM, 256GB, Noir Black)",
+    "originalPrice": 119999,
+    "category": "mobiles"
+  },
+  {
+    "id": 28,
+    "brand": "Vivo",
+    "name": "vivo V70 5G (8GB RAM, 256GB, Lemon Yellow)",
+    "originalPrice": 65999,
+    "category": "mobiles"
+  },
+  {
+    "id": 29,
+    "brand": "Oppo",
+    "name": "oppo K14x 5G (6GB RAM, 128GB, Icy Blue)",
+    "originalPrice": 19999,
+    "category": "mobiles"
+  },
+  {
+    "id": 30,
+    "brand": "Vivo",
+    "name": "vivo T5X 5G (8GB RAM, 128GB, Cyber Green)",
+    "originalPrice": 30999,
+    "category": "mobiles"
+  },
+  {
+    "id": 31,
+    "brand": "Samsung",
+    "name": "SAMSUNG Galaxy S25 5G (12GB RAM, 256GB, Silver Shadow)",
+    "originalPrice": 80999,
+    "category": "mobiles"
+  },
+  {
+    "id": 32,
+    "brand": "Realme",
+    "name": "realme 16T 5G (6GB RAM, 128GB, Starlight Red)",
+    "originalPrice": 50999,
+    "category": "mobiles"
+  },
+  {
+    "id": 33,
+    "brand": "Vivo",
+    "name": "vivo Y51 Pro 5G (8GB RAM, 256GB, Festive Red)",
+    "originalPrice": 53999,
+    "category": "mobiles"
+  },
+  {
+    "id": 34,
+    "brand": "Croma",
+    "name": "Croma 80 cm (32 inch) 2 Star HD QLED Smart Google TV 5.0 with Quad Core Processor (2026 model)",
+    "originalPrice": 18000,
+    "category": "tvs"
+  },
+  {
+    "id": 35,
+    "brand": "Croma",
+    "name": "Croma 127cm (50 inch) 2 Star 4K Ultra HD LED Smart Google TV 5.0 with Dolby Audio",
+    "originalPrice": 40900,
+    "category": "tvs"
+  },
+  {
+    "id": 36,
+    "brand": "Croma",
+    "name": "Croma 109 cm (43 inch) 2 Star QLED 4K Ultra HD Smart Google TV 5.0 with Dolby Audio",
+    "originalPrice": 29000,
+    "category": "tvs"
+  },
+  {
+    "id": 37,
+    "brand": "Croma",
+    "name": "Croma 80 cm (32 inch) 1 Star HD Ready LED Smart Linux TV with A+ Grade Panel (2026 model)",
+    "originalPrice": 18000,
+    "category": "tvs"
+  },
+  {
+    "id": 38,
+    "brand": "Croma",
+    "name": "Croma 80cm (32 inch) 1 Star HD LED Smart Google TV 5.0 with Dolby Audio (2026 Model)",
+    "originalPrice": 19000,
+    "category": "tvs"
+  },
+  {
+    "id": 39,
+    "brand": "Croma",
+    "name": "Croma 127 cm (50 inch) 3 Star QLED 4K Ultra HD Smart Google TV 5.0 with Dolby Vision & Dolby Atmos",
+    "originalPrice": 48500,
+    "category": "tvs"
+  },
+  {
+    "id": 40,
+    "brand": "Microsoft",
+    "name": "Microsoft Surface Pro 11th Edition Wi-Fi Windows 11 Home Tablet (13 Inch, 16GB RAM, 512GB ROM, Microsoft 365 for 6 Months, Black)",
+    "originalPrice": 177999,
+    "category": "laptops"
+  },
+  {
+    "id": 41,
+    "brand": "Microsoft",
+    "name": "Microsoft Surface Pro 11th Edition Wi-Fi Windows 11 Home Tablet (13 Inch, 16GB RAM, 256GB ROM, Platinum)",
+    "originalPrice": 124999,
+    "category": "laptops"
+  },
+  {
+    "id": 42,
+    "brand": "ASUS",
+    "name": "Asus TUF A15 AMD Ryzen 7 170 Gaming Laptop (16GB, 512GB SSD, Windows 11 Home, 4GB Graphics, 15.6 inch 144 Hz Full HD IPS Display, NVIDIA GeForce RTX 3050, MS Office Home 2024, Graphite Black, 2.30 KG)",
+    "originalPrice": 131990,
+    "category": "laptops"
+  },
+  {
+    "id": 43,
+    "brand": "HP",
+    "name": "HP OMEN 16 Intel Core Ultra 7 Gaming Laptop (24GB, 1TB SSD, Windows 11 Home, 8GB Graphics, 16 inch 165 Hz 2K IPS Display, NVIDIA GeForce RTX 5060, MS Office Home 2024, Shadow Black, 2.43 KG)",
+    "originalPrice": 179857,
+    "category": "laptops"
+  },
+  {
+    "id": 44,
+    "brand": "HP",
+    "name": "HP 15-fc0499AU AMD Ryzen 3 Laptop (8GB, 512GB SSD, Windows 11 Home, 15.6 inch Full HD IPS Display, MS Office, Natural Silver, 1.59 KG)",
+    "originalPrice": 47146,
+    "category": "laptops"
+  },
+  {
+    "id": 45,
+    "brand": "ASUS",
+    "name": "ASUS Vivobook 16 X1605VA-MB1627WS Intel Core i5 13th Gen Thin & Light Laptop (16GB, 512GB SSD, Windows 11 Home, 16 inch WUXGA IPS Display, MS Office 2024, Cool Silver, 1.88 KG)",
+    "originalPrice": 72990,
+    "category": "laptops"
+  },
+  {
+    "id": 46,
+    "brand": "Croma",
+    "name": "Croma Bracket For Air Conditioner (Powder Coating Process, Grey)",
+    "originalPrice": 1199,
+    "category": "ac"
+  },
+  {
+    "id": 47,
+    "brand": "Croma",
+    "name": "Croma 7 in 1 Convertible 1.5 Ton 3 Star Inverter Split AC with Self Diagnosis (2026 Model, Copper Condenser, CRLA018IND342404 )",
+    "originalPrice": 0,
+    "category": "ac"
+  },
+  {
+    "id": 48,
+    "brand": "Daikin",
+    "name": "DAIKIN 1.5 Ton 3 Star Inverter Split AC (Copper Condenser, PM2.5 Filter, ATKL50XV16VKA)",
+    "originalPrice": 55100,
+    "category": "ac"
+  },
+  {
+    "id": 49,
+    "brand": "Croma",
+    "name": "Croma 7 in 1 Convertible 1 Ton 3 Star Inverter Split AC with Self Diagnosis (2026 Model, Copper Condenser, CRLA012IND342402)",
+    "originalPrice": 37000,
+    "category": "ac"
+  },
+  {
+    "id": 50,
+    "brand": "V-guard",
+    "name": "V-GUARD Arizor 4170 12 Amps Voltage Stabilizer For 1.5 Ton Inverter Air Conditioner (170 - 270 V, Fail Safe Circuit Protection, White)",
+    "originalPrice": 2990,
+    "category": "ac"
+  },
+  {
+    "id": 51,
+    "brand": "Blue",
+    "name": "Blue Star Z Series 5 in 1 Convertible 1.5 Ton 3 Star Inverter Split Smart AC with Voice Command Technology (2026 Model, Copper Condenser, IA318ZXUS)",
+    "originalPrice": 61000,
+    "category": "ac"
+  },
+  {
+    "id": 52,
+    "brand": "Samsung",
+    "name": "SAMSUNG Stylish Grande 183 Litres3 Star Direct Cool Single Door Refrigerator with Anti Bacterial Gasket (RR20C2Y23S8/HL, Elegant Inox)",
+    "originalPrice": 19999,
+    "category": "refrigerators"
+  },
+  {
+    "id": 53,
+    "brand": "LG",
+    "name": "LG 90 Litres 1 Star Direct Cool Single Door Refrigerator with Antibacterial Gasket (GL-M131RDSB, Dazzle Steel)",
+    "originalPrice": 0,
+    "category": "refrigerators"
+  },
+  {
+    "id": 54,
+    "brand": "Samsung",
+    "name": "SAMSUNG Horizontal Curve 189 Litres 5 Star Direct Cool Single Door Refrigerator with Anti Bacterial Gasket (RR21C2H25DX/HL, Luxe Brown)",
+    "originalPrice": 23999,
+    "category": "refrigerators"
+  },
+  {
+    "id": 55,
+    "brand": "Haier",
+    "name": "Haier 190 Litres 2 Star Direct Cool Single Door Refrigerator with Diamond Edge Freezing Technology (HRD-2102BNS-P, Nickel Steel)",
+    "originalPrice": 18390,
+    "category": "refrigerators"
+  },
+  {
+    "id": 56,
+    "brand": "Samsung",
+    "name": "SAMSUNG 236 Litres 2 Star Frost Free Double Door Refrigerator with Deodorizer (RT28C3042S8/HL, Elegant Inox)",
+    "originalPrice": 0,
+    "category": "refrigerators"
+  },
+  {
+    "id": 57,
+    "brand": "Sony",
+    "name": "SONY MDR-EX255APBQIN Wired Earphone with Mic (In Ear, Black)",
+    "originalPrice": 1990,
+    "category": "audio"
+  },
+  {
+    "id": 58,
+    "brand": "Apple",
+    "name": "Apple AirPods 4 with Charging Case",
+    "originalPrice": 12900,
+    "category": "audio"
+  },
+  {
+    "id": 59,
+    "brand": "OnePlus",
+    "name": "OnePlus Nord Buds 4 Pro E518A TWS Earbuds with Active Noise Cancellation (IP55 Dust & Water Resistance, 6 Mic AI Clear Call, Raven Black)",
+    "originalPrice": 4599,
+    "category": "audio"
+  },
+  {
+    "id": 60,
+    "brand": "Sony",
+    "name": "Sony IER-EX15C Wired Earphone with Mic (USB Type-C Connector, In Ear, Black)",
+    "originalPrice": 2490,
+    "category": "audio"
+  },
+  {
+    "id": 61,
+    "brand": "Sony",
+    "name": "Sony IER-EX15C Wired Earphone with Mic (USB Type-C Connector, In Ear, Pink)",
+    "originalPrice": 2490,
+    "category": "audio"
+  },
+  {
+    "id": 62,
+    "brand": "Amazon",
+    "name": "amazon Echo Pop with Built-in Alexa Smart Wi-Fi Speaker (Balanced Bass, Green)",
+    "originalPrice": 4999,
+    "category": "audio"
+  },
+  {
+    "id": 63,
+    "brand": "Philips",
+    "name": "PHILIPS OneBlade Rechargeable Cordless Shaver for Face for Men (60min Runtime, Unique OneBlade Technology, Lime Green & Charcoal Grey)",
+    "originalPrice": 0,
+    "category": "grooming"
+  },
+  {
+    "id": 64,
+    "brand": "Carlton",
+    "name": "Carlton London Face Cleanser (360 Degree Rotating Head, CLSHCF901SSCFC, White/Pink)",
+    "originalPrice": 0,
+    "category": "grooming"
+  }
+]
