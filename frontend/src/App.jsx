@@ -180,7 +180,15 @@ export default function App() {
     e.preventDefault();
     if (!newAddressDetail.trim()) return;
     try {
-      const addr = await api.addAddress({ type: newAddressType, detail: newAddressDetail });
+      const lines = newAddressDetail.split('\n').filter(Boolean);
+      const addr = await api.addAddress({
+        type: newAddressType,
+        detail: newAddressDetail,
+        line1: lines[0] || newAddressDetail,
+        city: '—',
+        state: '—',
+        pincode: '—',
+      });
       setUserProfile((prev) => ({ ...prev, addresses: [...(prev?.addresses || []), addr] }));
       setNewAddressDetail('');
       setStatusMessage({ type: 'success', text: 'New delivery node saved.' });
