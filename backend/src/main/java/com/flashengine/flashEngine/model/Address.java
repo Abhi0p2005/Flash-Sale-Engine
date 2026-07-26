@@ -16,18 +16,17 @@ public class Address {
     @Column(nullable = false)
     private String type;
 
-    @Column(nullable = false)
+    @Column(columnDefinition = "TEXT")
+    private String detail;
+
     private String line1;
 
     private String line2;
 
-    @Column(nullable = false)
     private String city;
 
-    @Column(nullable = false)
     private String state;
 
-    @Column(nullable = false)
     private String pincode;
 
     @Column(name = "is_default")
@@ -41,6 +40,8 @@ public class Address {
     public void setUserId(Long userId) { this.userId = userId; }
     public String getType() { return type; }
     public void setType(String type) { this.type = type; }
+    public String getDetail() { return detail; }
+    public void setDetail(String detail) { this.detail = detail; }
     public String getLine1() { return line1; }
     public void setLine1(String line1) { this.line1 = line1; }
     public String getLine2() { return line2; }

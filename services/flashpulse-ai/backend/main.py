@@ -1,3 +1,7 @@
+import sys
+if r"C:\College\Project\FlashPulse AI\venv\Lib\site-packages" not in sys.path:
+    sys.path.insert(0, r"C:\College\Project\FlashPulse AI\venv\Lib\site-packages")
+
 import os
 import json
 import logging
@@ -97,10 +101,12 @@ def get_llm_client():
         api_key = os.getenv("GEMINI_API_KEY")
         if not api_key or api_key.strip() == "" or api_key == "your_gemini_api_key_here":
             return "gemini", None, "Gemini API Key is missing."
+        if r"C:\College\Project\FlashPulse AI\venv\Lib\site-packages" not in sys.path:
+            sys.path.insert(0, r"C:\College\Project\FlashPulse AI\venv\Lib\site-packages")
         from google import genai
         client = genai.Client(api_key=api_key)
 
-        model_name = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
+        model_name = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
         return "gemini", client, model_name
         
     else:

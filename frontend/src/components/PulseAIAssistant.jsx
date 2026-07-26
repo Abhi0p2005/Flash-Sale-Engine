@@ -56,6 +56,32 @@ export default function PulseAIAssistant({
   const parseIntent = (text) => {
     const lower = text.toLowerCase().trim();
 
+    if (/(?:organize|group|sort)\s+(?:my\s+)?cart\s+(?:by\s+category)?/.test(lower) || lower.includes('organize my cart')) {
+      if (!cart || cart.length === 0) {
+        return 'Your basket is currently empty. Add items to organize by category!';
+      }
+      const grouped = {};
+      cart.forEach((item) => {
+        const prod = products.find((p) => String(p.id) === String(item.productId)) || {};
+        const cat = prod.category || 'General';
+        if (!grouped[cat]) grouped[cat] = [];
+        grouped[cat].push(item);
+      });
+      const summary = Object.entries(grouped)
+        .map(([cat, items]) => `${cat.toUpperCase()}: ${items.map((i) => `${i.name} (x${i.quantity})`).join(', ')}`)
+        .join(' | ');
+      setIsCartOpen(true);
+      return `Organized basket by category:\n${summary}`;
+    }
+
+    if (lower.includes('shipping') || lower.includes('delivery fee') || lower.includes('free shipping')) {
+      return '⚡ Standard and express shipping are 100% FREE during this flash sale window!';
+    }
+
+    if (lower.includes('return policy') || lower.includes('returns') || lower.includes('refund policy')) {
+      return '🔄 Returns are accepted within 30 days of purchase with full refund guaranteed.';
+    }
+
     const addMatch = lower.match(/(?:add|put)\s+(.+?)\s+(?:to\s+)?(?:cart|basket|bag)/);
     if (addMatch) {
       const product = findProduct(addMatch[1]);
@@ -158,7 +184,15 @@ export default function PulseAIAssistant({
           if (!trimmed) continue;
           if (trimmed.startsWith('data: ')) {
             const data = trimmed.slice(6);
-            if (data.startsWith('[ERROR]')) break;
+            if (data.startsWith('[ERROR]')) {
+              const errTxt = data.includes('RESOURCE_EXHAUSTED') || data.includes('quota')
+                ? '⚡ FlashPulse AI service rate limit reached. Please try again shortly or use standard navigation commands.'
+                : `[error] ${data.replace('[ERROR]', '').trim()}`;
+              setMessages((prev) =>
+                prev.map((m) => (m.id === botId ? { ...m, content: `→ ${errTxt}` } : m))
+              );
+              break;
+            }
             accumulated += data;
             setMessages((prev) =>
               prev.map((m) => (m.id === botId ? { ...m, content: `→ ${accumulated}` } : m))
@@ -169,7 +203,9 @@ export default function PulseAIAssistant({
     } catch {
       setMessages((prev) =>
         prev.map((m) =>
-          m.id === botId ? { ...m, content: '→ [error] network unreachable' } : m
+          m.id === botId
+            ? { ...m, content: '→ [error] backend service unreachable. (Check FlashPulse AI backend service on port 8000)' }
+            : m
         )
       );
     } finally {

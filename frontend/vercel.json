@@ -2,6 +2,8 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "rewrites": [
+    { "source": "/api/chat-stream", "destination": "https://flashpulse-ai.onrender.com/api/chat-stream" },
+    { "source": "/api/generate-copy", "destination": "https://flashpulse-ai.onrender.com/api/generate-copy" },
     { "source": "/api/(.*)", "destination": "https://flash-sale-engine-17ku.onrender.com/api/$1" }
   ]
 }

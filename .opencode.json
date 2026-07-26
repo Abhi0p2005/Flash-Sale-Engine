@@ -1,7 +1,0 @@
-{
-  "rateLimits": {
-    "requestsPerMinute": 24,
-    "concurrentRequests": 1
-  },
-  "autoApprove": false
-}
