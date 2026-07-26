@@ -412,7 +412,7 @@ export default function MarketPlace({
                 <select
                   className="w-full bg-ink-800 border border-line-800 focus:border-neon-500 outline-none px-3 h-10 text-[13px] text-white font-mono transition-colors"
                   value={selectedAddressId}
-                  onChange={(e) => setSelectedAddressId(Number(e.target.value))}
+                  onChange={(e) => { const v = e.target.value; if (v) setSelectedAddressId(Number(v)); }}
                 >
                   {userProfile.addresses.length === 0 && (
                     <option value="" disabled>— no delivery nodes saved —</option>

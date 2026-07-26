@@ -115,6 +115,12 @@ export default function App() {
     }
   }, [user, products.length]);
 
+  useEffect(() => {
+    if (isCheckoutOpen && userProfile?.addresses?.length > 0) {
+      setSelectedAddressId(userProfile.addresses[0].id);
+    }
+  }, [isCheckoutOpen]);
+
   const handleLogin = async (email, password) => {
     const data = await api.login(email, password);
     setUser(data.user);
@@ -209,8 +215,8 @@ export default function App() {
 
   const handleProcessPayment = async (e) => {
     e.preventDefault();
-    if (!selectedAddressId) {
-      setStatusMessage({ type: 'error', text: 'Select a delivery node before authorizing payment.' });
+    if (selectedAddressId == null) {
+      setStatusMessage({ type: 'error', text: 'No delivery nodes saved. Add one in the Addresses tab first.' });
       return;
     }
     setLoading(true);
